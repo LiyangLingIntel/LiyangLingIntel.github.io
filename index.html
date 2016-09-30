@@ -323,37 +323,6 @@
 </blockquote>
 <p>正如您在阅读的这份文档，它使用简单的符号标识不同的标题，将某些文字标记为<strong>粗体</strong>或者<em>斜体</em>，创建一个<a href="http://www.example.com">链接</a>或一个脚注[^demo]。下面列举了几个高级功能，更多语法请查看<a href="http://www.appinn.com/markdown/#code">Markdown语法说明</a>查看帮助。 </p>
 <h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@requires_authorization</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>, param2=<span class="number">0</span>)</span>:</span></div><div class="line">    <span class="string">'''A docstring'''</span></div><div class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'Greater'</span></div><div class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="keyword">None</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</div><div class="line"><span class="meta">... </span>prompt'''</span></div></pre></td></tr></table></figure>
-<h3 id="LaTeX-公式"><a href="#LaTeX-公式" class="headerlink" title="LaTeX 公式"></a>LaTeX 公式</h3><p>可以创建行内公式，例如 $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。或者块级公式：</p>
-<p>$$    x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p>
-<blockquote>
-<p>可能由于<strong>next主题</strong>或者<strong>hexo</strong>本身的问题导致此处的<strong>LaTex公式</strong>无法正常显示</p>
-</blockquote>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">Item</th>
-<th style="text-align:right">Value</th>
-<th style="text-align:center">Qty</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Computer</td>
-<td style="text-align:right">1600 USD</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:left">Phone</td>
-<td style="text-align:right">12 USD</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td style="text-align:left">Pipe</td>
-<td style="text-align:right">1 USD</td>
-<td style="text-align:center">234</td>
-</tr>
-</tbody>
-</table>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/29/Markdown简介/#more" rel="contents">
               阅读全文 &raquo;
