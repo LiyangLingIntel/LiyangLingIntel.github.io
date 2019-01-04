@@ -7,22 +7,22 @@ description: "孤独是人生的常态吗？"
 keyword: ""
 url: "http://lyonling.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/qiubaiying/qiubaiying.github.io.git" # you code repository
+github_repo: "https://github.com/lyonling/lyonling.github.io" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Life is struggle."
-sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "The wounds are where the light comes from."
+sidebar-avatar: /img/avatar_1.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # SNS settings
 RSS: false
-weibo_username:     Leon_Ling
-zhihu_username:     Leon Ling
+weibo_username:     5395966937
+zhihu_username:     lyonling
 github_username:    lyonling
 facebook_username:  lyon.ling.737
-jianshu_username:   leonling
+jianshu_username:   751e67c131d6
 #twitter_username:   
 
 
@@ -74,11 +74,11 @@ gitalk:
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: b50bf2b12b5338a1845e33832976fd68
+# ba_track_id: b50bf2b12b5338a1845e33832976fd68
 
 # Google Analytics
 ga_track_id: 'UA-131740306-1'            # Format: UA-xxxxxx-xx
-# ga_domain: qiubaiying.top               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+ga_domain: auto               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 
@@ -99,11 +99,11 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "WY",
-        href: "http://zhengwuyang.com"
+        title: "Max Qi",
+        href: "http://cherishher.github.io/"
     },{
-        title: "简书·BY",
-        href: "http://www.jianshu.com/u/e71990ada2fd"
+        title: "简书·Lyon",
+        href: "http://www.jianshu.com/u/751e67c131d6"
     },{
         title: "Apple",
         href: "https://apple.com"
