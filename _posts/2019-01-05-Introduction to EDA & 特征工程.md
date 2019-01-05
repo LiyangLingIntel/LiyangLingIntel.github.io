@@ -4,7 +4,7 @@ title:      How to deal with EDA & Feature Engineering[转载]
 subtitle:    Introduction to EDA & 特征工程
 date:       2019-01-05
 author:     Lyon Ling
-header-img: img/tag-bg-keybord.jpg
+header-img: img/post-bg-keybord.jpg
 catalog: true
 tags:
     - Data Mining
