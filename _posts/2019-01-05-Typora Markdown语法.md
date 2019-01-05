@@ -2,7 +2,7 @@
 layout:     post
 title:      Typora for Markdown
 subtitle:    Markdown tutorial
-date:       2018-01-05
+date:       2019-01-05
 author:     Lyon Ling
 header-img: img/tag-bg-o.jpg
 catalog: true
@@ -15,7 +15,15 @@ tags:
 
 # Typora for Markdown 语法
 
-[TOC]
+### 前言
+
+> **Markdown** 是一种**轻量级**标记语言，创始人是**约翰·格鲁伯**（John Gruber）。它允许人们 “使用易读易写的纯文本格式编写文档，然后转换成有效的 HTML 文档。
+
+#### Typora
+
+Typora是一款轻量级的Markdown 编辑器，重点在于所见即所得，与传统的两段显示不同，其极简的界面很受推崇。
+
+这边简单介绍一下Typora上支持的markdown语法，因为这个博客markdown解析引擎的不同，有些语法不能很好的在博文里展现效果，感兴趣的话可以放到typora里尝试。
 
 ### 数学表达式
 
@@ -23,7 +31,7 @@ tags:
 
 例如：`$lim_{x \to \infty} \ exp(-x)=0$`将产生如下的数学表达式：
 
- $lim_{x \to \infty} \ exp(-x)=0$
+<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs0nuqwtj30ao024glu.jpg" width=200/>
 
 输入两个`$`符号，然后回车，就可以输入数学表达式块了。例如：
 
@@ -33,7 +41,7 @@ tags:
 
 将会产生:
 
- $$\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\\end{vmatrix}$$
+<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs3xyguaj30co05e754.jpg" width=220/>
 
 关于更详细的LaTeX公式，可以参考[这篇博客](http://blog.163.com/goldman2000@126/blog/static/167296895201221242646561/) 
 
@@ -41,21 +49,21 @@ tags:
 
 ### 下标
 
-下标使用`~`包裹，例如：`H~2~O`将产生水的分子式。 eg. H~2~O
+下标使用`~`包裹，例如：`H~2~O`将产生水的分子式。 eg.<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs5bcgmnj3028018q2u.jpg" width=45/>
 
 
 
 ### 上标
 
-上标使用`^`包裹，例如：`y^2^=4`将产生表达式 。 eg. y^2^ = 4
+上标使用`^`包裹，例如：`y^2^=4`将产生表达式 。 eg.<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs7js8q3j302q01ca9z.jpg"  width=50 />
 
 
 
 ### 插入表情
 
-使用`:happy:`输入高兴的表情，使用`:sad:`输入悲伤的表情，使用`:cry:`输入哭的表情等。以此类推！ 
+使用`:happy:`输入高兴的表情，使用`:sad:`输入悲伤的表情，使用`:cry:`输入哭的表情等。以此类推！
 
-:happy: :cry: :basketball_man: :abc:
+ <img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs8yie20j306g022dg5.jpg" width=150 align="left"/>
 
 
 
@@ -200,14 +208,6 @@ Typora 推荐使用两个*号。
 事实上，通过右键–>insert的形式打开的，当然也可以通过快捷键Ctrl+T来打开。填入行数与列数就可以了 。
 
  
-
-### 数学表达式块
-
-
-
- $$\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\\end{vmatrix}$$
-
-
 
 ### 任务列表
 

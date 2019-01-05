@@ -2,7 +2,7 @@
 layout:     post
 title:      How to deal with EDA & Feature Engineering[转载]
 subtitle:    Introduction to EDA & 特征工程
-date:       2018-01-05
+date:       2019-01-05
 author:     Lyon Ling
 header-img: img/tag-bg-keybord.jpg
 catalog: true
@@ -16,8 +16,6 @@ tags:
 
 
 # Data Analysis
-
-[TOC]
 
 ## 探索性数据分析(EDA)
 
