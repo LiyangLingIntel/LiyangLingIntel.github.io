@@ -56,12 +56,12 @@ kramdown:
 
 
 # 评论系统
-# Disqus（https://disqus.com/）
-# disqus_username: leon_disqus
+Disqus（https://disqus.com/）
+disqus_username: leon_disqus
 
 # Gitalk
 gitalk:
-  enable: true    #是否开启Gitalk评论
+  enable: false    #是否开启Gitalk评论
   clientID: 2c2d5b074f967ff240c0                            #生成的clientID
   clientSecret: 96f1e9daf40336e5d1597723a42c8c130d4b3887    #生成的clientSecret
   repo: lyonling.github.io    #仓库名称
