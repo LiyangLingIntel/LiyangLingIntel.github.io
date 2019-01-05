@@ -81,6 +81,13 @@ layout: default
                     {% endif %}
                 </ul>
 
+                {% if site.disqus_username %}
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                {% endif %}
 
                 <!--Gitalk评论start  -->
                 {% if site.gitalk.enable %}
@@ -105,14 +112,6 @@ layout: default
                 </script>
                 {% endif %}
                 <!-- Gitalk end -->
-
-                {% if site.disqus_username %}
-                <!-- disqus 评论框 start -->
-                <div class="comment">
-                    <div id="disqus_thread" class="disqus-thread"></div>
-                </div>
-                <!-- disqus 评论框 end -->
-                {% endif %}
 
             </div>  
 
