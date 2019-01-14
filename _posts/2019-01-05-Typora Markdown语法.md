@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Typora for Markdown
-subtitle:    Markdown tutorial
+subtitle:    Markdown on Typora tutorial
 date:       2019-01-05
 author:     Lyon Ling
 header-img: img/tag-bg-o.jpg
@@ -14,9 +14,7 @@ comments: true
 
 
 
-# Typora for Markdown 语法
 
-### 前言
 
 > **Markdown** 是一种**轻量级**标记语言，创始人是**约翰·格鲁伯**（John Gruber）。它允许人们 “使用易读易写的纯文本格式编写文档，然后转换成有效的 HTML 文档。
 
@@ -50,21 +48,21 @@ Typora是一款轻量级的Markdown 编辑器，重点在于所见即所得，�
 
 ### 下标
 
-下标使用`~`包裹，例如：`H~2~O`将产生水的分子式。 eg.<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs5bcgmnj3028018q2u.jpg" width=45/>
+下标使用`~`包裹，例如：`H~2~O`将产生水的分子式。 eg.<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs5bcgmnj3028018q2u.jpg" width="45"/>
 
 
 
 ### 上标
 
-上标使用`^`包裹，例如：`y^2^=4`将产生表达式 。 eg.<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs7js8q3j302q01ca9z.jpg"  width=50 />
+上标使用`^`包裹，例如：`y^2^=4`将产生表达式 。 eg.<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs7js8q3j302q01ca9z.jpg"  width="50" />
 
 
 
 ### 插入表情
 
-使用`:happy:`输入高兴的表情，使用`:sad:`输入悲伤的表情，使用`:cry:`输入哭的表情等。以此类推！
+使用`:happy:`输入高兴的表情，使用`:sad:`输入悲伤的表情，使用`:cry:`输入哭的表情等。以此类推！ <img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs8yie20j306g022dg5.jpg" width="150" align="left"/>
 
- <img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs8yie20j306g022dg5.jpg" width="150" align="left"/>
+
 
 
 
