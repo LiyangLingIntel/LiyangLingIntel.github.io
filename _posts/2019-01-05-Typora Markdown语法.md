@@ -32,7 +32,7 @@ Typora是一款轻量级的Markdown 编辑器，重点在于所见即所得，�
 
 例如：`$lim_{x \to \infty} \ exp(-x)=0$`将产生如下的数学表达式：
 
-<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs0nuqwtj30ao024glu.jpg" width=200/>
+<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs0nuqwtj30ao024glu.jpg" width="200"/>
 
 输入两个`$`符号，然后回车，就可以输入数学表达式块了。例如：
 
@@ -42,7 +42,7 @@ Typora是一款轻量级的Markdown 编辑器，重点在于所见即所得，�
 
 将会产生:
 
-<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs3xyguaj30co05e754.jpg" width=220/>
+<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs3xyguaj30co05e754.jpg" width="220"/>
 
 关于更详细的LaTeX公式，可以参考[这篇博客](http://blog.163.com/goldman2000@126/blog/static/167296895201221242646561/) 
 
@@ -64,7 +64,7 @@ Typora是一款轻量级的Markdown 编辑器，重点在于所见即所得，�
 
 使用`:happy:`输入高兴的表情，使用`:sad:`输入悲伤的表情，使用`:cry:`输入哭的表情等。以此类推！
 
- <img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs8yie20j306g022dg5.jpg" width=150 align="left"/>
+ <img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs8yie20j306g022dg5.jpg" width="150" align="left"/>
 
 
 
@@ -86,19 +86,21 @@ GFM添加了删除文本的语法，这是标准的Markdown语法木有的。使
 
 - 使用`包裹的内容将会以代码样式显示，例如
 
-```
+~~~
 使用`printf()`
-```
+~~~
 
 则会产生`printf()`样式。
 
 - 输入`~~~`或者```然后回车，可以输入代码块，并且可以选择代码的语言。例如：
 
-```java
- public Class HelloWorld{
-   System.out.println("Hello World!");
- }
-```
+~~~java
+public Class HelloWorld{
+  System.out.println("Hello World!");
+}
+~~~
+
+
 
 
 
@@ -106,14 +108,14 @@ GFM添加了删除文本的语法，这是标准的Markdown语法木有的。使
 
 使用两个*号或者两个_包裹的内容将会被强调。例如
 
-```
+~~~
 **使用两个*号强调内容**
 __使用两个下划线强调内容__
-```
+~~~
 
 将会输出
 
-**使用两个*号强调内容**
+**使用两个\*号强调内容**
 __使用两个下划线强调内容__
 Typora 推荐使用两个*号。
 
