@@ -60,9 +60,9 @@ Typora是一款轻量级的Markdown 编辑器，重点在于所见即所得，�
 
 ### 插入表情
 
-使用`:happy:`输入高兴的表情，使用`:sad:`输入悲伤的表情，使用`:cry:`输入哭的表情等。以此类推！ <img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs8yie20j306g022dg5.jpg" width="150" align="left"/>
+使用`:happy:`输入高兴的表情，使用`:sad:`输入悲伤的表情，使用`:cry:`输入哭的表情等。以此类推！ <img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs8yie20j306g022dg5.jpg" width="150" align="left"/> 
 
-
+<br/>
 
 
 
