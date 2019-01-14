@@ -72,6 +72,9 @@ disqus_username: leon_disqus
 # duoshuo_username: username
 # duoshuo_share: true   
 
+# Netease settings
+netease_comment: false
+
 # Gitalk
 gitalk:
   enable: false    #是否开启Gitalk评论
