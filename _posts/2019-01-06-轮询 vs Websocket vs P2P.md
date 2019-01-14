@@ -9,8 +9,6 @@ catalog: true
     - 通信
     - 项目开发
     - 转载
-use_math: true
-comments: true
 ---
 
 之前做项目遇到P2P相关的开发，对即时通讯中的websocket，P2P这些概念有些模糊，所以简单查了一些资料。看到某位老哥发的聊天记录，感觉很生动形象，这里记一下。

@@ -12,7 +12,7 @@ github_repo: "https://github.com/lyonling/lyonling.github.io" # you code reposit
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "There is no easy word, but insisting always worthes."
-sidebar-avatar: /img/avatar_3.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar_5.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -23,6 +23,7 @@ zhihu_username:     lyonling
 github_username:    lyonling
 facebook_username:  lyon.ling.737
 jianshu_username:   751e67c131d6
+linkedin_username:  liyang-ling-678220117
 #twitter_username:   
 
 
@@ -53,21 +54,23 @@ markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
   syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    span:
-      line_numbers: false
-    block:
-      line_numbers: false
-      start_line: 1
   math_engine: MathJax
+
+
+# MathJax rendering for layout:page (e.g. post preview)
+page-mathjax: true
 
 
 # 评论系统
 # Disqus（https://disqus.com/）
-disqus:
-  enable: true
-  username: leon_disqus
+# disqus:
+#   enable: true
+#   username: leon_disqus
+disqus_username: leon_disqus
 
+# Duoshuo settings
+# duoshuo_username: username
+# duoshuo_share: true   
 
 # Gitalk
 gitalk:
@@ -112,10 +115,10 @@ friends: [
         title: "Max Qi",
         href: "http://cherishher.github.io/"
     },{
-        title: "简书·Lyon",
-        href: "http://www.jianshu.com/u/751e67c131d6"
+        title: "Gu Chenghao",
+        href: "http://http://www.guchenghao.com/"
     },{
-        title: "Apple",
-        href: "https://apple.com"
+        title: "Syen Park",
+        href: "https://syenpark.github.io/"
     }
 ]
