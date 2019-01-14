@@ -9,6 +9,7 @@ catalog: true
 tags:
     - 生活
     - 学习
+use_math: true
 comments: true
 ---
 

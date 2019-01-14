@@ -9,6 +9,7 @@ catalog: true
     - 通信
     - 项目开发
     - 转载
+use_math: true
 comments: true
 ---
 

@@ -57,8 +57,9 @@ kramdown:
     span:
       line_numbers: false
     block:
-      line_numbers: true
+      line_numbers: false
       start_line: 1
+  math_engine: MathJax
 
 
 # 评论系统
@@ -66,7 +67,7 @@ kramdown:
 disqus:
   enable: true
   username: leon_disqus
-disqus_username: leon_disqus
+
 
 # Gitalk
 gitalk:

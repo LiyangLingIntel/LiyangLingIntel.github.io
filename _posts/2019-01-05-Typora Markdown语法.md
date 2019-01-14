@@ -9,6 +9,7 @@ catalog: true
 tags:
     - Markdown
     - Turotial
+use_math: true
 comments: true
 ---
 

@@ -11,6 +11,7 @@ tags:
     - Introduction
     - Data Science
     - 转载
+use_math: true
 comments: true
 ---
 

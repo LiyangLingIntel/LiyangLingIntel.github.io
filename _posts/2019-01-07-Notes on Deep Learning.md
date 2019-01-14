@@ -8,6 +8,8 @@ header-img: img/post-bg-os-metro.jpg
 catalog: true
     - Deep Learning
     - Note
+use_math: true
+comments: true
 ---
 
 
