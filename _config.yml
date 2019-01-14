@@ -7,7 +7,7 @@ description: "孤独是人生的常态吗？"
 keyword: "lyonling, 凌丽阳, LYON's Blog "
 url: "http://bingge100.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/lyonling/lyonling.github.io" # you code repository
+github_repo: "https://github.com/bingge100/bingge100.github.io" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
