@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      How to make your Mac read and write NTFS
+subtitle:    
+date:       2019-01-05
+author:     Lyon Ling
+header-img: img/post-bg-rwd.jpg
+catalog: true
+tags:
+    - Mac
+    - Tricks
+comments: true
+---
 # Typora for Markdown 语法
 
 ### 前言
