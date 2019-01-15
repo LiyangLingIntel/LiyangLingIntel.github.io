@@ -4,7 +4,7 @@ title:      "Work on LeetCode"
 subtitle:    My answers on leetcode [持续更新]
 date:       2019-01-15
 author:     Lyon Ling
-header-img: img/post-bg-leetcode2.jpeg
+header-img: img/post-bg-code.jpg
 catalog: true
 tags:
     - Algorithm
