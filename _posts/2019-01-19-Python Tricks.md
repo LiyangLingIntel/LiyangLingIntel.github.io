@@ -34,9 +34,7 @@ F"Hello, {name}. You are {age}."
 # capital F is okay.
 ```
 
-You can put any expression in the { }.
-
-Even you can write a sentence in several lines.
+You can put any expression in the { }. Even you can write a sentence in several lines.
 
 ```python
 # type 1
