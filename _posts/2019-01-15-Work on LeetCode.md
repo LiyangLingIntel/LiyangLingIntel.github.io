@@ -9,11 +9,12 @@ catalog: true
 tags:
     - Algorithm
     - Job Hunting
+    - Python
 ---
 
->I'm planning to collect my answers on leetcode here.
+>This is the collectection of my answers on leetcode.
 >
->One thing is to share my ideas, and another is to remind me to keep going.
+>One of my purposes is to share my ideas, and another is to remind me to keep going.
 
 ### 1. Two Sum
 

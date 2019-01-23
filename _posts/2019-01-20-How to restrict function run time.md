@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "How to restrict python function run time"
-subtitle:    怎样限制
+subtitle:    怎样限制python函数的最大运行时间
 date:       2019-01-20
 author:     Lyon Ling
 header-img: img/post-bg-runtimedecorator.png
@@ -64,6 +64,6 @@ from timeout_decorator import timeout
 
 @timeout(num_sec)
 def target_func():
-	pass
+    pass
 ```
 
