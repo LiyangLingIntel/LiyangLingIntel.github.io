@@ -2,7 +2,7 @@
 layout:     post
 title:      "Alibaba Cloud Training (Day2)"
 subtitle:    Notes on Alibaba Cloud Training
-date:       2019-01-23
+date:       2019-01-25
 author:     Lyon Ling
 header-img: img/post-bg-cloudcomputing.jpg
 catalog: true
