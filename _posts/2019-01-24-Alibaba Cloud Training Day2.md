@@ -15,11 +15,23 @@ tags:
 
 
 
-## Courses Content
+## Course Content
 
 > Updating soon
 
+##### MaxCompute provides two data import and export methods:
 
+1. Tunnel Operation on the console
+2. Tunnel written with Java  
+
+##### MaxCompute pricing
+
+* MaxCompute takes Project as a charge unit.
+
+* Three factors affect the price
+  * Usage of storage
+  * Computing resource
+  * Data download
 
 ## Certification Test Contents
 
@@ -52,6 +64,8 @@ tags:
   IntelliJ Idea: Development (Lower thresholds)
 
   Dataworks: configure workflow and scheduling (lower thresholds)
+
+  *Lower thresholds means: the upper operating file size is limited*
 
 * **MaxCompute Security steps: (`set ProjectProtestion=true;` has the first priority)**
 
@@ -132,7 +146,7 @@ It supports the Pay-As-You-Go payment method, which means that the cost of each 
 
 *Wrong desctiptions*
 
-- provides a convenient way to analyze and process big data for the user. The user is able to analyze big data without concerning details of distributed computing.
+- DataWorks provides a convenient way to analyze and process big data for the user. The user is able to analyze big data without concerning details of distributed computing.
 
 * Deployment personnel or Operation & Management (O&M) personnel can generate release packages based on the latest development results
 

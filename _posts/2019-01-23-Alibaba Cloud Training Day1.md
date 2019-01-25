@@ -90,6 +90,8 @@ Among my handwriting note, teacher gave us the comparison of Hadoop and Alibaba 
 
   Often play as datahub to store data queue before data going through file system to storage.
 
+* **Spark** could support both batch processing and streaming processing.
+
 * **Flink**
 
   A framework and distributed processing engine for stateful computations over *unbounded and bounded* data streams. Flink has been designed to run in *all common cluster environments*, perform computations at *in-memory speed* and at *any scale*.
@@ -108,7 +110,12 @@ Among my handwriting note, teacher gave us the comparison of Hadoop and Alibaba 
 * **Shennong(神农)**: For trouble shooting
 * **Zhongkui(钟馗)**: For security
 * **Apsara(飞天):** Alibaba cloud database system
-* **MaxCompute**: acts as Data Warehouse like `Hive`
+* **MaxCompute**: Big data processing platform by Ali, acts as Data Warehouse like `Hive`. Mainly used for batch structural data storage and processing, which can provide massive data warehouse solution and big data modeling service.
+  * **Project** is the basic **unit of operation** in MaxCompute, which set the boundary for MaxCompute multi-users isolation and access control.
+  * **Table** is the **data storage unit** in MaxCompute and all data in MaxCompute is stored in tables. Table is a two -dimentianal data structure composed of rows and columns.
+  * **Partition** is alternative to be specified when creating table in order to improve the processing efficiency.
+  * **Resouce** is a particular concept of MaxCompute. It's needed if you want to use UDF(user-defined function) or MapReduce.
+  * **LifeCycle** is counted from the last time the table(patition) data was updated. If that remains unchanged exceeding specified time, MaxCompute automatically recycles it.
 * **Dataworks**: online IDE
 * **OSS**: Alibaba's product to store unstructured data
 * **PAI**: Machine learning platform on Alibaba cloud for AI
