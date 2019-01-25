@@ -112,7 +112,7 @@ Among my handwriting note, teacher gave us the comparison of Hadoop and Alibaba 
 * **Dataworks**: online IDE
 * **OSS**: Alibaba's product to store unstructured data
 * **PAI**: Machine learning platform on Alibaba cloud for AI
-* **DTS / Data X**: For migrate data from database to Alibaba cloud
+* **DTS / Data X**: (Offline Data Sync Tool) For migrate data from database to Alibaba cloud
 * **Data V:** Visualization tools for real-time data
 * **Quick BI:** Visualization toolkit for offline data
 

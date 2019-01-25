@@ -116,12 +116,15 @@ service-worker: true
 friends: [
     {
         title: "Max Qi",
-        href: "http://cherishher.github.io/"
+        href: "https://cherishher.github.io/"
     },{
         title: "Gu Chenghao",
-        href: "http://http://www.guchenghao.com/"
+        href: "https://www.guchenghao.com/"
     },{
         title: "Syen Park",
         href: "https://syenpark.github.io/"
+    },{
+      title: "DOJO Zheng",
+      herf: "https://dojozheng.com"
     }
 ]
