@@ -23,11 +23,9 @@ tags:
 
 If we want to get to know something about big data and cloud computing, there are three papers from Google are high recommended.
 
-* **The Google File System** -- Google, 2003
-* **MapReduce: Simplified Data Processing on Large Clusters** -- Goole, 2004
-* **Bigtable: A Distributed Storage System for Structured Data** -- Google, 2006
-
-
+* ***The Google File System*** -- Google, 2003
+* ***MapReduce: Simplified Data Processing on Large Clusters*** -- Goole, 2004
+* ***Bigtable: A Distributed Storage System for Structured Data*** -- Google, 2006
 
 ### Notes on First Day's Course
 
@@ -37,15 +35,36 @@ At first, this is the brief architectures of `Hadoop` and `Alibaba Cloud`. Pleas
 
 *In this picture, there are many new words for me, I will collect them and give the brief explaination later.*  
 
->All the notes on first day I will update after clearing systematically.
->
->updating soon
-
 ### Common Concepts
 
-Among my handwriting note, teacher gave us the comparison of Hadoop and Alibaba Cloud architecture. Below I will also separate those word by this two system.
+#### Hadoop Ecosystem
 
->All explaination I will finished later
+1. **PROCESS, ANALYZE, SERVE**
+   * **BATCH**:  Spark, Hive, Pig, MapReduce
+   * **STREAM**: Spark
+   * **SQL**: Impala
+   * **SEARCH**: ElasticSearch
+2. **UNIFIED SERVICES**
+   * **RESOURCE MANAGEMENT**: YARN
+   * **SECURIYTY**: Sentry, Kerberos, RecordService
+3. **STORE**
+   * **FILESYSTEM**: HDFS
+   * **STRUCTURE**: Kudu
+   * **NoSQL**: HBase
+   * **OTHER**:Object Store
+4. **INTEGRATE**
+   * **BATCH**: Sqoop
+   * **REAL-TIME**: Kafka, Flume
+
+#### Data Processing - Single Instance to Scale up
+
+|               | File System<br />(Linux Ext2/3/4) | RDBMS<br />(Oracle) | Distributed<br />File System | Distributed <br />Database<br />(Hive) |
+| :-----------: | :-------------------------------: | :-----------------: | :--------------------------: | :------------------------------------: |
+| **Data Unit** |         Block<br />1k/4k          |  Block<br />1k/16k  |     Block<br />64M/128M      |                  N/A                   |
+| **Meta Data** |            INode Table            |     System.dbf      |           namenode           |                 MySQL                  |
+|   **Data**    |            Data Block             |      User.dbf       |           datanode           |                  HDFS                  |
+
+> Among my handwriting note, teacher gave us the comparison of Hadoop and Alibaba Cloud architecture. Below I will also separate those word by this two system.
 
 #### Hadoop
 
@@ -58,6 +77,10 @@ Among my handwriting note, teacher gave us the comparison of Hadoop and Alibaba 
 * **YARN**
 
   **Resource management** and **job scheduling** technology, responsible for allocating system resources to the various applications running in a Hadoop cluster and scheduling tasks to be executed on different cluster nodes.
+
+  **YARN Process:**
+
+  <img src="https://ws1.sinaimg.cn/large/006tNc79gy1fznbrj2icqj31em0n20xd.jpg" />
 
 * **Zookeeper**
 
@@ -104,28 +127,52 @@ Among my handwriting note, teacher gave us the comparison of Hadoop and Alibaba 
 
 #### Alibaba Cloud
 
+Aliyun wants to make things easy. User put data into cloud service and get wanted outputs like reports or other business issues.
+
 * **Pangu(盘古)** : Distributed file system
-* **Fuxi(伏羲)**: For monitoring
+
+* **Fuxi(伏羲)**: For scheduling
+
 * **Nvwa(女娲)**: For name space
-* **Shennong(神农)**: For trouble shooting
+
+* **Shennong(神农)**: For monitoring
+
+* **Huatuo(华佗)**: For trouble shooting
+
 * **Zhongkui(钟馗)**: For security
+
 * **Apsara(飞天):** Alibaba cloud database system
+
 * **MaxCompute**: Big data processing platform by Ali, acts as Data Warehouse like `Hive`. Mainly used for batch structural data storage and processing, which can provide massive data warehouse solution and big data modeling service.
   * **Project** is the basic **unit of operation** in MaxCompute, which set the boundary for MaxCompute multi-users isolation and access control.
   * **Table** is the **data storage unit** in MaxCompute and all data in MaxCompute is stored in tables. Table is a two -dimentianal data structure composed of rows and columns.
   * **Partition** is alternative to be specified when creating table in order to improve the processing efficiency.
   * **Resouce** is a particular concept of MaxCompute. It's needed if you want to use UDF(user-defined function) or MapReduce.
   * **LifeCycle** is counted from the last time the table(patition) data was updated. If that remains unchanged exceeding specified time, MaxCompute automatically recycles it.
+
 * **Dataworks**: online IDE
+
 * **OSS**: Alibaba's product to store unstructured data
-* **PAI**: Machine learning platform on Alibaba cloud for AI
+
+* **PAI**: Machine learning platform on Alibaba cloud for AI. 
+
+  * Rich algorithm components
+
+  * All-in-one services
+
+    All processing steps include **Data Preprocessing**, **Feature Engineering**, **Machine Learning Model Training**, **Model Evaluation**, **Learning | Offline/Online Services**
+
+    <img src="https://ws2.sinaimg.cn/large/006tNc79gy1fzncf0zlltj30su0igtaa.jpg" width="600"/>
+
 * **DTS / Data X**: (Offline Data Sync Tool) For migrate data from database to Alibaba cloud
+
 * **Data V:** Visualization tools for real-time data
+
 * **Quick BI:** Visualization toolkit for offline data
 
 * **Blink**
 
-  Blink is a kind of framework implemented based on Flink.
+  Blink is the kind of framework implemented by Alibaba based on Flink.
 
   In today's course, an interesting part is, the lecturer stressed on several times that Alibaba has bought `Apache Flink` and developed `Blink`, so now we can regard **Blink** and Flink as the same thing.
 

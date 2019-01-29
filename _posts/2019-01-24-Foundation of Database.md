@@ -49,15 +49,15 @@ A database transaction, by definition, must follow **ACID** principle, witch is 
 
 **DCL** is short name of **Data Control Language** which includes commands such as GRANT, and mostly concerned with rights, permissions and other controls of the database system.
 
-- GRANT – allow users access privileges to database
-- REVOKE – withdraw users access privileges given by using the GRANT command
+- `GRANT` – allow users access privileges to database
+- `REVOKE` – withdraw users access privileges given by using the GRANT command
 
 **TCL** is short name of **Transaction Control Language** which deals with transaction within a database.
 
-- COMMIT – commits a Transaction
-- ROLLBACK – rollback a transaction in case of any error occurs
-- SAVEPOINT – to rollback the transaction making points within groups
-- SET TRANSACTION – specify characteristics for the transaction
+- `COMMIT` – commits a Transaction
+- `ROLLBACK` – rollback a transaction in case of any error occurs
+- `SAVEPOINT` – to rollback the transaction making points within groups
+- `SET TRANSACTION` – specify characteristics for the transaction
 
 #### Data Warehouse
 

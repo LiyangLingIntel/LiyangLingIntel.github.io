@@ -17,7 +17,9 @@ tags:
 
 ## Course Content
 
-> Updating soon
+##### Alibaba Cloud Big Data Architechture
+
+Here I drew the structure of whole AliCloud Big Data Platform.<img src="https://ws4.sinaimg.cn/large/006tNc79gy1fzmdk5anunj30u00xdaeh.jpg" />
 
 ##### MaxCompute provides two data import and export methods:
 
@@ -72,10 +74,10 @@ tags:
   **accessKey pair: Access Key ID / Access Key Secret**
 
   	use prj1;
-
-          add user [aliyun$alice@aliyun.com](mailto:aliyun$alice@aliyun.com);
-
-          grant List, CreateTable, CreateInstance on project prj1 to user aliyun$alice@aliyun;
+	
+  	    add user [aliyun$alice@aliyun.com](mailto:aliyun$alice@aliyun.com);
+	
+  	    grant List, CreateTable, CreateInstance on project prj1 to user aliyun$alice@aliyun;
 
   ACL Objects: Project, Resource, Procedure
 

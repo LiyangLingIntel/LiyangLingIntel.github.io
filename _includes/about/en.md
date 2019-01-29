@@ -6,7 +6,8 @@ Hi, I am **Liyang Ling**，my friends call me **Lyon**. Now I am a post-graduate
 
 Outside working and Study, table tennis and Dota consume my time. After coming to HK, hiking becomes my new hobby.
 
-This is my personal blog, through making Github Pages and Jekyll.My GitHub  👉 [Github·LyonLing](http://github.com/lyonling).
+This is my personal blog, through making Github Pages and Jekyll.
+My GitHub  👉 [Github·LyonLing](http://github.com/lyonling).
 
 
 ##### Talks
