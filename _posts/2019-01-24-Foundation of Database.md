@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Foundation of Database[持续更新]"
-subtitle:    数据库基础知识整理
+title:      "Foundation of Database"
+subtitle:    数据库基础知识整理[持续更新]
 date:       2019-01-25
 author:     Lyon Ling
 header-img: img/post-bg-dbfoundation.jpg
