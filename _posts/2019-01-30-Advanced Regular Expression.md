@@ -81,4 +81,4 @@ So, here I found some techniques which would be helpful.
 
    `re.subn(A, B, C, D)`
 
-   Same as `re.sub`, while `D` means the relace times, if not specified, it will repace all matched patterns.
+   Same as `re.sub`, while `D` means the relace times, if not specified, it will replace all matched patterns.
