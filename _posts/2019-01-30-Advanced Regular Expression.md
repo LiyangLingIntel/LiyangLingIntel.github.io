@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Advanced Regex"
-subtitle:    "Tricks in Python Regular Expression[未完待续]"
+subtitle:    "Tricks in Python Regular Expression"
 date:       2019-01-30
 author:     Lyon Ling
 header-img: img/post-bg-pythonregex.jpg

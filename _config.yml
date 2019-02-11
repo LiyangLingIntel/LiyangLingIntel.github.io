@@ -124,7 +124,7 @@ friends: [
         title: "Syen Park",
         href: "https://syenpark.github.io/"
     },{
-      title: "DOJO Zheng",
-      herf: "https://dojozheng.com/"
+        title: "DOJO Zheng",
+        href: "https://dojozheng.com/"
     }
 ]

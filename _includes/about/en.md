@@ -1,5 +1,5 @@
->Hope is a good thing and maybe the best of things.
->And no good thing ever dies.
+>There is no easy thing in the world.
+>But insisting always worthes.
 
 
 Hi, I am **Liyang Ling**，my friends call me **Lyon**. Now I am a post-graduate student in **HKUST**, majoring in **Big Data Tech**.
