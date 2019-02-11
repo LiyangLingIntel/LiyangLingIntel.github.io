@@ -2,7 +2,7 @@
 layout:     post
 title:      "Get to know blockchain step by step"
 subtitle:    "一步一步弄懂区块链[转载]"
-date:       2019-01-31
+date:       2019-02-11
 author:     charlesliuyx
 header-img: img/post-bg-blockchain_step.jpeg
 catalog: true

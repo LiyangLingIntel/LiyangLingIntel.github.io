@@ -2,7 +2,7 @@
 layout:     post
 title:      "Consensus Algorithm and Byzantium Commanders Problem"
 subtitle:    "拜占庭将军问题和共识算法[转载]"
-date:       2019-01-31
+date:       2019-02-11
 author:     charlesliuyx
 header-img: img/post-bg-blockchain_step.jpeg
 catalog: true
