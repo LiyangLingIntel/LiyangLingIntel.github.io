@@ -1,5 +1,5 @@
->There is no easy thing in the world.
->But insisting always worthes.
+>Easy to know, hard to go.
+>Just do it!
 
 
 Hi, I am **Liyang Ling**，my friends call me **Lyon**. Now I am a post-graduate student in **HKUST**, majoring in **Big Data Tech**.

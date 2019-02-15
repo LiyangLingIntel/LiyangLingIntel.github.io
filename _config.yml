@@ -54,7 +54,7 @@ highlighter: rouge
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
   syntax_highlighter: rouge
-  # math_engine: MathJax
+  math_engine: MathJax
 
 
 # MathJax rendering for layout:page (e.g. post preview)
