@@ -9,8 +9,8 @@ catalog: true
 tags:
     - Alibaba
     - Notes
-    - Cloud Computing
-    - Data Science
+    - CloudComputing
+    - DataScience
 ---
 
 
@@ -74,9 +74,9 @@ Here I drew the structure of whole AliCloud Big Data Platform.<img src="https://
   **accessKey pair: Access Key ID / Access Key Secret**
 
   	use prj1;
-	
+		
   	    add user [aliyun$alice@aliyun.com](mailto:aliyun$alice@aliyun.com);
-	
+		
   	    grant List, CreateTable, CreateInstance on project prj1 to user aliyun$alice@aliyun;
 
   ACL Objects: Project, Resource, Procedure

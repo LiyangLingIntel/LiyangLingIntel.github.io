@@ -8,7 +8,7 @@ header-img: img/post-bg-code.jpg
 catalog: true
 tags:
     - Algorithm
-    - Job Hunting
+    - JobHunting
     - Python
 ---
 

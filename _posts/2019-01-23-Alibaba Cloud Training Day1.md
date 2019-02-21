@@ -9,8 +9,8 @@ catalog: true
 tags:
     - Alibaba
     - Notes
-    - Cloud Computing
-    - Data Science
+    - CloudComputing
+    - DataScience
 ---
 
 >Firstly, I am very honor to take part in the Alibaba Cloud Big Data Certification Course. Although it's only two days long, a lot of new concepts are given to me, like an iceberg waiting me to discover.
@@ -160,7 +160,7 @@ Aliyun wants to make things easy. User put data into cloud service and get wante
 
   * All-in-one services
 
-    All processing steps include **Data Preprocessing**, **Feature Engineering**, **Machine Learning Model Training**, **Model Evaluation**, **Learning | Offline/Online Services**
+    All processing steps include **Data Preprocessing**, **Feature Engineering**, **Machine Learning Model Training**, **Model Evaluation**, **Machine Learning Offline/Online Services**
 
     <img src="https://ws2.sinaimg.cn/large/006tNc79gy1fzncf0zlltj30su0igtaa.jpg" width="600"/>
 

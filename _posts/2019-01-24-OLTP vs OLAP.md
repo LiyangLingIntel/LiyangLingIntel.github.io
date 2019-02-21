@@ -8,7 +8,7 @@ header-img: img/post-bg-oltpolap.jpg
 catalog: true
 tags:
     - Database
-    - Cloud Computing 
+    - CloudComputing 
 ---
 
 *To be briefly.*

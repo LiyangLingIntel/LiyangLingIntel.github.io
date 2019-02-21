@@ -7,9 +7,9 @@ author:     Lyon Ling
 header-img: img/post-bg-keybord.jpg
 catalog: true
 tags:
-    - Data Mining
+    - DataMining
     - Introduction
-    - Data	Science
+    - DataScience
     - 转载
 ---
 

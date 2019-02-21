@@ -6,7 +6,7 @@ date:       2019-01-07
 author:     Lyon Ling
 header-img: img/post-bg-os-metro.jpg
 catalog: true
-    - Deep Learning
+    - DeepLearning
     - Note
 ---
 
