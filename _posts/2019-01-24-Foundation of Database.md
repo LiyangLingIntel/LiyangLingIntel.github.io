@@ -38,7 +38,7 @@ A database transaction, by definition, must follow **ACID** principle, witch is 
 - `COMMENT` – add comments to the data dictionary
 - `RENAME` – rename an object
 
-**DML** is short name of **Data Manipulation Language** which deals with data manipulation, and includes most common SQL statements such SELECT, INSERT, UPDATE, DELETE etc, and it is used to store, modify, retrieve, delete and update data in database.
+**DML** is short name of **Data Manipulation Language** which deals with data manipulation, and includes most common SQL statements such *SELECT, INSERT, UPDATE, DELETE* etc, and it is used to store, modify, retrieve, delete and update data in database.
 
 - `SELECT` – retrieve data from the a database
 - `INSERT` – insert data into a table
@@ -49,7 +49,7 @@ A database transaction, by definition, must follow **ACID** principle, witch is 
 - `EXPLAIN PLAN` – interpretation of the data access path
 - `LOCK TABLE` – concurrency Control
 
-**DCL** is short name of **Data Control Language** which includes commands such as GRANT, and mostly concerned with rights, permissions and other controls of the database system.
+**DCL** is short name of **Data Control Language** which includes commands such as *GRANT*, and mostly concerned with rights, permissions and other controls of the database system.
 
 - `GRANT` – allow users access privileges to database
 - `REVOKE` – withdraw users access privileges given by using the GRANT command
@@ -154,7 +154,7 @@ Process A, B, C, 相互独立， 同时实现对存储系统的write和read操�
 - Basically Availble --基本可用
 - Soft-state --软状态/柔性事务
 
-​	"Soft state" 可以理解为"无连接"的, 而 "Hard state" 是"面向连接"的
+	"Soft state" 可以理解为"无连接"的, 而 "Hard state" 是"面向连接"的
 
 - Eventual Consistency --最终一致性
 
