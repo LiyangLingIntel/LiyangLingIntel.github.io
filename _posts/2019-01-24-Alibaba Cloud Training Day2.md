@@ -39,6 +39,10 @@ Here I drew the structure of whole AliCloud Big Data Platform.<img src="https://
 
 ### MaxCompute:
 
+* **ODPS**
+
+  Open Data Processing Service，old name of MaxCompute. A solution for quick and full trusteeship GB/TB/PB level data warehouse developed by Alibaba.
+
 * **Use case of MaxCompute**
 
   Data Warehouse, Social networking analysis, User Profile

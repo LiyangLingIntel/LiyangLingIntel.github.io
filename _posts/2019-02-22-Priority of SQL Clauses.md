@@ -29,5 +29,12 @@ tags:
 
 * ORDER BY字句：执行顺序从左到右，消耗资源
 
+All in all, the general selection sequence could be
+
+`FROM` --> `ON` --> `JOIN` --> `WHERE` --> `GROUP BY` --> `HAVING` --> `SELECT` --> `DISTINCT` --> `ORDER BY`
+
+without considering the sub clause, because of the effect of brakets.
+
+
 
 原文：https://blog.csdn.net/qigc_0529/article/details/52096466 
