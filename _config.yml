@@ -56,7 +56,6 @@ kramdown:
   syntax_highlighter: rouge
   math_engine: MathJax
 
-
 # MathJax rendering for layout:page (e.g. post preview)
 page-mathjax: true
 
