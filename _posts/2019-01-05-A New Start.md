@@ -1,14 +1,13 @@
 ---
 layout:     post
 title:      新的开始
-subtitle:    "\"Hello World, Hello 2019, Hello My Blog\""
+subtitle:   "\"Hello World, Hello 2019, Hello My Blog\""
 date:       2019-01-05
 author:     Lyon Ling
 header-img: img/tag-bg.jpg
 catalog: true
 tags:
-    - 生活
-    - 学习
+
 ---
 
 > “ 🙉🙉🙉 ”

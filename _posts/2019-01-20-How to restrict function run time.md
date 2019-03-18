@@ -10,7 +10,6 @@ tags:
     - Python
     - Tricks
     - Programing 
-    - Decorator
 ---
 
 >Nowadays, I'm dealing with a NLP project, there is a step which is about python regular expression and I have a problem.

@@ -7,7 +7,7 @@ author:     Lyon Ling
 header-img: img/tag-bg-o.jpg
 catalog: true
     - 通信
-    - 项目开发
+    - Development
     - 转载
 ---
 

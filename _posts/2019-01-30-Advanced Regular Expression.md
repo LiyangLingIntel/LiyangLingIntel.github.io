@@ -1,14 +1,14 @@
 ---
 layout:     post
 title:      "Advanced Regex"
-subtitle:    "Tricks in Python Regular Expression"
+subtitle:   "Tricks in Python Regular Expression"
 date:       2019-01-30
 author:     Lyon Ling
 header-img: img/post-bg-pythonregex.jpg
 catalog: true
 tags:
-    - python
-    - tricks 
+    - Python
+    - Tricks 
 ---
 
 When I started to use python regex, the most commonly used are `.` `*` `?` `()` `[]` `\d` `\s` and etc. However, I have sometimes met problems like I cannot partial match strings or control the groups as I needd.
