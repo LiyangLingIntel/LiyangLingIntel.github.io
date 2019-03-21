@@ -6,6 +6,7 @@ date:       2019-03-19
 author:     Lyon Ling
 header-img: img/post-bg-memoryallocate.png
 catalog: true
+tags:
     - C++
     - Programming
     - Foundations
@@ -22,7 +23,7 @@ catalog: true
 * **从堆上分配，亦称动态内存分配**
   程序在运行的时候用malloc或new申请任意多少的内存，程序员自己负责在何时用free或delete释放内存。动态内存的生存期由用户决定。
 
-### `malloc()` vs `calloc() `vs  `realloc()`
+### `malloc()` vs `calloc()` vs  `realloc()`
 
 首先看下函数声明：
 

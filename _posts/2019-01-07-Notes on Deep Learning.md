@@ -1,11 +1,12 @@
 ---
 layout:     post
 title:      Notes on Deep Learning
-subtitle:   学习Deep Learning中遇到的一些小问题汇总[持续更新]
+subtitle:   学习Deep Learning中遇到的一些小问题
 date:       2019-01-07
 author:     Lyon Ling
 header-img: img/post-bg-os-metro.jpg
 catalog: true
+tags:
     - DeepLearning
     - Note
 ---

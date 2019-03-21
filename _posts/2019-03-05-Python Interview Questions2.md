@@ -6,6 +6,7 @@ date:       2019-03-06
 author:     Lyon Ling
 header-img: img/post-bg-jubhunt1.jpg
 catalog: true
+tags:
     - JobHunting
     - Python
     - 转载
@@ -14,6 +15,8 @@ catalog: true
 > 在[**taizilongxu**](https://github.com/taizilongxu)的[Repo](https://github.com/taizilongxu/interview_python)里发现另一篇相关的信息总结，和第一篇python基础面试题相比，有更多计算机相关的内容，这里转载过来，作为上一篇的补充。
 >
 > 同样，内容里我也会根据自己的理解做一些改动，在这里记录下来提醒自己。
+
+[TOC]
 
 ## Python特性
 
@@ -710,7 +713,7 @@ Bulid过程可以分解为4个步骤:预处理(Prepressing), 编译(Compilation)
 
 ### 8 页面置换算法
 
-1. 最佳置换算法OPT:不可能实现
+1. 最佳置换算法OPT: 不可能实现
 2. 先进先出FIFO
 3. 最近最久未使用算法LRU:最近一段时间里最久没有使用过的页面予以置换.
 4. clock算法
@@ -803,13 +806,15 @@ MySQL存储引擎－－MyISAM与InnoDB区别: https://segmentfault.com/a/1190000
 
 ### 1 三次握手
 
-1. 客户端通过向服务器端发送一个SYN来创建一个主动打开，作为三次握手的一部分。客户端把这段连接的序号设定为随机数 A。
+1. 客户端通过向服务器端发送一个SYN(synchronize)来创建一个主动打开，作为三次握手的一部分。客户端把这段连接的序号设定为随机数 A。
 
 2. 服务器端应当为一个合法的SYN回送一个SYN/ACK。ACK 的确认码应为 A+1，SYN/ACK 包本身又有一个随机序号 B。
 
 3. 最后，客户端再发送一个ACK。当服务端受到这个ACK的时候，就完成了三路握手，并进入了连接创建状态。此时包序号被设定为收到的确认号 A+1，而响应则为 B+1。
 
    <img src="https://ws1.sinaimg.cn/large/006tKfTcgy1g0sl3q3dizj30bm08h3z4.jpg" />
+
+   *Tips : **SYN**: Synchronize, **ACK**: Acknowledgement*
 
 ### 2 四次挥手
 

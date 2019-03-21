@@ -6,6 +6,7 @@ date:       2019-03-06
 author:     Lyon Ling
 header-img: img/post-bg-jubhunt2.jpg
 catalog: true
+tags:
     - JobHunting
     - Python
     - 转载
@@ -15,7 +16,7 @@ catalog: true
 >
 > 转载过程中对其中的一些代码细节做了一些微小的改动，有的地方也加入一些自己的理解。整篇内容比较基础，适合用来对python开发做一个基本的回顾。
 
-
+[TOC]
 
 ## Python基础
 
