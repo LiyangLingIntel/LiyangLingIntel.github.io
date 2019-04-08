@@ -9,7 +9,7 @@ catalog: true
 mathjax: true
 tags:
     - JobHunting
-    - Math
+    - Maths
 ---
 
 > 最近听说同学去面试被问了如何实现求根函数，想起来之前看过一篇帖子《[sqrt函数实现(神奇的算法)](https://blog.csdn.net/qq_26499321/article/details/73724763)》，所以这里整理一下积累下来。
