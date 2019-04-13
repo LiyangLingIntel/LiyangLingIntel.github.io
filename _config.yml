@@ -11,7 +11,7 @@ github_repo: "https://github.com/lyonling/lyonling.github.io" # you code reposit
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "It's just a small step for quantum leap.<br>知易行难"
+sidebar-about-description: "A small step before quantum leap.<br>知易 行难"
 sidebar-avatar: /img/avatar_4.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
@@ -50,7 +50,7 @@ gems: [jekyll-paginate]
 markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
-  # syntax_highlighter: rouge
+  syntax_highlighter: rouge
   syntax_highlighter_opts:
     span:
       line_numbers: false
