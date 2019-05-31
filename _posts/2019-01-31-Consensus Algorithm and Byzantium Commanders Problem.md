@@ -20,7 +20,7 @@ tags:
 
 ## 问题描述
 
-<img src="https://ws2.sinaimg.cn/large/006tNc79gy1g0193msvfaj30rg0xyae0.jpg" width="500" />
+<img src="https://charlesliuyx.github.io/2018/03/03/%E3%80%90%E5%8C%BA%E5%9D%97%E9%93%BE%E3%80%91%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98/BG1.png" width="300" />
 
 `9个将军`带领`9支军队`，打一场攻城战役。假设每个将军都能**独立**根据眼前战况做出两种判断：**进攻**或**撤退**，要求（或者最终目的是）如何让这9个将军的**命令**是**一致的**（一致性，即共识）？要么一起进攻，要么一起撤退（每个将军之间也是互不信任的，也有消灭对方的动机）
 
@@ -28,7 +28,7 @@ tags:
 
 这种策略需要每个将军把**自己的判断**通过一种途径（途中灰色箭头）传递到所有其他将军处。相对的，每个将军只有在收到了所有投票结果后，才会下令。如上面的例子，所有将军得到投票：**4进攻5撤退**，才下令**撤退**
 
-<img src="https://ws2.sinaimg.cn/large/006tNc79gy1g019aj9zs6j30rg0xywic.jpg" width="500" />
+<img src="https://charlesliuyx.github.io/2018/03/03/%E3%80%90%E5%8C%BA%E5%9D%97%E9%93%BE%E3%80%91%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98/BGP.png" width="300" />
 
 这个**投票策略**的最大问题：假设出现了**叛徒**，如上图所示，会出现两种情况
 
@@ -71,9 +71,7 @@ tags:
 
 【可视化直观】
 
-![img](https://ws1.sinaimg.cn/large/006tNc79gy1g019bwwp3bj313g0cyjug.jpg)
-
-
+![img](https://charlesliuyx.github.io/2018/03/03/%E3%80%90%E5%8C%BA%E5%9D%97%E9%93%BE%E3%80%91%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98/PBFT.png)
 
 其中每个将军投降下方的数字就是收到的攻击事件列表，在该规则下，可以看到能保证，当叛徒数量小于1/3维护系统的一致性，即无论是什么情况，都可以**防止不一致的决定被执行**（至少也是按兵不动，并且很容易定位叛徒是谁）
 
@@ -91,7 +89,7 @@ tags:
 
 我们按照区块链模型构造一个下图所示的系统
 
-<img src="https://ws3.sinaimg.cn/large/006tNc79gy1g019b4yz97j30rb0kydl6.jpg" width="500" />
+<img src="https://charlesliuyx.github.io/2018/03/03/%E3%80%90%E5%8C%BA%E5%9D%97%E9%93%BE%E3%80%91%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98/BlockChain.png" width="300" />
 
 每个将军本地都存储一份【记录】：记录所有将军的决定，比如“1：1”代表1号将军决定进攻
 
@@ -123,7 +121,7 @@ tags:
 
 下面的思维导图展示了现在基本的区块链共识算法总结
 
-<img src="https://ws1.sinaimg.cn/large/006tNc79gy1g019con5fyj30ri0nygn2.jpg" width="500" />
+<img src="https://charlesliuyx.github.io/2018/03/03/%E3%80%90%E5%8C%BA%E5%9D%97%E9%93%BE%E3%80%91%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98/CA.png" width="400" />
 
 ## 分布式一致性算法
 
@@ -163,7 +161,7 @@ NEO使用的是【DBFT】，投票的拜占庭容错算法，算是结合了几�
 
 
 
-转载自：[【区块链】一文看懂区块链：一步一步发明比特币](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/)
+转载自：[【区块链】共识算法与如何解决拜占庭将军问题](https://charlesliuyx.github.io/2018/03/03/%E3%80%90%E5%8C%BA%E5%9D%97%E9%93%BE%E3%80%91%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98/)
 
 
 

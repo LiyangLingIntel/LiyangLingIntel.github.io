@@ -28,7 +28,7 @@ tags:
 
 膈肌指的是分隔胸部和腹部的肌肉，打嗝的动力源机器；而声门属于发声器。
 
-<img src="https://ws4.sinaimg.cn/large/006tKfTcgy1g0elivtxd2j30g90c0mxq.jpg" width="500"/>
+<img src="../img/illustration/20190220-hiccup.jpg" width="450"/>
 
 ### 引起打嗝的原因：
 

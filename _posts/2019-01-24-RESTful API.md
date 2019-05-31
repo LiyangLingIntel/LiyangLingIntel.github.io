@@ -21,9 +21,7 @@ With the development of mobile devices and the Internet, there are more and more
 
 Here comes RESTful.
 
-<img src="https://ws1.sinaimg.cn/large/006tNc79gy1fzhwpwmimgj30fa06y3yz.jpg" />
-
-
+<img src="https://upload-images.jianshu.io/upload_images/2888542-27f4990d17ca67ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/550/format/webp" />
 
 ### RESTful API
 

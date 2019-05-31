@@ -18,7 +18,7 @@ tags:
 
 The "**weak tie hypothesis**" argues, using a combination of **probability** and **mathematics**, if **A** is linked to both **B** and **C**, then there is a greater-than-chance probability that B and C are linked to each other: 
 
-<img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g0cv5fmfktj30go08x74c.jpg" width="400" />
+<img src="../img/illustration/20190220-socialties.jpg" width="400" />
 
 That is, if we consider any two randomly selected individuals, such as A and B, from the set S = A, B, C, D, E, ..., of all persons with ties to either or both of them, then, for example, if A is strongly tied to both B and C, then according to probability arguments, the B-C tie is always present. The absence of the B-C tie, in this situation, would create, according to Granovetter, what is called the ***forbidden triad***. In other words, the B-C tie, according to this logic, is **always present**, whether weak or strong, given the other two strong ties. In this direction, the "weak tie hypothesis" postulates that clumps or cliques of social structure will form, being bound predominately by "strong ties", and that "weak ties" will function as the **crucial bridge** between any two densely knit clumps of close friends.
 

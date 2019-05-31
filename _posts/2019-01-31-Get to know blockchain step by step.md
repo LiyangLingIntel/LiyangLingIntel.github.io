@@ -134,17 +134,13 @@ Verify(信息,电子签名,公钥)=真/假Verify(信息,电子签名,公钥)=真
 - 特点是**输入值稍微变化后，结果就会有很大的不同，完全无法预测不同输入间的规律**
 - **逆向计算**不可行，只能使用试错法（穷举法），解空间 22562256
 
-在每一个账本后添加一个**特殊数字**，对整个列表使用SHA256，我们要求这个**特殊数字**可以使得输出值的开头有**30个零**（关于如何确定0的个数问题，在后面部分有详细的说明）
-
-![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/30zero2.gif)
+在每一个账本后添加一个**特殊数字**，对整个列表使用SHA256，我们要求这个**特殊数字**可以使得输出值的开头有**30个零**（关于如何确定0的个数问题，在后面部分有详细的说明）.
 
 根据之前说过SHA256的性质：输入变化输出不可预测，找到这个特殊数字唯一的办法就是穷举。换言之，你很容易就证明了他们**进行了海量的计算**。而这个**特殊数字就叫做工作量证明**（proof of work）
 
 这就意味着，所有的工作量证明就对应了交易列表（账本 Ledger），如果你修改了一个交易，哪怕只是其中一个字符，就会完全改变哈希值，就得**重做工作量证明**，直观动图如下
 
-
-
-
+![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/30zero2.gif)
 
 修改后的重新计算
 
@@ -154,19 +150,11 @@ Verify(信息,电子签名,公钥)=真/假Verify(信息,电子签名,公钥)=真
 
 **账本组成区块，区块构成链表，区块的头包含前一块的哈希值，这就是区块链**
 
-
-
-
-
-区块链的诞生
+![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/blockchain1.gif)
 
 如此一来，**任何人就不能随意修改其中的内容，或者交换顺序**。如果你这么做，意味着**你需要重新计算所有的特殊数字**
 
-
-
-
-
-修改任何部分都以为着重新计算
+![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/blockchain2.gif)
 
 规定，**允许世界上的每一个人建造区块**。每一个新建区块的人（找到了这个特殊数字 - SHA256值有30个零）都能获得奖励，对于**新建区块的这部分人（矿工）**来说
 
@@ -197,19 +185,11 @@ Verify(信息,电子签名,公钥)=真/假Verify(信息,电子签名,公钥)=真
 
 对于用户来说，是这样一种情景
 
-
-
-
-
-如何更新本地区块链
+![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/bloackchain-conflict.gif)
 
 其中的原因是，你可以假设Alice希望篡改一个交易信息，那么就意味着Alice需要不断的通过计算维护这个区块链了。**也就是说每一次有新的区块链产生，Alice都需要不断的抢到这个彩票**，理论上来说，他至少必须拥有全网51%以上的算力才能做到这一点，更多的，**随着用户等待区块的增加，这个难度，幂次上升**，在7-8个区块链产生后，概率上来讲，就是**绝对信任**
 
-
-
-
-
-无穷大的篡改成本
+![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/bloackchain-conflict2.gif)
 
 此时
 
@@ -265,14 +245,14 @@ Verify(信息,电子签名,公钥)=真/假Verify(信息,电子签名,公钥)=真
 
 下表为扩展比特币网络的不同节点类型
 
-| 图示                                                         | 名称              | 说明                                                         |
-| ------------------------------------------------------------ | ----------------- | ------------------------------------------------------------ |
-| ![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/SoloMiner.svg) | 独立矿工          | 具有完整区块链副本                                           |
-| ![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/FullBlockChainNode.svg) | 完整区块链节点    | 此种节点有时有中继作用，不断收听网络广播，维护完整区块链     |
-| ![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/SPVwallet.svg) | 轻量(SPV)钱包     | 移动端，或者不想太过于笨重的桌面端，只需要进行交易广播操作   |
-| ![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/PoolProtocolServers.svg) | 矿池协议服务器    | 将运行其他协议的节点，连接至P2P网络的网关路由器              |
-| ![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/MiningNodes.svg) | 挖矿节点          | 不具有区块链，但具备Stratum协议的节点或其他矿池挖矿协议的网络节点 |
-| ![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/StratumWallet.svg) | 轻量 Stratum 钱包 | 不具有区块链的钱包、运行Stratum协议的网络节点                |
+|                             图示                             | 名称              | 说明                                                         |
+| :----------------------------------------------------------: | ----------------- | ------------------------------------------------------------ |
+| <img src="https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/SoloMiner.svg" width="150" /> | 独立矿工          | 具有完整区块链副本                                           |
+| <img src="https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/FullBlockChainNode.svg" width="150"> | 完整区块链节点    | 此种节点有时有中继作用，不断收听网络广播，维护完整区块链     |
+| <img src="https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/SPVwallet.svg" width="150" /> | 轻量(SPV)钱包     | 移动端，或者不想太过于笨重的桌面端，只需要进行交易广播操作   |
+| <img src="https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/PoolProtocolServers.svg" width="150" /> | 矿池协议服务器    | 将运行其他协议的节点，连接至P2P网络的网关路由器              |
+| <img src="https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/MiningNodes.svg" width="250" /> | 挖矿节点          | 不具有区块链，但具备Stratum协议的节点或其他矿池挖矿协议的网络节点 |
+| <img src="https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/StratumWallet.svg" width="150" /> | 轻量 Stratum 钱包 | 不具有区块链的钱包、运行Stratum协议的网络节点                |
 
 ### 扩展比特币网络
 
@@ -280,11 +260,7 @@ Verify(信息,电子签名,公钥)=真/假Verify(信息,电子签名,公钥)=真
 
 可以参看这个文章了解Stratum协议，[Stratum协议详解](http://www.8btc.com/stratum_protocol)
 
-
-
-
-
-扩展比特币网络
+![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/BitcoinNet.png)
 
 ## 如何控制区块产生速度恒定
 
@@ -343,11 +319,7 @@ Total=210000×(50+25+12.5+…)=20999999980≈2100万Total=210000×(50+25+12.5+�
 
 上表中，可以观察到，**1M的容量**意味着比特币最大的处理交易数量在**约2400**（486882区块1034.39的大小很接近了），从代码及技术文档来看，一个区块的最大处理交易数量在2700笔，意味着在一定程度上区块利用率可以超过100%。下面再给出[一张时间和每秒交易数量的关系图表](http://charts.woobull.com/bitcoin-transactions-per-second/)(交互表格点击链接)
 
-
-
-
-
-每秒比特币交易数量
+![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/BitcoinTraPS.png)
 
 > 【蓝色圆圈的大小】代表的是比特币内存池（mempool）的大小（交易在等待矿工处理之前都会暂时存在这里）直观来说，就是**圆越大，在等待的交易数量越多**
 > 【纵坐标】是每秒交易数量（对数变换后）
@@ -357,11 +329,7 @@ Total=210000×(50+25+12.5+…)=20999999980≈2100万Total=210000×(50+25+12.5+�
 
 再来看一张[比特币交易费和区块使用率之间的关系图](http://charts.woobull.com/bitcoin-blocksize-fees/)(交互表格可以点击链接)
 
-
-
-
-
-Bitcoin Fees VS BlockSize
+![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/FeesVsBlocksize.png)
 
 > 【蓝色的圈大小】是**Mempool的大小**，直观来说，就是**圆越大，在等待的交易数量越多**
 > 【横坐标】是区块容量的使用情况
@@ -373,11 +341,7 @@ Bitcoin Fees VS BlockSize
 
 再看一张[用户执行交易需要等待的时长和区块使用比例间关系的图表](http://charts.woobull.com/bitcoin-blocksize-confirm-time/)(交互图表点击链接)
 
-
-
-
-
-Bitcoin Median Confirmation Time VS Bloacksize
+![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/TimeVSBlocksize.png)
 
 > 【蓝色的圈大小】是**Mempool的大小**，直观来说，就是**圆越大，在等待的交易数量越多**
 > 【横坐标】是区块容量的使用情况
@@ -483,11 +447,7 @@ Merkle树是一种**哈希二叉树**，它可以用来进行**快速查找和�
 
 假设我们有A B C D四笔交易字段，首先需要把这四个数据Hash化。然后把这些哈细化的**数据通过串联相邻叶子节点**的哈希值然后哈希化。基本过程如下图所示
 
-
-
-
-
-Merkle树的构造过程
+![img](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/MerkleTree.png)
 
 叶子节点必须是偶数（平衡树），如果遇到奇数的情况，把最后一个节点自身复制一个，凑偶
 
@@ -538,4 +498,4 @@ Merkle树的构造过程
 
 
 
-转载自：[【区块链】共识算法与如何解决拜占庭将军问题](https://charlesliuyx.github.io/2018/03/03/%E3%80%90%E5%8C%BA%E5%9D%97%E9%93%BE%E3%80%91%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%8B%9C%E5%8D%A0%E5%BA%AD%E5%B0%86%E5%86%9B%E9%97%AE%E9%A2%98/)
+转载自：[【区块链】一文看懂区块链：一步一步发明比特币](https://charlesliuyx.github.io/2017/09/24/%E4%B8%80%E6%96%87%E5%BC%84%E6%87%82%E5%8C%BA%E5%9D%97%E9%93%BE-%E4%BB%A5%E6%AF%94%E7%89%B9%E5%B8%81%E4%B8%BA%E4%BE%8B/)

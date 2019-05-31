@@ -67,8 +67,6 @@ tags:
 * A bond that associates the job and the cluster.
 * multiple jobs can be combined into a job sequence and prepare a running cluster for the job (or automatically create a temporary cluster or associate an existing cluster) 
 
-
-
 ### DataWorks
 
 DataWorks, Platform as a Service from Aliyun, based on `MaxCompute` supporting `Data Integration`, `Data Development`, `Data Management`, `Data Quality Campaign`, `Data Sharing` services.
@@ -88,8 +86,6 @@ DataWorks, Platform as a Service from Aliyun, based on `MaxCompute` supporting `
 #### Widget
 
 * We want to add to the canvas from the widget menu on toolbar, many kinds of widget are currently supported by DataV, also third-party widgets, like `E-Charts`.
-
-
 
 ### Quick BI
 
