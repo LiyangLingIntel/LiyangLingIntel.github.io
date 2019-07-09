@@ -31,7 +31,7 @@ If we want to get to know something about big data and cloud computing, there ar
 
 At first, this is the brief architectures of `Hadoop` and `Alibaba Cloud`. Please forgive my ugly hand writing. ;)
 
-<img src="https://ws3.sinaimg.cn/large/006tNc79gy1fzh2myj3psj31p10u0akl.jpg" />
+<img src="../img/illustration/20190123-alicloudtrain11.jpeg" />
 
 *In this picture, there are many new words for me, I will collect them and give the brief explaination later.*  
 
@@ -80,7 +80,7 @@ At first, this is the brief architectures of `Hadoop` and `Alibaba Cloud`. Pleas
 
   **YARN Process:**
 
-  <img src="https://ws1.sinaimg.cn/large/006tNc79gy1fznbrj2icqj31em0n20xd.jpg" />
+  <img src="../img/illustration/20190123-alicloudtrain12.jpeg" />
 
 * **Zookeeper**
 
@@ -94,7 +94,7 @@ At first, this is the brief architectures of `Hadoop` and `Alibaba Cloud`. Pleas
 
   Distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data. It has a simple and flexible architecture based on streaming data flows.
 
-  <img src="https://ws2.sinaimg.cn/large/006tNc79gy1fzi76h6436j30co05bwes.jpg" />
+  <img src="../img/illustration/20190123-alicloudtrain13.jpeg" />
 
 * **Sqoop**
 
@@ -119,7 +119,7 @@ At first, this is the brief architectures of `Hadoop` and `Alibaba Cloud`. Pleas
 
   A framework and distributed processing engine for stateful computations over *unbounded and bounded* data streams. Flink has been designed to run in *all common cluster environments*, perform computations at *in-memory speed* and at *any scale*.
 
-  <img src="https://ws4.sinaimg.cn/large/006tNc79gy1fzi7uqe9dvj32h80tadpm.jpg" />
+  <img src="../img/illustration/20190123-alicloudtrain14.jpeg" />
 
 * **HUE**
 
@@ -162,7 +162,7 @@ Aliyun wants to make things easy. User put data into cloud service and get wante
 
     All processing steps include **Data Preprocessing**, **Feature Engineering**, **Machine Learning Model Training**, **Model Evaluation**, **Machine Learning Offline/Online Services**
 
-    <img src="https://ws2.sinaimg.cn/large/006tNc79gy1fzncf0zlltj30su0igtaa.jpg" width="600"/>
+    <img src="../img/illustration/20190123-alicloudtrain15.jpeg" width="600"/>
 
 * **DTS / Data X**: (Offline Data Sync Tool) For migrate data from database to Alibaba cloud
 
@@ -178,5 +178,5 @@ Aliyun wants to make things easy. User put data into cloud service and get wante
 
   For this story, I just want to show this picture.
 
-<img src="https://ws4.sinaimg.cn/large/006tNc79gy1fzh02ipxerj30u00v746u.jpg" width="600" />
+<img src="../img/illustration/20190123-alicloudtrain16.jpeg" width="600" />
 

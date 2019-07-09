@@ -12,7 +12,7 @@ tags:
 
 
 
-I have met a problem several times before. When we build a new repository on GitHub, the recommended  steps are 
+I have met a problem several times before. When we build a new repository on GitHub, the official recommended  steps are 
 
 1. Build a new empty repo on GitHub
 2. Init local git directory
