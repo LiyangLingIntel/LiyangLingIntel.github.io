@@ -26,9 +26,7 @@ tags:
 
 要启用这个功能，首先到`Preference`->`Editor`中启用。然后使用`$`符号包裹Tex命令，
 
-例如：`$lim_{x \to \infty} \ exp(-x)=0$`将产生如下的数学表达式：
-
-<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs0nuqwtj30ao024glu.jpg" width="200"/>
+例如：`$lim_{x \to \infty} \ exp(-x)=0$`将产生数学表达式：$lim_{x \to \infty} \ exp(-x)=0$
 
 输入两个`$`符号，然后回车，就可以输入数学表达式块了。例如：
 
@@ -38,8 +36,9 @@ tags:
 
 将会产生:
 
- $$\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} \mathbf{i} & \mathbf{j} &   \mathbf{k} \\\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0   \\\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\\end{vmatrix}$$ 
-
+$$
+\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} \mathbf{i} & \mathbf{j} &   \mathbf{k} \\\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0   \\\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\\end{vmatrix}
+$$
 关于更详细的LaTeX公式，可以参考[这篇博客](http://blog.163.com/goldman2000@126/blog/static/167296895201221242646561/) 
 
 
@@ -95,8 +94,6 @@ public Class HelloWorld{
   System.out.println("Hello World!");  
 }  
 ~~~
-
-
 
 
 
