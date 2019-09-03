@@ -46,12 +46,14 @@ tags:
 
 通过机器学习的思想来通过训练来拟合用户的特征属性，首先需要一个**效用函数**来评价特定用户$c$对于特定项目$s$的评分：
 
-$$u(c,s)=score(UserProfile(c), ItemProfile(s))$$
-
+$$
+u(c,s)=score(UserProfile(c), ItemProfile(s))
+$$
 至于如何根据项目的内容属性来学习到跟项目一样维度的用户属性，这就涉及到另一公式：
 
-$$min_{\theta^{(j)}}\frac{1}{2}\sum_{i:r(i,j)=1}\big((\theta^{(j)})^Tx^{(i)}-y^{(i,j)}\big)^2+\frac{\lambda}{2}\sum_{k=1}^{(j)}(\theta_k^{(j)})^2$$
-
+$$
+min_{\theta^{(j)}}\frac{1}{2}\sum_{i:r(i,j)=1}\big((\theta^{(j)})^Tx^{(i)}-y^{(i,j)}\big)^2+\frac{\lambda}{2}\sum_{k=1}^{(j)}(\theta_k^{(j)})^2
+$$
 他是通过梯度下降法来最小化误差的平方损失，其中$θ^{(j)}$为所要学习的用户维度特征，$X^{(i)}$为项目的内容维度特征，我们所要训练的是用户$j$对于已有行为的项目$j$的训练，来使得观测数据与预测数据的误差最小。
 
 基于内容推荐方法的优点是：
