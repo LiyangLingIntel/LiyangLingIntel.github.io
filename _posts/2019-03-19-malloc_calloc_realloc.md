@@ -78,3 +78,4 @@ void* realloc(void* ptr, unsigned newsize);
   free释放内存的和delete可以说是两套代码，它们的逻辑不同，不能混用。
   用new申请的就要用delete翻译释放，用malloc申请的就要用free释放。 
 * 还有一个区别， free 只是告诉操作系统回收内存，而delete会先调用类的析构函数，然后才告诉操作系统回收内存
+
