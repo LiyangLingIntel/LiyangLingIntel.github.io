@@ -4,7 +4,7 @@ title:      "深入理解Spark Shuffle"
 subtitle:    从零开始学Spark
 date:       2019-08-08
 author:     Lyon Ling
-header-img: img/
+header-img: img/post-bg-macosaudio.jpg
 catalog: true
 tags:
     - Spark

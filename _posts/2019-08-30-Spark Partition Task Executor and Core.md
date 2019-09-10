@@ -4,7 +4,7 @@ title:      "Spark 中 Partition数、Task数、core数、Executor数的决定�
 subtitle:   从零开始学Spark
 date:       2019-08-30
 author:     Lyon Ling
-header-img: img/
+header-img: img/post-bg-doc2vec.jpeg
 catalog: true
 mathjax: false
 tags:

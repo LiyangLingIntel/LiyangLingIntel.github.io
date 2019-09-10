@@ -4,7 +4,7 @@ title:      "C++ std中vector和list的区别"
 subtitle:   从零开始C++
 date:       2019-08-31
 author:     Lyon Ling
-header-img: img/
+header-img: img/post-bg-spark.png
 catalog: true
 tags:
     - C++

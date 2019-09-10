@@ -4,7 +4,7 @@ title:      "对比理解B树,B+树,R树"
 subtitle:   Understand B-Tree, B+-Tree and R-Tree
 date:       2019-08-17
 author:     Lyon Ling
-header-img: img/
+header-img: img/post-bg-jobhunting5.jpg
 catalog: true
 mathjax: true
 tags:
@@ -104,6 +104,7 @@ B-tree（B-tree树即B树，B即Balanced，平衡的意思）这棵神奇的树�
     Unfortunately, the literature on B-trees is not uniform in its use of terms relating to B-Trees. (Folk & Zoellick 1992, p. 362) Bayer & McCreight (1972), Comer (1979), and others define the order of B-tree as the minimum number of keys in a non-root node. Folk & Zoellick (1992) points out that terminology is ambiguous because the maximum number of keys is not clear. An order 3 B-tree might hold a maximum of 6 keys or a maximum of 7 keys. (Knuth 1998,TAOCP p. 483) avoids the problem by defining the order to be maximum number of children (which is one more than the maximum number of keys).
 
  
+
 
 
     from: http://en.wikipedia.org/wiki/Btree#Technical_description。
@@ -475,6 +476,7 @@ B*树：一棵丰满的B+树。
 
 
 
+
 第二节、R树：处理空间存储问题
 相信经过上面第一节的介绍，你已经对B树或者B+树有所了解。这种树可以非常好的处理一维空间存储的问题。B树是一棵平衡树，它是把一维直线分为若干段线段，当我们查找满足某个要求的点的时候，只要去查找它所属的线段即可。依我看来，这种思想其实就是先找一个大的空间，再逐步缩小所要查找的空间，最终在一个自己设定的最小不可分空间内找出满足要求的解。一个典型的B树查找如下：
 
@@ -679,6 +681,7 @@ AT5：[升高至下一级] 如果N等于L且发生了分裂，则把NN置为PP�
 
 
 
+
 这个插入操作其实类似于第一节中B树的插入操作，这里不再具体介绍，不过想必看过上面的伪代码大家应该也清楚了。
 
  
@@ -736,6 +739,7 @@ CT6：[重新插入孤立的条目] 所有在Q中的结点中的条目需要被�
       R树删除记录过程中的CondenseTree操作是不同于B树的。我们知道，B树删除过程中，如果出现结点的记录数少于半满（即下溢）的情况，则直接把这些记录与其他叶子的记录“融合”，也就是说两个相邻结点合并。然而R树却是直接重新插入。
 
  
+
 
 
 同样，我们用图直观的说明这个操作。

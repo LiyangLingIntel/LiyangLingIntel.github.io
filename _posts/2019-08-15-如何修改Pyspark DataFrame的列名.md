@@ -4,7 +4,7 @@ title:      "如何修改Pyspark Dataframe的列名"
 subtitle:    从零开始学Spark
 date:       2019-08-15
 author:     Lyon Ling
-header-img: img/
+header-img: img/post-bg-kkt.jpg
 catalog: true
 tags:
     - Spark
