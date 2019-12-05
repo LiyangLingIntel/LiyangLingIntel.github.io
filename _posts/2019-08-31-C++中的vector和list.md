@@ -8,8 +8,7 @@ header-img: img/post-bg-spark.png
 catalog: true
 tags:
     - C++
-    - Programming
-    - Foundations
+    - Foundation
 ---
 
 [TOC]

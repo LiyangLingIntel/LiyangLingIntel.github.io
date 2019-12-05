@@ -7,8 +7,8 @@ author:     Lyon Ling
 header-img: img/post-bg-restfulapi.jpg
 catalog: true
 tags:
-    - Development
-    - Programming 
+    - WebDeveloping
+    - 转载
 ---
 
 >RESTful API is not a new concept for today's Internet developing, but I always forget the meaning of that.
@@ -21,7 +21,7 @@ With the development of mobile devices and the Internet, there are more and more
 
 Here comes RESTful.
 
-<img src="https://upload-images.jianshu.io/upload_images/2888542-27f4990d17ca67ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/550/format/webp" />
+<img src="../img/in-post/2019-01-24-RESTfulAPI/restfulapi.png" />
 
 ### RESTful API
 
@@ -37,7 +37,7 @@ Here are some examples:
 
 This is not RESTful:
 
-```
+```javascript
 GET /blog/getArticles
 GET /blog/addArticles
 GET /blog/editArticles
@@ -46,7 +46,7 @@ GET /rest/api/deleteArticles?id=1
 
 This is RESTful:
 
-```
+```javascript
 GET /blog/Articles
 POST /blog/Articles
 PUT /blog/Articles

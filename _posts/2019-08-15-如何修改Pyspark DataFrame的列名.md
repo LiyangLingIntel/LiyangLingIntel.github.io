@@ -7,9 +7,9 @@ author:     Lyon Ling
 header-img: img/post-bg-spark.png
 catalog: true
 tags:
-    - Spark
     - BigData
-    - Programing
+    - Spark
+    - Tricks
 ---
 
 在做Spark Dataframe操作的时候会遇到很多需求. 最近我遇到了一个问题, 就是通过`agg`方法传入多种聚合函数对多列进行操作, 然后后就生成了多列的聚合结果. 但是列名就是以 原列名+聚合函数的方法, 然后就产生需求 ---- 如何修改这些列名呢?

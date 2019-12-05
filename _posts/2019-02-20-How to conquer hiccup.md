@@ -7,8 +7,7 @@ author:     Lyon Ling
 header-img: img/post-bg-os-metro.jpg
 catalog: true
 tags:
-    - 生活
-    - 医疗小常识
+    - 医疗常识
 ---
 
 > 最近拔了几颗智齿，回家冰敷的时候好像不小心着凉了，结果后面的几天止不住的打嗝，真是遭不住。

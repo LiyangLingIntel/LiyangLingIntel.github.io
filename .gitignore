@@ -1,3 +1,10 @@
-**/.DS_Store
-_posts/1995-05-24-Thoughts.md
+_site/
+_drafts/
 node_modules
+.vscode
+*.log
+*.sh
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+.jekyll-cache/

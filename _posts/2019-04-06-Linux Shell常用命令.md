@@ -7,10 +7,9 @@ author:     Lyon Ling
 header-img: img/post-bg-rwd.jpg
 catalog: true
 tags:
+    - Shell
     - Mac
     - Linux
-    - Shell
-    - 转载
 ---
 
 > 虽然一直都有用Linux，但是对其中一些命令的细节也没有很清楚。听说大厂笔试面试可能会有用到，这里就简单总结一下。

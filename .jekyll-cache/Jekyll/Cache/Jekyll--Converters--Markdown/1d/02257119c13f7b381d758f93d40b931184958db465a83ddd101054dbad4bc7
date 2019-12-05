@@ -1,2 +1,0 @@
-I"ß<p>When I started to use python regex, the most commonly used are <code class="highlighter-rouge">.</code> <code class="highlighter-rouge">*</code> <code class="highlighter-rouge">?</code> <code class="highlighter-rouge">()</code> <code class="highlighter-rouge">[]</code> <code class="highlighter-rouge">\d</code> <code class="highlighter-rouge">\s</code> and etc. However, I have sometimes met problems like I cannot partial match strings or control the groups as I needd.</p>
-:ET

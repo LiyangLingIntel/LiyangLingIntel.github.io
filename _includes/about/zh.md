@@ -18,7 +18,7 @@ Hey，我是**Leon Ling**, 出炉不久的香港科技大学大数据科技硕�
 1. 根据post所属领域和相关内容, tag以多级形式排列. 其中第0级属于标签分类, 不做实际使用.
 2. 当post中提到低级tag时, 其对应的父级tag也需要在前面提到.
 3. 英文标签以驼峰法命名, 中文标签则注意表达的精简
-4. 在post里, 高级别的tag应该置于低级别的tag之前, 一篇post中的tag数量最好不要超过5个 (多了容易出现丢失YML头的BUG, 暂时不知道为啥...)
+4. 在post里, 高级别的tag应该置于低级别的tag之前, 一篇post中的tag数量尽量不要超过5个
 
 现有的标签如下:
 
@@ -50,6 +50,7 @@ Hey，我是**Leon Ling**, 出炉不久的香港科技大学大数据科技硕�
     - Github
     - Hive
     - BlockChain
+    - WebDeveloping
 - 抽象类别 
     - Foundation
     - Tutorial

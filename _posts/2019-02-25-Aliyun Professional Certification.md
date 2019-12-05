@@ -7,10 +7,9 @@ author:     Lyon Ling
 header-img: img/post-bg-cloudcomputing.jpg
 catalog: true
 tags:
-    - Alibaba
+    - BigData
     - Notes
-    - CloudComputing
-    - DataScience
+    - Alibaba
 ---
 
 ## Data+|Big Data Basic Services

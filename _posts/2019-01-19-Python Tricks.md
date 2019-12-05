@@ -9,7 +9,6 @@ catalog: true
 tags:
     - Python
     - Tricks
-    - Programing 
 ---
 
 >When we do python programing, I find there are many tricks and skills to make our code more pythonic and more effectively.

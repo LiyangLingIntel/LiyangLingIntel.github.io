@@ -281,6 +281,8 @@ Typora 推荐使用两个*号。
 
 ### Diagrams
 
+*当前博客框架还没有 fully-support sequence, flowchart和Mermaid语法, 后续会逐步改进.*
+
 #### Sequence 时序图
 
 由 [js-sequence](https://bramp.github.io/js-sequence-diagrams/) 驱动，可以在 [这里](https://bramp.github.io/js-sequence-diagrams/#syntax) 找到语法解释

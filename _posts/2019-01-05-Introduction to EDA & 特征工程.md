@@ -8,12 +8,13 @@ header-img: img/post-bg-keybord.jpg
 catalog: true
 tags:
     - DataMining
-    - Introduction
-    - DataScience
+    - Tutorial
     - 转载
 ---
 
 
+
+[toc]
 
 # Data Analysis
 
@@ -73,7 +74,7 @@ tags:
 
 无需纠结t检验，直接画图可以看出来 
 
-#### 块图(block plot) 
+#### 块图(block plot)
 
 #### Bootstrap plot
 
@@ -91,7 +92,7 @@ tags:
 
 　　有这么一句话在业界广泛流传：数据和特征决定了机器学习的上限，而模型和算法只是逼近这个上限而已。那特征工程到底是什么呢？顾名思义，其本质是一项工程活动，目的是最大限度地从原始数据中提取特征以供算法和模型使用。通过总结和归纳，人们认为特征工程包括以下方面：
 
-<img src="https://pic3.zhimg.com/20e4522e6104ad71fc543cc21f402b36_r.jpg" data-rawwidth="875" data-rawheight="967" class="origin_image zh-lightbox-thumb" width="875" data-original="https://ws2.sinaimg.cn/large/006tNc79gy1fyvr2jmp1sj30ob0qvq5i.jpg">
+<img src="../img/in-post/2019-01-05-IntroductiontoEDA&特征工程/mindnote.png" data-rawwidth="875" data-rawheight="967" class="origin_image zh-lightbox-thumb" width="875" data-original="https://ws2.sinaimg.cn/large/006tNc79gy1fyvr2jmp1sj30ob0qvq5i.jpg">
 
 　　特征处理是特征工程的核心部分，sklearn提供了较为完整的特征处理方法，包括数据预处理，特征选择，降维等。首次接触到sklearn，通常会被其丰富且方便的算法模型库吸引，但是这里介绍的特征处理库也十分强大！
 

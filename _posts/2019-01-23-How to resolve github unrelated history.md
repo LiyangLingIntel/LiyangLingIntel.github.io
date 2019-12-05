@@ -1,13 +1,14 @@
 ---
 layout:     post
-title:      "How to resolve github unrelated history?"
-subtitle:    怎样解决github历史冲突的问题
+title:      怎样解决github历史冲突的问题
+subtitle:   "How to resolve github unrelated history?"
 date:       2019-01-23
 author:     Lyon Ling
 header-img: img/post-bg-githubhistory.png
 catalog: true
 tags:
     - Github
+    - Debug
 ---
 
 
@@ -28,7 +29,7 @@ After searching on the Internet, I found a solution on `Stackoverflow`.
 
 One `git pull` option helps.
 
-```
+```shell
 git pull origin branchname --allow-unrelated-histories
 ```
 

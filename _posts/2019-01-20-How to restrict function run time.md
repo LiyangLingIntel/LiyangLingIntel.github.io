@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "How to restrict python function run time"
-subtitle:    怎样限制python函数的最大运行时间
+title:      怎样限制python函数的最大运行时间
+subtitle:   "How to restrict python function run time"
 date:       2019-01-20
 author:     Lyon Ling
 header-img: img/post-bg-runtimedecorator.png
@@ -9,7 +9,6 @@ catalog: true
 tags:
     - Python
     - Tricks
-    - Programing 
 ---
 
 >Nowadays, I'm dealing with a NLP project, there is a step which is about python regular expression and I have a problem.

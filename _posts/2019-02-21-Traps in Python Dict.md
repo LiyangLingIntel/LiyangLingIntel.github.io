@@ -9,7 +9,6 @@ catalog: true
 tags:
     - Python
     - Tricks
-    - Programing 
     - Debug
 ---
 

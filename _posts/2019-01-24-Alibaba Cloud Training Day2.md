@@ -7,13 +7,12 @@ author:     Lyon Ling
 header-img: img/post-bg-cloudcomputing.jpg
 catalog: true
 tags:
-    - Alibaba
+    - BigData
     - Notes
-    - CloudComputing
-    - DataScience
+    - Alibaba
 ---
 
-
+[toc]
 
 ## Course Content
 
@@ -21,7 +20,7 @@ tags:
 
 Here I drew the structure of whole AliCloud Big Data Platform.
 
-<img src="../img/illustration/20190124-alicloudtrain21.jpeg" width="800"/>
+<img src="../img/in-post/2019-01-24-AlibabaCloudTrainingDay2/20190124-alicloudtrain21.png" width="800"/>
 
 ##### MaxCompute provides two data import and export methods:
 
@@ -53,7 +52,7 @@ Here I drew the structure of whole AliCloud Big Data Platform.
 
 * **MaxCompute Command & SQL:**
 
-  ```
+  ```shell
   > show tables	// if you want to view all tables in a project, you can execute;
   > desc table_a 	// show table schema and the size of space taken by the table;
   > datediff  	// calculate the difference between 2 time stamps
@@ -150,7 +149,7 @@ Enable the data protection mechanism in the project.
 
 It supports the Pay-As-You-Go payment method, which means that the cost of each task is measured according to ECS.
 
-### **Pay attention the traps:**
+### Pay attention the traps:
 
 *Wrong desctiptions*
 
