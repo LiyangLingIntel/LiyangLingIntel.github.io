@@ -1,0 +1,21 @@
+I"R<p>最近做Hive表创建的时遇到一个问题.</p>
+
+<p>报错如下:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>FailedPredicateException<span class="o">(</span>identifier,<span class="o">{</span>useSQL11ReservedKeywordsForIdentifier<span class="o">()}</span>?<span class="o">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>最后在<a href="https://community.hortonworks.com/questions/21626/where-should-i-add-hivesupportsql11reservedkeyword.html">HCC</a>上找到了对应的解决办法.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="c1">-- 解决办法很简单, 就是直接修改一下Hive的配置</span>
+<span class="k">SET</span> <span class="n">hive</span><span class="p">.</span><span class="n">support</span><span class="p">.</span><span class="n">sql11</span><span class="p">.</span><span class="n">reserved</span><span class="p">.</span><span class="n">keywords</span><span class="o">=</span><span class="k">false</span><span class="p">;</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>BTW, 顺便吐槽一下, 百度吃枣药丸, 因为公司用不了谷歌, 没办法去百度找了好几页结果都没有结果. 然后用了bing, 第四条就发现了答案…</p>
+
+:ET

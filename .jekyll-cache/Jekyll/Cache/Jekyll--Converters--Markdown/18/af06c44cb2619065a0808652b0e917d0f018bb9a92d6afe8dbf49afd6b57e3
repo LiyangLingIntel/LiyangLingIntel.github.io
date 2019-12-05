@@ -1,0 +1,6 @@
+I"¤<blockquote>
+  <p>Nowadays, Iâ€™m dealing with a NLP project, there is a step which is about python regular expression and I have a problem.</p>
+
+  <p>When program meets texts with some formats that my regular expression cannot match well, it will take really long time to finish or even get endless loop. So I want to set a run time upper limit onto each loop. Python decorator could solve this well.</p>
+</blockquote>
+:ET

@@ -1,0 +1,200 @@
+I"@5<blockquote>
+  <p>文本文档分类是NLP领域一个基础而又经典的话题，决定开始在NLP方向开展学习工作，这方面的基础知识必不可少，这里把这两天搜集的内容简单整理一下，以供后面深入探究。</p>
+</blockquote>
+
+<p>[TOC]</p>
+
+<h2 id="1-文档分类概述">1. 文档分类概述</h2>
+
+<p><strong>文本分类</strong>通过算法对输入的文本按照一定的类目体系进行自动化归类的过程，<strong>文档分类</strong>正是文本分类领域的一项分支。完整的流程包括数据预处理、特征工程、算法选择、模型构建以及后处理和效果评估。</p>
+
+<p>文档分类有一点需要注意的两个概念：多标签分类（Multi-Label Classification）和多类别分类（Multi-Class Classification）。其中多类别分类区别于二分类问题，即在 $n(n&gt;2)$ 个类别中互斥地选取一个作为输出；而多标签分类，是在n个标签中非互斥地选取 $m(m&lt;n)$ 个标签作为输出。</p>
+
+<h2 id="2-文档分类方法">2. 文档分类方法</h2>
+
+<pre><code class="language-mermaid">graph LR
+A[文档语料库]--&gt;B(文本数据预处理)
+B--&gt;C(特征工程)
+C--&gt;D(传统机器学习模型)
+C--&gt;E(深度学习模型)
+D--&gt;F(后处理)
+E--&gt;F
+F--&gt;G[分类标签]
+</code></pre>
+
+<h3 id="21-传统机器学习方法">2.1 传统机器学习方法</h3>
+
+<p>如上图所示，文档分类问题的机器学习解决办法一般分为数据预处理，特征提取和文本表征，模型选择和训练，以及可选择的实用一定的后处理，最终得到想要的分类标签。</p>
+
+<h4 id="211-文档预处理">2.1.1 文档预处理</h4>
+
+<ul>
+  <li>
+    <p>数据清洗</p>
+
+    <p>如果不是处理好的语料库，正常文档中会有一些与训练输入数据无关的信息，需要提前去除，以防引入噪声，主要有以下几类。</p>
+
+    <ul>
+      <li>非文本数据
+HTML，XML等代码，或者URL等内容</li>
+      <li>长串数字和字母</li>
+      <li>无意义文本
+文本中与正文无关的内容，比如广告，版权声明等</li>
+    </ul>
+  </li>
+  <li>
+    <p>分词&amp;词性标注</p>
+
+    <ul>
+      <li>对于中文文本，分词是必须的；而英文文本则需要根据具体情况去判断是否需要划分词组。</li>
+      <li>完成分词之后，给分好的词标注词性，可以简化和优化后续处理的难度。</li>
+    </ul>
+
+    <p>中文分词，工业届比较常用的是<code class="highlighter-rouge">jiaba</code>分词，同时比较有名的还有<code class="highlighter-rouge">HanLP</code>和清华的<code class="highlighter-rouge">THULAC</code>等；英文分词则以斯坦福的<code class="highlighter-rouge">NLTK</code>为主流。
+词性标注同样可以通过调用上述库提供的方法，也可以根据一些库中提供的模型框架重新训练词性标注工具。</p>
+  </li>
+</ul>
+
+<h4 id="212-特征工程">2.1.2 特征工程</h4>
+
+<p>文本分类的特征工程一般会有两方面内容，一个是文本表征，一个是特征提取。所谓文本表征就是把文本信息转化为机器能够识别的数据表示，特征提取指的是根据统计或者概率从文本中提取出相应的指标作为文本特征。</p>
+
+<h5 id="2121-word_embedding">2.1.2.1 Word_embedding</h5>
+
+<p>通过词与上下文、上下文与词的关系，有效地将词映射为低维稠密的向量，可以很好的表示词，一般是把训练和测试的语料都用来做word_embedding。Embedding后的词向量或者段落矩阵就可以用作传统机器学习的特征，也是深度学习方法的必备输入。</p>
+
+<p>常见的word-embedding方法有<code class="highlighter-rouge">word2vec</code>，基于<code class="highlighter-rouge">word2vec</code>的<code class="highlighter-rouge">doc2vec</code>，以及斯坦福的<code class="highlighter-rouge">glove</code>等。</p>
+
+<h5 id="2122-特征提取">2.1.2.2 特征提取</h5>
+
+<ul>
+  <li>
+    <p><a href="https://www.zhihu.com/search?type=content&amp;q=tf-idf">TF-IDF</a>(词频-逆文档频率)</p>
+
+    <p>TF-IDF的基本思想是，词语的重要性与它在文件中出现的次数成正比，但同时会随着它在语料库中出现的频率成反比下降。用以评估词对于一个文档集或一个语料库中的其中一个文档的重要程度，计算出来是一个$D\times N$维的矩阵，其中$D$为文档的数量，$N$为词的个数，通常会加入N-gram，也就是计算文档中N个相连词的的TF-IDF。在<code class="highlighter-rouge">sklearn</code>中可以找到相应的库函数。</p>
+  </li>
+  <li>
+    <p><a href="https://zhuanlan.zhihu.com/p/31470216">LDA</a>(隐狄利克雷分布)</p>
+
+    <p>假设文档集有$T$个话题，一篇文档可能属于一个或多个话题，通过LDA模型可以计算出文档属于某个话题的概率，这样可以计算出一个$D\times T$的矩阵。LDA特征在文档打标签等任务上表现很好。</p>
+  </li>
+  <li>
+    <p><a href="https://zhuanlan.zhihu.com/p/29930654">LSI</a>(隐语义索引)
+通过分解文档-词频矩阵来计算文档的潜在语义，和LDA有一点相似，都是分析文档的潜在特征来对文档进行主题分类。</p>
+  </li>
+</ul>
+
+<p>上述的几种特征提取方式，和word2vec一样，都可以在<code class="highlighter-rouge">gensim</code>库函数中找到。</p>
+
+<h5 id="2123-特征筛选">2.1.2.3 特征筛选</h5>
+
+<p>尽可能选取任务敏感的特征，也就是特征足够强可以影响分类的结果。一般用树模型判断特征的重要程度，<code class="highlighter-rouge">xgboost</code>的<code class="highlighter-rouge">get_fscore</code>就可以实现这一功能。</p>
+
+<p>计算特征强度之后，选取较强的特征，摒弃弱特征。可以尝试组合不同的特征来构造新的特征，然后测试新特征的强弱，反复如此获取更多的强特征。但是这样的方法也要注意变量之间的共线性程度，以防影响最后模型训练效果。</p>
+
+<h4 id="213-模型选择">2.1.3 模型选择</h4>
+
+<p>特征提取相当于构造了一个$D\times F$的矩阵，其中$D$为文档数量，$F$为特征数量，一篇文档用$N$维空间上的一个点表示，成为一个数学问题：如何将点分类。</p>
+
+<p>传统的模型有很多，比如朴素贝叶斯、逻辑回归、SVM、决策树、神经网络等分类算法，其中树结构很适合文档分类。当前效果比较好的是LightGBM和XGBoost。其中调参的经验是树的深度不要太深、让树尽可能矮宽，这样分类比较充分，一般深度为4~6就行。</p>
+
+<p>最后得到几个效果差不多的模型后，适度采用Stacking的方法往往可以提高最后的分类效果。</p>
+
+<h3 id="22-深度学习方法">2.2 深度学习方法</h3>
+
+<h4 id="221-fasttext">2.2.1 FastText</h4>
+
+<p>由 Word2Vec的作者在【1】中提出，是一种极致简单的模型，结构如下图。</p>
+
+<p><img src="../img/illustration/20190709-doc2vec.png" width="300" /></p>
+
+<p>原理是把句子中所有的词向量进行平均（某种意义上可以理解为只有一个avg pooling特殊CNN），然后直接接 softmax 层。其中也加入了一些 N-Gram 特征的技巧来捕获局部序列信息。也就是说不必做过多的非线性转换、特征组合即可捕获很多分类信息，因此有些任务即便简单的模型便可以解决。</p>
+
+<h4 id="222-textcnn">2.2.2 TextCNN</h4>
+
+<p>文章【2】中介绍了非常经典TextCNN模型，详细过程如下图所示。</p>
+
+<p><img src="https://pic3.zhimg.com/80/v2-bb10ad5bbdc5294d3041662f887e60a6_hd.png" width="700" /></p>
+
+<p>第一层是图中最左边的 $7\times 5$ 的句子矩阵，每行是词向量，维度 $d=5$，这个可以类比为图像中的原始像素点。</p>
+
+<p>然后经过有 $filter_size=(2,3,4)$ 的一维卷积层。对于文本数据，filter不再横向滑动，仅仅是向下移动，有点类似于N-gram在提取词与词间的局部相关性。图中共有三种步长策略，分别是2,3,4，每个步长都有两个filter（实际训练时filter数量会很多）。在不同词窗上应用不同filter，最终得到6个卷积后的向量。</p>
+
+<p>第三层是一个1-max pooling层，对每一个向量进行最大化池化操作并拼接各个池化值，最终得到这个句子的特征表示。每个filter_size 有两个输出 channel。这样不同长度句子经过pooling层之后都能变成定长的表示。</p>
+
+<p>最后接一层全连接的 softmax 层，输出每个类别的概率。</p>
+
+<p>过程中比较关键的几点是：</p>
+
+<ul>
+  <li>
+    <p><strong>特征</strong>：这里的特征就是词向量，有静态（static）和非静态（non-static）方式。static方式采用比如word2vec预训练的词向量，训练过程不更新词向量，实质上属于迁移学习了，特别是数据量比较小的情况下，采用静态的词向量往往效果不错。non-static则是在训练过程中更新词向量。推荐的方式是 non-static 中的 fine-tunning方式，它是以预训练（pre-train）的word2vec向量初始化词向量，训练过程中调整词向量，能加速收敛。</p>
+  </li>
+  <li>
+    <p><strong>通道（Channels）</strong>：图像中可以利用 (R, G, B) 作为不同channel，而文本的输入的channel通常是不同方式的embedding方式（比如 word2vec或Glove），实践中也有利用静态词向量和fine-tunning词向量作为不同channel的做法。</p>
+  </li>
+  <li>
+    <p><strong>一维卷积（conv-1d）</strong>：图像是二维数据，经过词向量表达的文本为一维数据，因此在TextCNN卷积用的是一维卷积。一维卷积带来的问题是需要设计通过不同 filter_size 的 filter 获取不同宽度的视野。</p>
+  </li>
+</ul>
+
+<h4 id="223-textrnn--attention">2.2.3 TextRNN + Attention</h4>
+
+<p>论文【3】 中介绍了RNN用于分类问题的设计，下图LSTM用于网络结构原理示意图，示例中的是利用最后一个词的结果直接接全连接层softmax输出。</p>
+
+<p><img src="../img/illustration/20190709-doc2vec2.png" width="500" /></p>
+
+<p>而这里的Attention注意力机制是自然语言处理领域一个常用的建模长时间记忆机制，能够很直观的给出每个词对结果的贡献。【4】详细介绍了注意力机制的原理。</p>
+
+<p>实际应用中可以根据【5】中提出的基于Hierarchical Attention的RNN去训练深度网络，大致结构如下。</p>
+
+<p><img src="../img/illustration/20190709-doc2vec3.png" width="500" /></p>
+
+<h3 id="224-rcnn">2.2.4 RCNN</h3>
+
+<p>RCNN模型在这篇文章【6】中被提出，文中将RNN和CNN以另外一种方式呈现，又可以作为一种思路去训练文本数据。</p>
+
+<p><img src="../img/illustration/20190709-doc2vec4.png" /></p>
+
+<p>模型中把CNN模型中的卷积的部分使用RNN代替了，最后加上池化层。而这个RNN层做的事情是，将每一个词分别和左边的词以及右边的词进行融合。</p>
+
+<p>每以文本先经过1层双向LSTM，该词的左侧的词正向输入进去得到一个词向量，该词的右侧反向输入进去得到一个词向量。再结合该词的词向量，生成一个 3维的组合词向量。然后再将这些新的词向量传入全连接层，紧接着是最大化池化层进行特征降维。最后接上全连接层，便完成多分类任务。</p>
+
+<h3 id="225-其他方法">2.2.5 其他方法</h3>
+
+<p>除了上述的三种模型外，还有很多基于上述模型的变种和衍生。此外训练方式上也可以采用一些特殊的方法。我们知道一般一篇文档由标题，正文和其他成分构成。这里我们可以主要提取标题和正文，并且分开去训练；或者只是用正文去训练。</p>
+
+<p>因此可以得到多个模型构建策略，如下（没有列出所有）：</p>
+
+<ul>
+  <li>TextCNN处理正文，不使用标题</li>
+  <li>Hierarchical Attention based RNN处理正文，不使用标题</li>
+  <li>RCNN处理正文，多层CNN处理标题</li>
+</ul>
+
+<p>联合模型学习的方法会在上述等多个单模型中选取表现最好的2个单模型，在数据集上预训练到最优，然后联合在一起训练。也可以联合多个单模型一起训练，但缺点就是训练时间过长。</p>
+
+<p>大致流程如下图，可以共享input生成的Embedding层，也可以不共享，根据具体情况而定。</p>
+
+<pre><code class="language-mermaid">graph LR
+A[input]--&gt;B(Model A)
+A--&gt;C(Model B)
+B--&gt;D[Average]
+C--&gt;D
+D--&gt;E[output]
+</code></pre>
+
+<h2 id="参考文献">参考文献</h2>
+
+<p>【1】<a href="https://arxiv.org/pdf/1607.01759v2.pdf">Bag of Tricks for Efficient Text Classification</a></p>
+
+<p>【2】<a href="https://arxiv.org/pdf/1408.5882.pdf">Convolutional Neural Networks for Sentence Classification</a></p>
+
+<p>【3】<a href="https://www.ijcai.org/Proceedings/16/Papers/408.pdf">Recurrent Neural Network for Text Classification with Multi-Task Learning</a></p>
+
+<p>【4】<a href="https://arxiv.org/pdf/1409.0473v7.pdf">Neural Machine translation by Jointly Learning to Align and Translate</a></p>
+
+<p>【5】<a href="https://www.cs.cmu.edu/~./hovy/papers/16HLT-hierarchical-attention-networks.pdf">Hierarchical Attention Networks for Document Classification</a></p>
+
+<p>【6】<a href="http://www.nlpr.ia.ac.cn/cip/~liukang/liukangPageFile/Recurrent Convolutional Neural Networks for Text Classification.pdf">Recurrent Convolutional Neural Networks for Text Classification</a>)</p>
+:ET

@@ -1,17 +1,15 @@
 ---
 layout:     post
-title:      "如何修改Pyspark Dataframe的列名"
-subtitle:    从零开始学Spark
+title:      "如何修改 PySpark Dataframe 的列名"
+subtitle:   从零开始Spark
 date:       2019-08-15
 author:     Lyon Ling
-header-img: img/post-bg-kkt.jpg
+header-img: img/post-bg-spark.png
 catalog: true
 tags:
     - Spark
-    - Programing 
     - BigData
-	- Tutorial
-	- 转载
+    - Programing
 ---
 
 在做Spark Dataframe操作的时候会遇到很多需求. 最近我遇到了一个问题, 就是通过`agg`方法传入多种聚合函数对多列进行操作, 然后后就生成了多列的聚合结果. 但是列名就是以 原列名+聚合函数的方法, 然后就产生需求 ---- 如何修改这些列名呢?

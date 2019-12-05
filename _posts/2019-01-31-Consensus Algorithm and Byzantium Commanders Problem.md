@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Consensus Algorithm and Byzantium Commanders Problem"
-subtitle:    "拜占庭将军问题和共识算法[转载]"
+subtitle:    "拜占庭将军问题和共识算法"
 date:       2019-02-11
 author:     charlesliuyx
 header-img: img/post-bg-blockchain_step.jpeg
@@ -12,11 +12,14 @@ tags:
     - 转载
 ---
 
-首先，这个问题属于**计算机科学领域**。解决这个问题才是区块链最大的价值所在，因为这个问题一直是**分布式系统**的重要难题之一。
+> 共识机制属于**计算机科学领域**。解决这个问题才是区块链最大的价值所在，因为这个问题一直是**分布式系统**的重要难题之一。
+
+[toc]
 
 # 什么是拜占庭将军问题
 
-这个问题的定义者是**图灵奖**获得者，Lamport大神，分布式系统的关键性奠基人之一。有面包店算法，拜占庭将军问题，Paxos算法等著名成果
+这个问题的定义者是**图灵奖**获得者，Lamport大神，分布式系统的关键性奠基人之一。
+有面包店算法，拜占庭将军问题，Paxos算法等著名成果.
 
 ## 问题描述
 

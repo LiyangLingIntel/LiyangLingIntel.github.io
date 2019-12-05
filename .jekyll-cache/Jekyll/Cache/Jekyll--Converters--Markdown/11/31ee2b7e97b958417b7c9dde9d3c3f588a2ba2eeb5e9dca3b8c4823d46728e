@@ -1,0 +1,79 @@
+I"�<blockquote>
+  <p>在PA用spark去完成业务的过程中有各种各样的问题, 也有查阅各种资料, 这边结合已有的资源积累写一个spark程序的经验记录.</p>
+</blockquote>
+
+<p>[TOC]</p>
+
+<h3 id="1-一个sparkcontext里进行的action不应该有太多">1. 一个SparkContext里进行的action不应该有太多</h3>
+
+<p>一个 SparkContext 对应一个 spark 应用程序, 在程序里会有很多的 rdd transformation 操作和 action 操作, 一个 action 操作划分为一个 job. 一个job的执行, 会在worker端的内存里存放很多task相关的信息, 而这些task的信息只会在 sparkContext 结束时才会清理, 所以如果 action操作太多, 那么前面历史job积累的大量task信息会占用大量的内存空间, 导致后面的task分配空间时会棉铃大量的GC, 从而浪费计算时间.</p>
+
+<p>解决办法: 将过多的action拆分到几个 sparkContext中同时进行.</p>
+
+<h3 id="2-rdd计算任务的并行度不够高">2. RDD计算任务的并行度不够高</h3>
+
+<p>RDD计算任务的并行度大致分为两种: 一种是初始RDD任务的并发度, 一种是shuffle后的RDD任务并发度.</p>
+
+<p>如果是初始RDD任务的并发度不高, 可以通过命令提高partition的数量.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">rdd</span><span class="o">.</span><span class="n">repartition</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="c1"># num 通常取值 2*CPU ~ 1000
+</span></pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>如果是shuffle后的RDD任务并发度不够高,可以在每个shuffle操作函数传入一个num值, 如</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">rdd</span><span class="o">.</span><span class="n">reduceByKey</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="p">[</span><span class="n">numTasks</span><span class="p">])</span>
+<span class="n">rdd</span><span class="o">.</span><span class="n">distinct</span><span class="p">([</span><span class="n">numTasks</span><span class="p">])</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="3-在shuffle之前过滤无效数据">3. 在shuffle之前过滤无效数据</h3>
+
+<p>数据在spark计算的stage链上以pipeline的形式流动, 对于无效的数据必须在shuffle操作之前进行过滤, 过滤的方式是使用RDD的filter操作.</p>
+
+<h3 id="4-被处理的数据最小单元不要有空行或者null值">4. 被处理的数据最小单元不要有空行或者NULL值</h3>
+
+<p>在spark计算任务中, pipeline形式流动的最小数据单元不要有空行或者NULL值, 因为这样会导致某些计算任务出现未知的作物. 对空行和控制要在进行计算前进行filter处理. 在某个计算任务中捕获异常后需要向后继续传递数据时, 可以传递一些自定义的无意义不影响计算结果的数据.</p>
+
+<h3 id="5-reduceby-操作替代-groupby">5. reduceBy 操作替代 groupBy</h3>
+
+<p>在数据量比较大的情况下, groupBy 总会在shuffle的时候消耗掉大量的时间.</p>
+
+<p><img src="https://images2017.cnblogs.com/blog/739727/201801/739727-20180126174937069-1579617042.png" width="500" /></p>
+
+<p><img src="https://images2017.cnblogs.com/blog/739727/201801/739727-20180126175121959-313725154.png" width="500" /></p>
+
+<p>如上图所示, reduceBy 操作在数据shuffle之前会将每个partition的数据进行一次聚合, 这样数据量大大减少, 而 groupBy则没有这种操作, shuffle的时候就会有大量数据在计算网络上进行传输.</p>
+
+<h3 id="6-关于join的优化">6. 关于join的优化</h3>
+
+<h3 id="7-尽量避免在rdd上执行collect操作">7. 尽量避免在RDD上执行collect操作</h3>
+
+<p>在RDD上执行collect操作一般目的是为了将woker端的计算结果收集到dirver端. 如果结果的数据量特别大, 那么就容易导致driver端的OOM问题. 同时集群上的网络传输也会非常耗时.</p>
+
+<p>一般的解决方案就是先把结果保存到HDFS上, 然后再从HDFS读取数据.</p>
+
+<h3 id="8-经常使用的中间rdd-对这个rdd进行cache操作">8. 经常使用的中间RDD, 对这个RDD进行cache操作</h3>
+
+<p>这里有几个关键的知识点.</p>
+
+<p>RDD是 resilient distributed dataset, 是spark数据操作的最基本单位. RDD本身是不可变的, 通过transformation定义RDD的计算图, 因为lazy computation机制, 不会及时触发操作, 然后在每次执行action操作时, 生成新的RDD.</p>
+
+<p>也是因为lazy computation, 每次执行action操作时, 都会将对应RDD的计算图完整执行一遍, 这样就会带来不必要的重复计算. 通过在action操作前指定cache RDD, 就可以把下次action操作的结果缓存到内存中, 下次计算就从缓存的位置继续开始, 提高计算效率.</p>
+
+<h3 id="9-尽量减少transformation和action中的shuffle操作">9. 尽量减少transformation和action中的shuffle操作</h3>
+
+<p>Spark Internal中为了提高运行效率, 在每次shuffle操作之后会自动执行一次cache操作, 当cache多了之后就会占用大量内存, 造成较多的GC上的开销.</p>
+
+<p>对于需要多词shuffle的RDD, 可以在RDD生成之后进行一次partition操作(使用的partitioner和shuffle的一样), 这样这个RDD在后续的shuffle中不会再进行shuffle而做网络传输了.</p>
+
+<h3 id="10-spark-long-run-application-需要设置-sparkcleanerttl参数">10. Spark Long Run Application 需要设置 <code class="highlighter-rouge">spark.cleaner.ttl</code>参数</h3>
+
+<p>对long run application, 为其分配的内存空间会由于历史task信息的不断累积而减少, 对于后面的计算任务, 进行计算前都需要大量的GC, 十分耗时.</p>
+
+<p>设置 <code class="highlighter-rouge">spark.cleaner.ttl</code>参数后, spark程序会定时清除历史的task信息.</p>
+
+:ET

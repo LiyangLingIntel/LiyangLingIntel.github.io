@@ -1,0 +1,50 @@
+I"�<blockquote>
+  <p>Mac 让 Finder 显示隐藏文件和文件夹</p>
+</blockquote>
+
+<h3 id="基本">基本</h3>
+
+<h4 id="显示">显示</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>defaults write com.apple.finder AppleShowAllFiles <span class="nt">-boolean</span> <span class="nb">true</span> <span class="p">;</span> killall Finder
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="隐藏">隐藏</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>defaults write com.apple.finder AppleShowAllFiles <span class="nt">-boolean</span> <span class="nb">false</span> <span class="p">;</span> killall Finder
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h3 id="进阶">进阶</h3>
+
+<p>创建终端快捷命令</p>
+
+<p>在 <strong>zsh</strong> shell 下，创建快捷命令</p>
+
+<h4 id="创建显示命令-fd-filedisplay">创建显示命令 fd （fileDisplay）</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"alias fd='defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder'"</span><span class="o">&gt;&gt;</span> ~/.zshrc <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.zshrc
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="创建隐藏命令-fhfilehide">创建隐藏命令 fh（fileHide）</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"alias fd='defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder'"</span><span class="o">&gt;&gt;</span> ~/.zshrc <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.zshrc
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h4 id="使用方法">使用方法</h4>
+
+<p>显示隐藏文件</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>fd
+</pre></td></tr></tbody></table></code></pre></div></div>
+<p>隐藏文件</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="nv">$ </span>fh
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>​</p>
+:ET

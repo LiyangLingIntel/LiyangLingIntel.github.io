@@ -1,0 +1,25 @@
+I"ù<p>I have met a problem several times before. When we build a new repository on GitHub, the official recommended  steps are</p>
+
+<ol>
+  <li>Build a new empty repo on GitHub</li>
+  <li>Init local git directory</li>
+  <li>Make the first commit</li>
+  <li>Bind the remote repository URL</li>
+  <li>Push your commits</li>
+</ol>
+
+<p>While some time, the actual is we would init github repo with <code class="highlighter-rouge">Readme.md</code> and <code class="highlighter-rouge">.gitignore</code>, and forget to make the pull first and make the first commit. So here comes the problem, it will raise <code class="highlighter-rouge">fatal: refusing to merge unrelated histories</code>.</p>
+
+<p>At first, I always delete that dir and re-init the git dir.</p>
+
+<p>After searching on the Internet, I found a solution on <code class="highlighter-rouge">Stackoverflow</code>.</p>
+
+<p>One <code class="highlighter-rouge">git pull</code> option helps.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>git pull origin branchname --allow-unrelated-histories
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>Through <code class="highlighter-rouge">--allow-unrelated-histories</code>, we can force pull and merge unrelated changes later, if all changes were committed.</p>
+
+:ET

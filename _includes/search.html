@@ -1,0 +1,26 @@
+<!-- script pointing to jekyll-search.js-->
+<!-- <script src="{{ site.baseurl }}/js/simple-jekyll-search.min.js"></script> -->
+<script src="https://unpkg.com/simple-jekyll-search/dest/simple-jekyll-search.min.js"></script>
+
+
+<hr>
+<h5>ON-SITE SEARCH</h5>
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="search..."
+        style="border:1.5px solid;border-radius:10px;padding-left:10px;width:200px !important;">
+    <ul id="results-container" style="max-width:225px;padding-left:17px;"></ul>
+</div>
+
+
+<script>
+    window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '{{ site.baseurl }}/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 5,
+        fuzzy: false,
+        exclude: ['Welcome']
+    })
+</script>

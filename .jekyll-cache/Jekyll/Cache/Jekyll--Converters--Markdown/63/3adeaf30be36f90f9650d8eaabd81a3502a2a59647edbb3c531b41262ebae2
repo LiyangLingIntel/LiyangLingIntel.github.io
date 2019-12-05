@@ -1,0 +1,125 @@
+I"� <p>[TOC]</p>
+
+<h2 id="1-引子">1. 引子</h2>
+
+<p>之前学习各种机器学习的优化理论时都有听到过用KKT条件去解释各种问题，但是具体KKT条件是什么我却一直没有去深入了解过，所以最近就从网上查找了一些资料，总结到这里。</p>
+
+<h2 id="2-拉格朗日乘子法">2. 拉格朗日乘子法</h2>
+
+<p>拉格朗日乘子法（Lagrange multiplier）是一种在<strong>最优化的问题中</strong>寻找多元函数在其变量<strong>受到一个或多个条件的相等约束</strong>时的<strong>求局部极值的方法</strong>。这种方法可以将一个有 n 个变量和 k 个约束条件的最优化问题转换为一个<strong>解有 n+k 个变量的方程组的解的问题</strong></p>
+
+<p>考虑一个最优化问题：</p>
+
+<p><script type="math/tex">max_{x,y}f(x,y)\qquad     s.t.\quad g(x,y)=c</script>
+为了求 $x$ 和 $y$ ，引入一个新的变量 $\lambda$  称为<strong>拉格朗日乘数</strong>，再引入拉格朗日函数的极值
+<script type="math/tex">\mathcal{L}(x,y,λ)=f(x,y)−\lambda⋅(g(x,y)−c)</script>
+<img src="../img/illustration/20190408-kkt1.png" width="400" /></p>
+
+<blockquote>
+  <p>红线表示 $g(x,y)=c$ ，蓝线是 $f(x,y)$ 的<strong>等高线</strong>，所有箭头表示梯度下降最快的方向。图中<strong>红线与等高线相切</strong>的位置就是待求的极大值</p>
+</blockquote>
+
+<p>那么如何求这个极值点呢？</p>
+
+<h3 id="单约束">单约束</h3>
+
+<p>对<strong>拉格朗日函数的极值</strong>直接求微分，并令其为零，计算出<strong>鞍点</strong></p>
+
+<p><script type="math/tex">∇_{x,y,λ}L(x,y,λ)=0</script>
+有三个未知数，所以需要3个方程。求 $\lambda$ 的偏微分有 $∇λL(x,y,λ)=0⟹g(x,y)=0$，则总结得</p>
+
+<script type="math/tex; mode=display">\nabla_{x,y,\lambda}L(x,y,λ)=0\Longleftrightarrow\begin{cases}\nabla_{x,y}f(x,y)\\g(x,y)=0\end{cases}</script>
+
+<h4 id="例子1">例子1</h4>
+
+<p>设一个具体的例子，我们需要求下列问题</p>
+
+<p><script type="math/tex">max_{x,y}f(x,y)=x^2y\qquad s.t.\quad g(x,y):x2+y2−3=0</script>
+只有<strong>一个约束</strong>，使用<strong>一个乘子</strong>，设为 $λ$，列出<strong>拉格朗日函数</strong></p>
+
+<p><script type="math/tex">\mathcal L(x,y,λ)=f(x,y)−λ⋅(g(x,y)−c)=x^2y+λ(x^2+y^2−3)</script>
+接下来求解上式，分别对<strong>三个待求量偏微分</strong></p>
+
+<p><script type="math/tex">% <![CDATA[
+\begin{aligned}\nabla_{x,y,λ}\mathcal L(x,y,λ)&=\big(\frac{∂L}{∂x},\frac{∂L}{∂y},\frac{∂L}{∂λ}\big)\\&=(2xy+2λx,x^2+2λy,x^2+y^2−3)\end{aligned} %]]></script>
+令<strong>偏微分分别等于0</strong>，得到
+<script type="math/tex">% <![CDATA[
+∇_{x,y,λ}L(x,y,λ)=0\Longleftrightarrow\begin{cases}2xy+2λx=0\\x^2+2λy=0\\x^2+y^2−3=0\end{cases}⟺\begin{cases}\begin{array}{lcl}x(y+λ)=0\ &(i)\\x^2=−2λy\ &(ii)\\x^2+y^2=3\ &(iii)\end{array}\end{cases} %]]></script>
+根据上式，我们可以解得</p>
+
+<p><script type="math/tex">\mathcal L:\ (\pm\sqrt{2},1,−1);(\pm\sqrt2,−1,1);(0,\pm\sqrt3,0)</script>
+根据几个不同的解带入 $f(x,y)$ 得到，$2，-2，0$，也就是我们需要的最大值，最小值，对应的直观图像解释如下图所示（<strong>非常直观的展现约束和等高线的含义</strong>）</p>
+
+<p><img src="../img/illustration/20190408-kkt2.png" width="400" /></p>
+
+<h4 id="例子2">例子2</h4>
+
+<p>关于拉格朗日乘子法的应用，有一个十分著名的：求<strong>离散概率分布 $p_1,p_2,⋯,p_n$ 的最大信息熵</strong></p>
+
+<p><script type="math/tex">% <![CDATA[
+\begin{aligned}&f(p_1,p_2,⋯,p_n)=−\sum_{j=1}^np_jlog_2p_j\\s.t.\quad &g(p_1,p_2,⋯,p_n)=\sum_{k=1}^np_k=1（概率和为1)\end{aligned} %]]></script>
+单约束问题，引入一个乘子 $\lambda$ ，对于$k\in[1,n]$，要求
+<script type="math/tex">\frac{\partial}{\partial p_k}(f+\lambda(g−1))=0</script>
+将 $f$ 和 $g$ 带入有</p>
+
+<p><script type="math/tex">\frac{\partial}{\partial p_k}\big(−\sum_{k=1}^n p_klog_2p_k+\lambda(\sum_{k=1}^np_k−1)\big)=0</script>
+计算这 $n$ 个等式的偏微分，我们可以得到：</p>
+
+<p><script type="math/tex">−\big(\frac{1}{ln(2)}+log_2p_k\big)+\lambda=0</script>
+这说明所有的 $p_i$ 都相等，所以得到 $p_k=\frac{1}{n}$</p>
+
+<p>我们可以得到一个结论是：<strong>均匀分布的信息熵是最大的</strong></p>
+
+<h3 id="多约束">多约束</h3>
+
+<p>既然可以解决单约束，继续思考一下多约束情况的直观表现，假设我们的约束是两条线，如下图所示</p>
+
+<p><img src="../img/illustration/20190408-kkt3.png" width="400" /></p>
+
+<p>和单约束的解决方法类似，我们画出等高线图，目的就是<strong>在约束线上找到一个点可以和等高线相切，所得的值实在约束范围内的最大值或者最小值</strong>，直观表示如下图</p>
+
+<p><img src="../img/illustration/20190408-kkt4.png" width="400" /></p>
+
+<p>解算方法是讲单约束的扩展到多约束的情况，较为类似，可举一反三。</p>
+
+<h2 id="3-kkt条件">3. KKT条件</h2>
+
+<p>已经解决的在<strong>等式约束条件下</strong>的求函数极值的问题，那<strong>不等式约束条件</strong>下，应该如何解决呢？</p>
+
+<p><strong>主要思想：转化的思想</strong>——将不等式约束条件变成等式约束条件。</p>
+
+<p><strong>具体做：引入松弛变量。</strong>松弛变量也是优化变量，也需要<strong>一视同仁求偏导.</strong></p>
+
+<p><img src="../img/illustration/20190408-kkt5.jpg" width="500" /></p>
+
+<p>这里具体推导证明的过程暂时就不放上来，可以在<a href="https://zhuanlan.zhihu.com/p/26514613">【知乎·力学渣–浅谈最优化问题的KKT条件】</a>学习一下，我觉得讲的挺好的。</p>
+
+<p><strong>KKT条件</strong>（Karush-Kuhn-Tucker Conditions），它是在满足一些有规则的条件下，一个<strong>非线性规划问题能有最优化解法</strong>的一个<strong>必要和充分条件</strong>。</p>
+
+<p>考虑以下非线性最优化问题，含有 $m$ 个不等式约束，$l$ 个等式约束</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+min_xf(x)\qquad s.t.\quad\begin{cases}\begin{aligned}g_i(x)⩽0\quad&(i=1,2,\dots,m)\\h_j(x)=0\quad&(i=1,2,\dots,l)\end{aligned}\end{cases} %]]></script>
+
+<h3 id="必要条件">必要条件</h3>
+
+<p>假设 $f$,$g_i$,$h_j$ 三个函数为<strong>实数集映射</strong>，再者，他们都在 $x^<em>$ 这点连续可微，如果 $x^</em>$ 是一个<strong>局部极值</strong>，那么<strong>将会存在</strong>一组<strong>称为乘子</strong>的常数 <script type="math/tex">\lambda⩾0,\mu_i⩾0,ν_j</script> 令</p>
+
+<p><script type="math/tex">% <![CDATA[
+\begin{array}{lcr}\lambda+\sum_{i=1}^mμ_i+\sum_{j=1}^l|\nu_i|>0&\quad&(i)\\\lambda\nabla f(x^*)+\sum^m_{i=1}μ_i\nabla g_i(x^*)+\sum^l_{j=1}\nu_i\nabla h_j(x^*)=0&\quad&(ii)\\μ_ig_i(x^*)=0\ for\ all\ i=1,\dots,m&\quad&(iii)\end{array} %]]></script>
+这里有一些<strong>正则性条件或约束规范</strong>能保证解法不是退化的（比如$λ$为0），<a href="https://zh.wikipedia.org/wiki/%E5%8D%A1%E7%BE%85%E9%9C%80%EF%BC%8D%E5%BA%AB%E6%81%A9%EF%BC%8D%E5%A1%94%E5%85%8B%E6%A2%9D%E4%BB%B6">详见</a></p>
+
+<h3 id="充分条件">充分条件</h3>
+
+<p>假设 $f$,$g_i$ 为<strong>凸函数</strong>，h_j 函数是<strong>仿射函数</strong>（平移变换），假设有一个可行点 $x^*$，如果有常数$μ_i⩾0$ 及 $\nu_j$ 满足</p>
+
+<p><script type="math/tex">% <![CDATA[
+\begin{array}{lcr}\nabla f(x^*)+\sum^m_{i=1}μ_i\nabla g_i(x_*)+\sum^l_{j=1}\nu_i\nabla h_j(x_*)=0&\quad&(iv)\\μ_ig_i(x^*)=0\ for\ all\ i=1,\dots,m&\quad&(v)\\\end{array} %]]></script>
+那么 $x^*$就是<strong>全局极小值</strong>。</p>
+
+<h2 id="总结">总结</h2>
+
+<p>总的来说，拉格朗日乘子法是<strong>一个工具（手段或方法）</strong>，来<strong>解决在有约束情况的求函数极值的问题</strong>。</p>
+
+<p>本文内容主要来自<a href="https://charlesliuyx.github.io/2017/09/20/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E6%B3%95%E5%92%8CKKT%E6%9D%A1%E4%BB%B6/">【直观详解】拉格朗日乘法和KKT条件</a>和<a href="https://zhuanlan.zhihu.com/p/26514613">【知乎·力学渣–浅谈最优化问题的KKT条件】</a></p>
+:ET

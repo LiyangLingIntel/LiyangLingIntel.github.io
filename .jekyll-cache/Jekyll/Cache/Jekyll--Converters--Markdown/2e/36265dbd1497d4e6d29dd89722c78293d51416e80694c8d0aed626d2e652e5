@@ -1,0 +1,43 @@
+I"x	<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="rouge-code"><pre>layout:     post
+title:      "知识图谱入门"
+subtitle:   Step into Knowledge Graph
+date:       2019-06-30
+header-img: img/post-bg-knowledgegraph.png
+catalog: true
+mathjax: false
+tags:
+    - Knowledge Graph
+	- Machine Learning
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>知识图谱全栈，从底层到上层有四层。</p>
+
+<p>最底层是<strong>理论层</strong>，理论层就是刚才提到的几个比较关键的点，比如说本体论、语义网络、语义超链接、数据链接以及知识库。</p>
+
+<p>在<strong>数据层</strong>，举例的都是一些通用的数据源，比如说freebase，这个是google收购了，knowledge vault，这个是google开放的知识图谱库，包括维基数据，imagenet等，这些都是公开的，大家从网上能够查到。</p>
+
+<p><strong>实现层</strong>，大概分成六个步骤，分别是知识获取、知识抽取、知识融合、知识存储、知识推理、知识建模和知识发现。</p>
+
+<ul>
+  <li>知识获取是获取外部数据的方式，包括爬虫和实时入库的技术方法；</li>
+  <li>知识抽取就是，对三元组进行知识的抽取，包括实体抽取、关系抽取和属性的抽取；</li>
+  <li>知识融合就是，抽取出来之后，存在很多的数据冗余和噪声，要去做实体的消歧，数据的整合；</li>
+  <li>知识存储，刚才讲了，实际是要构建一个三元组RDF的数据结构，如果把所有的顶点和边构造出来之后，要对他进行图数据库的存储；</li>
+  <li>知识推理，刚才也讲到了，如果要做一些深层次的知识问答，就要做很多的训练，无论有监督的还是半监督的；</li>
+  <li>知识建模更多的是去理解语义，涉及到属性的映射，实体的连接；</li>
+  <li>知识发现，两大主要的应用是知识的检索和知识的问答。这些构建了知识图谱的实现层。</li>
+</ul>
+
+<p>再往上就是<strong>应用领域</strong>，大概分成两个方向，一个是通用领域，比如搜索引擎、机器人和物联网等等。在专业领域基本都是行业，例如交通、能源、金融，包括医疗健康。</p>
+
+:ET

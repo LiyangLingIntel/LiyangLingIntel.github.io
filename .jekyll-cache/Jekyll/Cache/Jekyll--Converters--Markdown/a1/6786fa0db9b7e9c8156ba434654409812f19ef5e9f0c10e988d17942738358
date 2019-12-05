@@ -1,0 +1,7 @@
+I":<p><em>To be briefly.</em></p>
+
+<ul>
+  <li><strong>OLTP</strong> (On-line Transaction Processing) is involved in the operation of a particular system. OLTP is characterized by a large number of <strong>short on-line transactions</strong> (INSERT, UPDATE, DELETE). The main emphasis for OLTP systems is put on very <strong>fast</strong> query processing, maintaining data integrity in multi-access environments and an effectiveness measured by number of transactions per second. In OLTP database there is detailed and current data, and schema used to store transactional databases is the entity model (usually 3NF). It involves Queries accessing individual record like Update your Email in Company database.</li>
+  <li><strong>OLAP</strong> (On-line Analytical Processing) deals with <strong>Historical Data or Archival Dat</strong>a. OLAP is characterized by relatively low volume of transactions. <u>Queries are often very complex and involve aggregations</u>. For OLAP systems a response time is an effectiveness measure. OLAP applications are widely used by Data Mining techniques. In OLAP database there is aggregated, historical data, stored in multi-dimensional schemas (usually star schema). Sometime query need to access large amount of data in Management records like what was the profit of your company in last year.</li>
+</ul>
+:ET

@@ -1,0 +1,256 @@
+I"�,<blockquote>
+  <p>Firstly, I am very honor to take part in the Alibaba Cloud Big Data Certification Course. Although it’s only two days long, a lot of new concepts are given to me, like an iceberg waiting me to discover.</p>
+
+  <p>In this course, basic idea of cloud computing and the way how Alibaba dealing with it are taught to us. I’m going to write down all I learnt here.</p>
+
+  <p>Thanks Alibaba, BDT, lecturer Derek and our program director Prof Chen for providing this opportunity to us.</p>
+</blockquote>
+
+<h3 id="recommended-resources">Recommended Resources</h3>
+
+<p>If we want to get to know something about big data and cloud computing, there are three papers from Google are high recommended.</p>
+
+<ul>
+  <li><strong><em>The Google File System</em></strong> – Google, 2003</li>
+  <li><strong><em>MapReduce: Simplified Data Processing on Large Clusters</em></strong> – Goole, 2004</li>
+  <li><strong><em>Bigtable: A Distributed Storage System for Structured Data</em></strong> – Google, 2006</li>
+</ul>
+
+<h3 id="notes-on-first-days-course">Notes on First Day’s Course</h3>
+
+<p>At first, this is the brief architectures of <code class="highlighter-rouge">Hadoop</code> and <code class="highlighter-rouge">Alibaba Cloud</code>. Please forgive my ugly hand writing. ;)</p>
+
+<p><img src="../img/illustration/20190123-alicloudtrain11.jpeg" /></p>
+
+<p><em>In this picture, there are many new words for me, I will collect them and give the brief explaination later.</em></p>
+
+<h3 id="common-concepts">Common Concepts</h3>
+
+<h4 id="hadoop-ecosystem">Hadoop Ecosystem</h4>
+
+<ol>
+  <li><strong>PROCESS, ANALYZE, SERVE</strong>
+    <ul>
+      <li><strong>BATCH</strong>:  Spark, Hive, Pig, MapReduce</li>
+      <li><strong>STREAM</strong>: Spark</li>
+      <li><strong>SQL</strong>: Impala</li>
+      <li><strong>SEARCH</strong>: ElasticSearch</li>
+    </ul>
+  </li>
+  <li><strong>UNIFIED SERVICES</strong>
+    <ul>
+      <li><strong>RESOURCE MANAGEMENT</strong>: YARN</li>
+      <li><strong>SECURIYTY</strong>: Sentry, Kerberos, RecordService</li>
+    </ul>
+  </li>
+  <li><strong>STORE</strong>
+    <ul>
+      <li><strong>FILESYSTEM</strong>: HDFS</li>
+      <li><strong>STRUCTURE</strong>: Kudu</li>
+      <li><strong>NoSQL</strong>: HBase</li>
+      <li><strong>OTHER</strong>:Object Store</li>
+    </ul>
+  </li>
+  <li><strong>INTEGRATE</strong>
+    <ul>
+      <li><strong>BATCH</strong>: Sqoop</li>
+      <li><strong>REAL-TIME</strong>: Kafka, Flume</li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="data-processing---single-instance-to-scale-up">Data Processing - Single Instance to Scale up</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"> </th>
+      <th style="text-align: center">File System<br />(Linux Ext2/3/4)</th>
+      <th style="text-align: center">RDBMS<br />(Oracle)</th>
+      <th style="text-align: center">Distributed<br />File System</th>
+      <th style="text-align: center">Distributed <br />Database<br />(Hive)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>Data Unit</strong></td>
+      <td style="text-align: center">Block<br />1k/4k</td>
+      <td style="text-align: center">Block<br />1k/16k</td>
+      <td style="text-align: center">Block<br />64M/128M</td>
+      <td style="text-align: center">N/A</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>Meta Data</strong></td>
+      <td style="text-align: center">INode Table</td>
+      <td style="text-align: center">System.dbf</td>
+      <td style="text-align: center">namenode</td>
+      <td style="text-align: center">MySQL</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>Data</strong></td>
+      <td style="text-align: center">Data Block</td>
+      <td style="text-align: center">User.dbf</td>
+      <td style="text-align: center">datanode</td>
+      <td style="text-align: center">HDFS</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Among my handwriting note, teacher gave us the comparison of Hadoop and Alibaba Cloud architecture. Below I will also separate those word by this two system.</p>
+</blockquote>
+
+<h4 id="hadoop">Hadoop</h4>
+
+<p><a href="https://hadoop.apache.org/">Apache Hadoop</a> software library is a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models. It is designed to scale up from single servers to thousands of machines, each offering local computation and storage. Rather than rely on hardware to deliver high-availability, the library itself is designed to detect and handle failures at the application layer, so delivering a highly-available service on top of a cluster of computers, each of which may be prone to failures.</p>
+
+<ul>
+  <li>
+    <p><strong>HDFS</strong></p>
+
+    <p>Hadoop Distributed File System, a distributed file system designed to run on commodity hardware.</p>
+  </li>
+  <li>
+    <p><strong>YARN</strong></p>
+
+    <p><strong>Resource management</strong> and <strong>job scheduling</strong> technology, responsible for allocating system resources to the various applications running in a Hadoop cluster and scheduling tasks to be executed on different cluster nodes.</p>
+
+    <p><strong>YARN Process:</strong></p>
+
+    <p><img src="../img/illustration/20190123-alicloudtrain12.jpeg" /></p>
+  </li>
+  <li>
+    <p><strong>Zookeeper</strong></p>
+
+    <p>Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services.</p>
+  </li>
+  <li>
+    <p><strong>Hive</strong></p>
+
+    <p><strong>Data warehouse</strong> software project built on top of <strong>Apache Hadoop</strong> for providing data query and analysis. It has two version implemented based on <code class="highlighter-rouge">MapReduce</code> and <code class="highlighter-rouge">Spark</code>.</p>
+  </li>
+  <li>
+    <p><strong>Flume</strong></p>
+
+    <p>Distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data. It has a simple and flexible architecture based on streaming data flows.</p>
+
+    <p><img src="../img/illustration/20190123-alicloudtrain13.jpeg" /></p>
+  </li>
+  <li>
+    <p><strong>Sqoop</strong></p>
+
+    <p>Its name comes from SQL + Hadoop.</p>
+
+    <p>A <strong>tool</strong> designed for efficiently transferring <strong>bulk data</strong> between Apache Hadoop and structured datastores such as relational databases.</p>
+  </li>
+  <li>
+    <p><strong>Kafka</strong></p>
+
+    <p>Distributed streaming platform.</p>
+
+    <p>Kafka is generally used for two broad classes of applications:</p>
+
+    <ul>
+      <li>Building real-time streaming data pipelines that reliably get data between systems or applications</li>
+      <li>Building real-time streaming applications that transform or react to the streams of data</li>
+    </ul>
+
+    <p>Often play as datahub to store data queue before data going through file system to storage.</p>
+  </li>
+  <li>
+    <p><strong>Spark</strong> could support both batch processing and streaming processing.</p>
+  </li>
+  <li>
+    <p><strong>Flink</strong></p>
+
+    <p>A framework and distributed processing engine for stateful computations over <em>unbounded and bounded</em> data streams. Flink has been designed to run in <em>all common cluster environments</em>, perform computations at <em>in-memory speed</em> and at <em>any scale</em>.</p>
+
+    <p><img src="../img/illustration/20190123-alicloudtrain14.jpeg" /></p>
+  </li>
+  <li>
+    <p><strong>HUE</strong></p>
+
+    <p>The short name of <strong>Hadoop User Experience</strong>, an open-source Web interface that supports Apache Hadoop and its ecosystem. It acts as <strong>Analytics Workbench</strong> for browsing, querying and visualizing data.</p>
+  </li>
+</ul>
+
+<h4 id="alibaba-cloud">Alibaba Cloud</h4>
+
+<p>Aliyun wants to make things easy. User put data into cloud service and get wanted outputs like reports or other business issues.</p>
+
+<ul>
+  <li>
+    <p><strong>Pangu(盘古)</strong> : Distributed file system</p>
+  </li>
+  <li>
+    <p><strong>Fuxi(伏羲)</strong>: For scheduling</p>
+  </li>
+  <li>
+    <p><strong>Nvwa(女娲)</strong>: For name space</p>
+  </li>
+  <li>
+    <p><strong>Shennong(神农)</strong>: For monitoring</p>
+  </li>
+  <li>
+    <p><strong>Huatuo(华佗)</strong>: For trouble shooting</p>
+  </li>
+  <li>
+    <p><strong>Zhongkui(钟馗)</strong>: For security</p>
+  </li>
+  <li>
+    <p><strong>Apsara(飞天):</strong> Alibaba cloud database system</p>
+  </li>
+  <li><strong>MaxCompute</strong>: Big data processing platform by Ali, acts as Data Warehouse like <code class="highlighter-rouge">Hive</code>. Mainly used for batch structural data storage and processing, which can provide massive data warehouse solution and big data modeling service.
+    <ul>
+      <li><strong>Project</strong> is the basic <strong>unit of operation</strong> in MaxCompute, which set the boundary for MaxCompute multi-users isolation and access control.</li>
+      <li><strong>Table</strong> is the <strong>data storage unit</strong> in MaxCompute and all data in MaxCompute is stored in tables. Table is a two -dimentianal data structure composed of rows and columns.</li>
+      <li><strong>Partition</strong> is alternative to be specified when creating table in order to improve the processing efficiency.</li>
+      <li><strong>Resouce</strong> is a particular concept of MaxCompute. It’s needed if you want to use UDF(user-defined function) or MapReduce.</li>
+      <li><strong>LifeCycle</strong> is counted from the last time the table(patition) data was updated. If that remains unchanged exceeding specified time, MaxCompute automatically recycles it.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Dataworks</strong>: online IDE</p>
+  </li>
+  <li>
+    <p><strong>OSS</strong>: Alibaba’s product to store unstructured data</p>
+  </li>
+  <li>
+    <p><strong>PAI</strong>: Machine learning platform on Alibaba cloud for AI.</p>
+
+    <ul>
+      <li>
+        <p>Rich algorithm components</p>
+      </li>
+      <li>
+        <p>All-in-one services</p>
+
+        <p>All processing steps include <strong>Data Preprocessing</strong>, <strong>Feature Engineering</strong>, <strong>Machine Learning Model Training</strong>, <strong>Model Evaluation</strong>, <strong>Machine Learning Offline/Online Services</strong></p>
+
+        <p><img src="../img/illustration/20190123-alicloudtrain15.jpeg" width="600" /></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>DTS / Data X</strong>: (Offline Data Sync Tool) For migrate data from database to Alibaba cloud</p>
+  </li>
+  <li>
+    <p><strong>Data V:</strong> Visualization tools for real-time data</p>
+  </li>
+  <li>
+    <p><strong>Quick BI:</strong> Visualization toolkit for offline data</p>
+  </li>
+  <li>
+    <p><strong>Blink</strong></p>
+
+    <p>Blink is the kind of framework implemented by Alibaba based on Flink.</p>
+
+    <p>In today’s course, an interesting part is, the lecturer stressed on several times that Alibaba has bought <code class="highlighter-rouge">Apache Flink</code> and developed <code class="highlighter-rouge">Blink</code>, so now we can regard <strong>Blink</strong> and Flink as the same thing.</p>
+
+    <p>For this story, I just want to show this picture.</p>
+  </li>
+</ul>
+
+<p><img src="../img/illustration/20190123-alicloudtrain16.jpeg" width="600" /></p>
+
+:ET

@@ -1,0 +1,52 @@
+I"	<blockquote>
+  <p>RESTful API is not a new concept for today’s Internet developing, but I always forget the meaning of that.</p>
+
+  <p>So now I write it here.</p>
+</blockquote>
+
+<h3 id="foreword">Foreword</h3>
+
+<p>With the development of mobile devices and the Internet, there are more and more devices and platforms connecting into the Internet, so it’s needed to define a rule or mechanism to unify the ways of API design.</p>
+
+<p>Here comes RESTful.</p>
+
+<p><img src="https://upload-images.jianshu.io/upload_images/2888542-27f4990d17ca67ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/550/format/webp" /></p>
+
+<h3 id="restful-api">RESTful API</h3>
+
+<p><strong>REST</strong>, abbreviation of <strong>Representational State Transfer</strong>.</p>
+
+<p>That is a design philosophy of Internet Applications API. Which means we should and only should use <strong>URL</strong> to locate resources and <strong>HTTP verbs</strong> (GET, POST, DESC, DELETE, PUT) to describe actions.</p>
+
+<p>In this we, each kind of resource on server, like a file, a picture, a movie, have its respective URL address. If we want to do some operations on these resouces on server, some related actions unter HTTP protocol should be taken.</p>
+
+<p>For simplification, resources in URL only could be in <strong>Noun</strong> form, while using HTTP actions to operate resources.</p>
+
+<p>Here are some examples:</p>
+
+<p>This is not RESTful:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>GET /blog/getArticles
+GET /blog/addArticles
+GET /blog/editArticles
+GET /rest/api/deleteArticles?id=1
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>This is RESTful:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="rouge-code"><pre>GET /blog/Articles
+POST /blog/Articles
+PUT /blog/Articles
+DELETE /blog/Articles/1
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><em>Some of these ideas come from <a href="https://www.jianshu.com/p/6baf8554b3f4?from=timeline&amp;isappinstalled=0">here</a></em></p>
+:ET

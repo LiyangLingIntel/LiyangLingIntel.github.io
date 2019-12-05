@@ -1,0 +1,228 @@
+I"� <h2 id="course-content">Course Content</h2>
+
+<h5 id="alibaba-cloud-big-data-architechture">Alibaba Cloud Big Data Architechture</h5>
+
+<p>Here I drew the structure of whole AliCloud Big Data Platform.</p>
+
+<p><img src="../img/illustration/20190124-alicloudtrain21.jpeg" width="800" /></p>
+
+<h5 id="maxcompute-provides-two-data-import-and-export-methods">MaxCompute provides two data import and export methods:</h5>
+
+<ol>
+  <li>Tunnel Operation on the console</li>
+  <li>Tunnel written with Java</li>
+</ol>
+
+<h5 id="maxcompute-pricing">MaxCompute pricing</h5>
+
+<ul>
+  <li>
+    <p>MaxCompute takes Project as a charge unit.</p>
+  </li>
+  <li>
+    <p>Three factors affect the price</p>
+    <ul>
+      <li>Usage of storage</li>
+      <li>Computing resource</li>
+      <li>Data download</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="certification-test-contents">Certification Test Contents</h2>
+
+<h3 id="maxcompute">MaxCompute:</h3>
+
+<ul>
+  <li>
+    <p><strong>ODPS</strong></p>
+
+    <p>Open Data Processing Service，old name of MaxCompute. A solution for quick and full trusteeship GB/TB/PB level data warehouse developed by Alibaba.</p>
+  </li>
+  <li>
+    <p><strong>Use case of MaxCompute</strong></p>
+
+    <p>Data Warehouse, Social networking analysis, User Profile</p>
+
+    <p>This is <strong>NOT</strong>: Order management, transacrtion prcessing, Fast real-time response, ad-hoc queries by end user, high concurrnet user requests</p>
+  </li>
+  <li>
+    <p><strong>MaxCompute Command &amp; SQL:</strong></p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>&gt; show tables	// if you want to view all tables in a project, you can execute;
+&gt; desc table_a 	// show table schema and the size of space taken by the table;
+&gt; datediff  	// calculate the difference between 2 time stamps
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+
+    <p><strong>SQL</strong> is based on <strong>CBO</strong>(Cost Based Optimizer)</p>
+  </li>
+  <li>
+    <p><strong>MaxCompute Pricing:</strong></p>
+
+    <p>MaxCompute: Data Download / Computing / Storage. (no data upload)</p>
+  </li>
+  <li>
+    <p><strong>MaxCompute Client:</strong></p>
+
+    <p>Tunnel: administration</p>
+
+    <p>IntelliJ Idea: Development (Lower thresholds)</p>
+
+    <p>Dataworks: configure workflow and scheduling (lower thresholds)</p>
+
+    <p><em>Lower thresholds means: the upper operating file size is limited</em></p>
+  </li>
+  <li>
+    <p><strong>MaxCompute Security steps: (<code class="highlighter-rouge">set ProjectProtestion=true;</code> has the first priority)</strong></p>
+
+    <p><strong>accessKey pair: Access Key ID / Access Key Secret</strong></p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>  use prj1<span class="p">;</span>
+add user <span class="o">[</span>aliyun<span class="nv">$alice</span>@aliyun.com]<span class="o">(</span>mailto:aliyun<span class="nv">$alice</span>@aliyun.com<span class="o">)</span><span class="p">;</span>
+  grant List, CreateTable, CreateInstance on project prj1 to user aliyun<span class="nv">$alice</span>@aliyun<span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+
+    <p>ACL Objects: Project, Resource, Procedure</p>
+  </li>
+  <li>
+    <p><strong>MaxCompute Resource:</strong></p>
+
+    <p>Files, Tables, Jar package, Archive</p>
+  </li>
+</ul>
+
+<h3 id="dataworks">DataWorks:</h3>
+
+<ul>
+  <li>
+    <p>DataWorks can be used to create all types of tasks and configure scheduling cycles as needed. The supported granularity levels of scheduling cycles include days, weeks, months, hours, 5 minutes</p>
+  </li>
+  <li>
+    <p>In DataWorks workflow, Inner nodes of a flow task can <strong>NOT</strong> be depended on by other flow or node tasks.</p>
+  </li>
+  <li>
+    <p>Phase of the scheduling process: Not running, Running, Run successfully</p>
+  </li>
+  <li>
+    <p>Work node Type: Data Synchronization, SHELL, MaxCompute SQL,  MaxCompute MR</p>
+  </li>
+</ul>
+
+<p><strong>Operation &amp; Maintainance:</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>Alert policies: Email, Text message
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>As an administrator of a project in MaxCompute. The project involves a large volume of sensitive data such as user IDs and shopping records, to be specific, project users can only access the data within the project, all data flows only within the project.</p>
+
+<p>What operation should you do? 
+Enable the data protection mechanism in the project.</p>
+
+<h3 id="datav">DataV:</h3>
+
+<ul>
+  <li>
+    <p><strong>Data Portal:</strong></p>
+
+    <p>When a DataV screen is ready, it can embed works to the existing portal of the enterprise through URL after the release.</p>
+  </li>
+  <li>
+    <p><strong>DataV data source:</strong></p>
+
+    <p>Alibaba Cloud’ s AnalyticDB, ApsaraDB Static data in CSV and JSON formats Oracle Database / DataV can NOT make full use of MaxCompute for data process.</p>
+  </li>
+  <li>
+    <p><strong>DataV Visual screens types:</strong></p>
+
+    <p>Presentation type / Analysis type / Monitoring type</p>
+  </li>
+</ul>
+
+<h3 id="quickbi">QuickBI:</h3>
+
+<ul>
+  <li>
+    <p><strong>Data Source:</strong></p>
+
+    <p>MaxCompute / Local Excel files / MySQL RDS</p>
+  </li>
+  <li>
+    <p><strong>Data Storage:</strong></p>
+
+    <p>Data Will be stored in Exploration space built in Quick BI</p>
+  </li>
+  <li>
+    <p><strong>Security:</strong></p>
+
+    <p>Different users can view different data in a same report in Quick BI by Set a row-level permission Only Quick BI Pro provides the row-level permission function</p>
+  </li>
+</ul>
+
+<h3 id="e-mapreduce">E-MapReduce:</h3>
+
+<ul>
+  <li>
+    <p><strong>DTS:</strong></p>
+
+    <p>Migrate their data with virtually no downtime</p>
+  </li>
+  <li>
+    <p><strong>Streaming:</strong></p>
+
+    <p>Flume + Kafka + Spark Streaming(storm, f(B)link ) + HDFS(Redis, HBase…)</p>
+  </li>
+</ul>
+
+<p>It supports the Pay-As-You-Go payment method, which means that the cost of each task is measured according to ECS.</p>
+
+<h3 id="pay-attention-the-traps"><strong>Pay attention the traps:</strong></h3>
+
+<p><em>Wrong desctiptions</em></p>
+
+<ul>
+  <li>
+    <p>DataWorks provides a convenient way to analyze and process big data for the user. The user is able to analyze big data without concerning details of distributed computing.</p>
+  </li>
+  <li>
+    <p>Deployment personnel or Operation &amp; Management (O&amp;M) personnel can generate release packages based on the latest development results</p>
+  </li>
+  <li>
+    <p>MaxCompute SQL is 100% equivalent to Hive SQL</p>
+  </li>
+  <li>
+    <p>MaxCompute SQL can complete the query in minutes even seconds, and it can be able to return the result in millisecond</p>
+  </li>
+  <li>
+    <p>Tunnel command Parameters <strong>Purge</strong>: Clears the table directory. By default, use this command to clear information of the last three days.</p>
+  </li>
+  <li>
+    <p>MaxCompute can identify the RAM account system, it can also identify the RAM permission system.</p>
+  </li>
+  <li>
+    <p>MaxCompute partition only supports string type and the conversion of any other types is not allowed</p>
+  </li>
+  <li>
+    <p>The table name and column name are both case sensitive.</p>
+  </li>
+  <li>
+    <p>DataWorks provides a convenient way to analyze and process big data for the user. The user is able to analyze big data without concerning details of distributed computing.</p>
+  </li>
+  <li>
+    <p>Deployment personnel or Operation &amp; Management (O&amp;M) personnel can generate release packages based on the latest development results</p>
+  </li>
+  <li>
+    <p>In DataWorks: Inner nodes of a flow task can be depended on by other flow or node tasks.</p>
+  </li>
+  <li>
+    <p>If are Using DataWorks to Build an enterprise-level data warehouse, and process the history data of the enterprise.</p>
+  </li>
+</ul>
+
+:ET

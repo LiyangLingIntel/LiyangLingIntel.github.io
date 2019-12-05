@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="孤独是人生的常态吗？">
+    <meta name="keywords"  content="leonling, 凌丽阳, LEON's Blog ">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Archive - LEON的博客 | LEON's Blog">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="纸上得来终觉浅, 绝知此事要躬行">
+    
+    <meta property="og:image" content="http://localhost:4000/img/avatar_2.png">
+    <meta property="og:url" content="http://localhost:4000/archive/">
+    <meta property="og:site_name" content="LEON的博客 | LEON's Blog">
+    
+    <title>Archive - LEON的博客 | LEON's Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/archive/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Leon Ling's Blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            <a href="/archive/">Archive</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <script>
+        // Drop Bootstarp low-performance Navbar
+        // Use customize navbar with high-quality material design animation
+        // in high-perf jank-free CSS3 implementation
+        var $body = document.body;
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                $navbar.className = " ";
+                // wait until animation end.
+                setTimeout(function () {
+                    // prevent frequently toggle
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px"
+                    }
+                }, 400)
+            },
+            open: function () {
+                $collapse.style.height = "auto"
+                $navbar.className += " in";
+            }
+        }
+
+        // Bind Event
+        $toggle.addEventListener('click', function (e) {
+            if ($navbar.className.indexOf('in') > 0) {
+                __HuxNav__.close()
+            } else {
+                __HuxNav__.open()
+            }
+        })
+
+        /**
+         * Since Fastclick is used to delegate 'touchstart' globally
+         * to hack 300ms delay in iOS by performing a fake 'click',
+         * Using 'e.stopPropagation' to stop 'touchstart' event from 
+         * $toggle/$collapse will break global delegation.
+         * 
+         * Instead, we use a 'e.target' filter to prevent handler
+         * added to document close HuxNav.  
+         *
+         * Also, we use 'click' instead of 'touchstart' as compromise
+         */
+        document.addEventListener('click', function (e) {
+            if (e.target == $toggle) return;
+            if (e.target.className == 'icon-bar') return;
+            __HuxNav__.close();
+        })
+    </script>
+
+<script src="/js/simple-jekyll-search.min.js"></script>
+
+    <!-- 
+Credits: this page shamelessly borrowed a lot from:
+https://github.com/kitian616/jekyll-TeXt-theme
+-->
+<!-- Page Header -->
+
+
+
+
+
+
+
+<header class="intro-header" style="background-image: url('/img/bg_page_lib.jpeg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="site-heading" id="tag-heading">
+        
+          <h1>Archive</h1>
+          <span class="subheading">纸上得来终觉浅, 绝知此事要躬行</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+			<!-- Tags (as filter) -->
+			<div id='tag_cloud' class="tags tags-sup js-tags">
+				<a class="tag-button--all" data-encode="">
+					Show All
+					<sup>51</sup>
+				</a>
+
+				
+        
+				
+				</a>
+				
+				<a data-sort="0040"
+					data-encode="JobHunting"
+					class="tag-button"
+					title="JobHunting" rel="11">
+					JobHunting
+					<sup>11</sup>
+				</a>
+				
+				<a data-sort="0042"
+					data-encode="%E8%BD%AC%E8%BD%BD"
+					class="tag-button"
+					title="转载" rel="9">
+					转载
+					<sup>9</sup>
+				</a>
+				
+				<a data-sort="0042"
+					data-encode="Foundations"
+					class="tag-button"
+					title="Foundations" rel="9">
+					Foundations
+					<sup>9</sup>
+				</a>
+				
+				<a data-sort="0043"
+					data-encode="Tricks"
+					class="tag-button"
+					title="Tricks" rel="8">
+					Tricks
+					<sup>8</sup>
+				</a>
+				
+				<a data-sort="0044"
+					data-encode="Notes"
+					class="tag-button"
+					title="Notes" rel="7">
+					Notes
+					<sup>7</sup>
+				</a>
+				
+				<a data-sort="0044"
+					data-encode="Programing"
+					class="tag-button"
+					title="Programing" rel="7">
+					Programing
+					<sup>7</sup>
+				</a>
+				
+				<a data-sort="0044"
+					data-encode="Python"
+					class="tag-button"
+					title="Python" rel="7">
+					Python
+					<sup>7</sup>
+				</a>
+				
+				<a data-sort="0045"
+					data-encode="DataScience"
+					class="tag-button"
+					title="DataScience" rel="6">
+					DataScience
+					<sup>6</sup>
+				</a>
+				
+				<a data-sort="0045"
+					data-encode="MachineLearning"
+					class="tag-button"
+					title="MachineLearning" rel="6">
+					MachineLearning
+					<sup>6</sup>
+				</a>
+				
+				<a data-sort="0046"
+					data-encode="BigData"
+					class="tag-button"
+					title="BigData" rel="5">
+					BigData
+					<sup>5</sup>
+				</a>
+				
+				<a data-sort="0046"
+					data-encode="Spark"
+					class="tag-button"
+					title="Spark" rel="5">
+					Spark
+					<sup>5</sup>
+				</a>
+				
+				<a data-sort="0047"
+					data-encode="CloudComputing"
+					class="tag-button"
+					title="CloudComputing" rel="4">
+					CloudComputing
+					<sup>4</sup>
+				</a>
+				
+				<a data-sort="0047"
+					data-encode="Mac"
+					class="tag-button"
+					title="Mac" rel="4">
+					Mac
+					<sup>4</sup>
+				</a>
+				
+				<a data-sort="0047"
+					data-encode="Programming"
+					class="tag-button"
+					title="Programming" rel="4">
+					Programming
+					<sup>4</sup>
+				</a>
+				
+				<a data-sort="0048"
+					data-encode="%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"
+					class="tag-button"
+					title="百面机器学习" rel="3">
+					百面机器学习
+					<sup>3</sup>
+				</a>
+				
+				<a data-sort="0048"
+					data-encode="Alibaba"
+					class="tag-button"
+					title="Alibaba" rel="3">
+					Alibaba
+					<sup>3</sup>
+				</a>
+				
+				<a data-sort="0048"
+					data-encode="C%2B%2B"
+					class="tag-button"
+					title="C++" rel="3">
+					C++
+					<sup>3</sup>
+				</a>
+				
+				<a data-sort="0048"
+					data-encode="Database"
+					class="tag-button"
+					title="Database" rel="3">
+					Database
+					<sup>3</sup>
+				</a>
+				
+				<a data-sort="0048"
+					data-encode="Tutorial"
+					class="tag-button"
+					title="Tutorial" rel="3">
+					Tutorial
+					<sup>3</sup>
+				</a>
+				
+				<a data-sort="0049"
+					data-encode="Algorithm"
+					class="tag-button"
+					title="Algorithm" rel="2">
+					Algorithm
+					<sup>2</sup>
+				</a>
+				
+				<a data-sort="0049"
+					data-encode="Anouncement"
+					class="tag-button"
+					title="Anouncement" rel="2">
+					Anouncement
+					<sup>2</sup>
+				</a>
+				
+				<a data-sort="0049"
+					data-encode="Blockchain"
+					class="tag-button"
+					title="Blockchain" rel="2">
+					Blockchain
+					<sup>2</sup>
+				</a>
+				
+				<a data-sort="0049"
+					data-encode="Debug"
+					class="tag-button"
+					title="Debug" rel="2">
+					Debug
+					<sup>2</sup>
+				</a>
+				
+				<a data-sort="0049"
+					data-encode="Introduction"
+					class="tag-button"
+					title="Introduction" rel="2">
+					Introduction
+					<sup>2</sup>
+				</a>
+				
+				<a data-sort="0049"
+					data-encode="Maths"
+					class="tag-button"
+					title="Maths" rel="2">
+					Maths
+					<sup>2</sup>
+				</a>
+				
+				<a data-sort="0049"
+					data-encode="NLP"
+					class="tag-button"
+					title="NLP" rel="2">
+					NLP
+					<sup>2</sup>
+				</a>
+				
+				<a data-sort="0049"
+					data-encode="OperatingSystem"
+					class="tag-button"
+					title="OperatingSystem" rel="2">
+					OperatingSystem
+					<sup>2</sup>
+				</a>
+				
+				<a data-sort="0049"
+					data-encode="Turotial"
+					class="tag-button"
+					title="Turotial" rel="2">
+					Turotial
+					<sup>2</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="%E5%8C%BB%E7%96%97%E5%B0%8F%E5%B8%B8%E8%AF%86"
+					class="tag-button"
+					title="医疗小常识" rel="1">
+					医疗小常识
+					<sup>1</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="%E7%94%9F%E6%B4%BB"
+					class="tag-button"
+					title="生活" rel="1">
+					生活
+					<sup>1</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="Bigdata"
+					class="tag-button"
+					title="Bigdata" rel="1">
+					Bigdata
+					<sup>1</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="DataBase"
+					class="tag-button"
+					title="DataBase" rel="1">
+					DataBase
+					<sup>1</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="DataMining"
+					class="tag-button"
+					title="DataMining" rel="1">
+					DataMining
+					<sup>1</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="DeepLearning"
+					class="tag-button"
+					title="DeepLearning" rel="1">
+					DeepLearning
+					<sup>1</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="Development"
+					class="tag-button"
+					title="Development" rel="1">
+					Development
+					<sup>1</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="Github"
+					class="tag-button"
+					title="Github" rel="1">
+					Github
+					<sup>1</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="Hive"
+					class="tag-button"
+					title="Hive" rel="1">
+					Hive
+					<sup>1</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="InterviewReview"
+					class="tag-button"
+					title="InterviewReview" rel="1">
+					InterviewReview
+					<sup>1</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="Linux"
+					class="tag-button"
+					title="Linux" rel="1">
+					Linux
+					<sup>1</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="Markdown"
+					class="tag-button"
+					title="Markdown" rel="1">
+					Markdown
+					<sup>1</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="Shell"
+					class="tag-button"
+					title="Shell" rel="1">
+					Shell
+					<sup>1</sup>
+				</a>
+				
+				<a data-sort="0050"
+					data-encode="SocialNetworks"
+					class="tag-button"
+					title="SocialNetworks" rel="1">
+					SocialNetworks
+					<sup>1</sup>
+				
+			</div>
+
+            <!-- Article List -->
+			<div class="mini-post-list js-result d-none"><section>
+				<span class="fa listing-seperator">
+					<span class="tag-text">2019</span>
+				</span><div class="post-preview item" data-tags="Anouncement">
+				    <a href="/2019/11/26/Blog-%E9%87%8D%E5%90%AF%E5%A3%B0%E6%98%8E/">
+				        <h2 class="post-title">
+                            Leon Ling's Blog 重启说明
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            我又回来了
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="">
+				    <a href="/2019/09/10/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%AF%B4%E6%98%8E/">
+				        <h2 class="post-title">
+                            博客迁移说明
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            Blog Migration anounce
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="C%2B%2B,Programming,Foundations">
+				    <a href="/2019/08/31/C++%E4%B8%AD%E7%9A%84vector%E5%92%8Clist/">
+				        <h2 class="post-title">
+                            C++ std中vector和list的区别
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            从零开始C++
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Tutorial,BigData,Spark">
+				    <a href="/2019/08/23/Spark%E7%BC%96%E7%A8%8B%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/">
+				        <h2 class="post-title">
+                            Spark编程优化经验
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            从零开始Spark
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="JobHunting,Foundations,DataBase">
+				    <a href="/2019/08/16/%E5%89%91%E6%8C%87Offer_%E6%95%B0%E6%8D%AE%E5%BA%93/">
+				        <h2 class="post-title">
+                            剑指Offer-数据库&SQL
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            数据库基础知识总结
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Spark,BigData,Programing">
+				    <a href="/2019/08/15/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Pyspark-DataFrame%E7%9A%84%E5%88%97%E5%90%8D/">
+				        <h2 class="post-title">
+                            如何修改 PySpark Dataframe 的列名
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            从零开始Spark
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Spark,Programing,BigData">
+				    <a href="/2019/08/10/Spark-OOM%E9%97%AE%E9%A2%98%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BC%98%E5%8C%96/">
+				        <h2 class="post-title">
+                            Spark OOM 问题的理解与优化
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            从零开始学Spark
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Spark,Programing,BigData">
+				    <a href="/2019/08/08/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Spark-Shuffle/">
+				        <h2 class="post-title">
+                            深入理解Spark Shuffle
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            从零开始学Spark
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Hive,Tricks,Programing,Debug">
+				    <a href="/2019/07/26/Hive%E4%BF%9D%E7%95%99%E5%85%B3%E9%94%AE%E5%AD%97%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3/">
+				        <h2 class="post-title">
+                            Hive保留关键字冲突的解决
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            从零开始学Hive
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="JobHunting,Foundations,OperatingSystem">
+				    <a href="/2019/07/23/%E5%89%91%E6%8C%87Offer_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+				        <h2 class="post-title">
+                            剑指Offer-计算机网络
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            计算机网络基础知识总结
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="JobHunting,Foundations,OperatingSystem">
+				    <a href="/2019/07/21/%E5%89%91%E6%8C%87Offer_%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+				        <h2 class="post-title">
+                            剑指Offer-操作系统
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            操作系统基础知识总结
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="BigData,Tutorial">
+				    <a href="/2019/07/12/Hive%E6%89%8B%E5%86%8C/">
+				        <h2 class="post-title">
+                            Hive使用手册
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            从零开始学Hive
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="MachineLearning,NLP">
+				    <a href="/2019/07/09/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E6%96%B9%E6%B3%95/">
+				        <h2 class="post-title">
+                            文档分类常用方法
+				        </h2>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Turotial,Bigdata,Spark">
+				    <a href="/2019/07/07/Spark%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/">
+				        <h2 class="post-title">
+                            Spark使用入门
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            从零开始学Spark
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="C%2B%2B,Programming,Foundations">
+				    <a href="/2019/06/30/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%85%A5%E9%97%A8/">
+				        <h2 class="post-title">
+                            知识图谱入门
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            从零开始Knowledge Graph
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Mac,Tricks">
+				    <a href="/2019/05/20/%E8%A7%A3%E5%86%B3Mac%E9%9F%B3%E8%A7%86%E9%A2%91%E6%97%A0%E6%B3%95%E6%92%AD%E6%94%BE%E7%9A%84%E9%97%AE%E9%A2%98/">
+				        <h2 class="post-title">
+                            解决MacOS音视频无法播放的问题
+				        </h2>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="NLP,InterviewReview,MachineLearning">
+				    <a href="/2019/05/05/%E6%8F%90%E5%8F%96%E6%96%87%E7%AB%A0%E5%85%B3%E9%94%AE%E8%AF%8D%E5%92%8C%E6%91%98%E8%A6%81/">
+				        <h2 class="post-title">
+                            文章关键词提取&摘要生成
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            面试问题回顾
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="JobHunting,MachineLearning,Notes,%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
+				    <a href="/2019/04/12/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B03/">
+				        <h2 class="post-title">
+                            剑指机器学习--优化方法
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            机器学习方法复习笔记-3
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Maths,DataScience,%E8%BD%AC%E8%BD%BD">
+				    <a href="/2019/04/09/KKT%E6%9D%A1%E4%BB%B6/">
+				        <h2 class="post-title">
+                            浅谈拉格朗日乘子法和KKT条件
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            拉格朗日乘法和KKT条件，了解一下[转载]
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Mac,Linux,Shell,%E8%BD%AC%E8%BD%BD">
+				    <a href="/2019/04/06/Linux-Shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+				        <h2 class="post-title">
+                            Linux Shell 常用命令
+				        </h2>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="JobHunting,MachineLearning,Introduction,%E8%BD%AC%E8%BD%BD">
+				    <a href="/2019/04/06/Recommendation-System/">
+				        <h2 class="post-title">
+                            Introduction to Recommendation system
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            浅谈推荐系统[转载]
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="JobHunting,MachineLearning,Notes,%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
+				    <a href="/2019/03/23/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/">
+				        <h2 class="post-title">
+                            剑指机器学习--降维
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            机器学习方法复习笔记-2
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Database,Foundations">
+				    <a href="/2019/03/20/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">
+				        <h2 class="post-title">
+                            Foundation of Database
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            数据库基础知识整理
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="C%2B%2B,Programming,Foundations">
+				    <a href="/2019/03/19/malloc_calloc_realloc/">
+				        <h2 class="post-title">
+                            浅谈C++内存分配的方法
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            malloc vs calloc vs realloc
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="JobHunting,MachineLearning,Notes,%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">
+				    <a href="/2019/03/13/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B01/">
+				        <h2 class="post-title">
+                            剑指机器学习--模型评估
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            机器学习方法复习笔记-1
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="JobHunting,Maths">
+				    <a href="/2019/03/07/Implementation-of-sqrt/">
+				        <h2 class="post-title">
+                            Implementation of sqrt
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            如何徒手开根号
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="JobHunting,Python,%E8%BD%AC%E8%BD%BD">
+				    <a href="/2019/03/06/Python-Interview-Questions2/">
+				        <h2 class="post-title">
+                            Computer Science Interview Questions
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            Python&CS面试题
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="JobHunting,Python,%E8%BD%AC%E8%BD%BD">
+				    <a href="/2019/03/06/Python-Interview-Questions/">
+				        <h2 class="post-title">
+                            Python Interview Questions
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            Python面试题
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Alibaba,Notes,CloudComputing,DataScience">
+				    <a href="/2019/02/25/Aliyun-Professional-Certification/">
+				        <h2 class="post-title">
+                            Alibaba ACP Big Data Certification
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            Details on ACP Exam
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Database,Foundations">
+				    <a href="/2019/02/22/Priority-of-SQL-Clauses/">
+				        <h2 class="post-title">
+                            Priority of SQL Clauses
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            SQL语句的优先级
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Foundations,SocialNetworks,DataScience">
+				    <a href="/2019/02/20/Ties-in-Social-Networks/">
+				        <h2 class="post-title">
+                            Ties in Social network theory
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            社交网络中的几种常见链接
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="%E7%94%9F%E6%B4%BB,%E5%8C%BB%E7%96%97%E5%B0%8F%E5%B8%B8%E8%AF%86">
+				    <a href="/2019/02/20/How-to-conquer-hiccup/">
+				        <h2 class="post-title">
+                            How to conquer hiccup
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            一直打嗝停不下来點解啊
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Blockchain,Tutorial,%E8%BD%AC%E8%BD%BD">
+				    <a href="/2019/02/11/Get-to-know-blockchain-step-by-step/">
+				        <h2 class="post-title">
+                            Get to know blockchain step by step
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            一步一步弄懂区块链[转载]
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Blockchain,Algorithm,%E8%BD%AC%E8%BD%BD">
+				    <a href="/2019/02/11/Consensus-Algorithm-and-Byzantium-Commanders-Problem/">
+				        <h2 class="post-title">
+                            Consensus Algorithm and Byzantium Commanders Problem
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            拜占庭将军问题和共识算法
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Python,Tricks">
+				    <a href="/2019/01/30/Advanced-Regular-Expression/">
+				        <h2 class="post-title">
+                            Advanced Regex
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            Tricks in Python Regular Expression
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Alibaba,Notes,CloudComputing,DataScience">
+				    <a href="/2019/01/25/Alibaba-Cloud-Training-Day2/">
+				        <h2 class="post-title">
+                            Alibaba Cloud Training (Day2)
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            Notes on Alibaba Cloud Training
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Development,Programming">
+				    <a href="/2019/01/24/RESTful-API/">
+				        <h2 class="post-title">
+                            What is RESTful API
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            什么是REST API
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Database,CloudComputing">
+				    <a href="/2019/01/24/OLTP-vs-OLAP/">
+				        <h2 class="post-title">
+                            OLAP vs OLTP
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				             
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Alibaba,Notes,CloudComputing,DataScience">
+				    <a href="/2019/01/24/Alibaba-Cloud-Training-Day1/">
+				        <h2 class="post-title">
+                            Alibaba Cloud Training (Day1)
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            Notes on Alibaba Cloud Training
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Github">
+				    <a href="/2019/01/23/How-to-resolve-github-unrelated-history/">
+				        <h2 class="post-title">
+                            How to resolve github unrelated history?
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            怎样解决github历史冲突的问题
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Python,Tricks,Programing,Debug">
+				    <a href="/2019/01/21/Traps-in-Python-Dict/">
+				        <h2 class="post-title">
+                            Record a trap in Python dict
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            Python里的坑 -- 字典
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Python,Tricks,Programing">
+				    <a href="/2019/01/20/How-to-restrict-function-run-time/">
+				        <h2 class="post-title">
+                            How to restrict python function run time
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            怎样限制python函数的最大运行时间
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Python,Tricks,Programing">
+				    <a href="/2019/01/19/Python-Tricks/">
+				        <h2 class="post-title">
+                            Python Tricks
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            Python 里的奇技淫巧 [持续更新]
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Algorithm,JobHunting,Python">
+				    <a href="/2019/01/15/Work-on-LeetCode/">
+				        <h2 class="post-title">
+                            Work on LeetCode
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            My answers on leetcode [持续更新]
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="DeepLearning,Notes">
+				    <a href="/2019/01/07/Notes-on-Deep-Learning/">
+				        <h2 class="post-title">
+                            Notes on Deep Learning
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            学习Deep Learning中遇到的一些小问题
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="">
+				    <a href="/2019/01/06/%E8%BD%AE%E8%AF%A2-vs-Websocket-vs-P2P/">
+				        <h2 class="post-title">
+                            轮询 VS Websocket vs P2[转载]
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            不同通信机制之间的区别
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Markdown,Turotial">
+				    <a href="/2019/01/05/Typora-Markdown%E8%AF%AD%E6%B3%95/">
+				        <h2 class="post-title">
+                            Typora for Markdown
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            Markdown on Typora tutorial
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Mac,Tricks">
+				    <a href="/2019/01/05/Mac%E8%AF%BB%E5%8F%96NTFS/">
+				        <h2 class="post-title">
+                            How to make your Mac read and write NTFS
+				        </h2>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="DataMining,Introduction,DataScience,%E8%BD%AC%E8%BD%BD">
+				    <a href="/2019/01/05/Introduction-to-EDA-&-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">
+				        <h2 class="post-title">
+                            How to deal with EDA & Feature Engineering[转载]
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            Introduction to EDA & 特征工程
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			<div class="post-preview item" data-tags="Anouncement">
+				    <a href="/2019/01/05/A-New-Start/">
+				        <h2 class="post-title">
+                            新的开始
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            Hello World, Hello 2019, Hello My Blog
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			</section><section>
+				<span class="fa listing-seperator">
+					<span class="tag-text">2017</span>
+				</span><div class="post-preview item" data-tags="Mac,Tricks,%E8%BD%AC%E8%BD%BD">
+				    <a href="/2017/02/22/Mac-%E6%96%87%E4%BB%B6%E7%9A%84%E9%9A%90%E8%97%8F%E4%B8%8E%E6%98%BE%E7%A4%BA/">
+				        <h2 class="post-title">
+                            Mac 文件的隐藏与显示
+				        </h2>
+				        
+				        <h3 class="post-subtitle">
+				            使用终端控制Finder显示隐藏的文件
+				        </h3>
+				        
+				    </a>
+					<hr>
+				</div>
+			
+		</div>
+	</div>
+</div>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/lyonling">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/5395966937">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/lyonling">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/liyang-ling-678220117">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+                <p class="copyright text-muted">
+                    Copyright &copy; Leon Ling's Blog 2018-2019
+                    <br>
+                    Powered by <a href="https://jekyllrb.com/">Jekyll</a> Theme <a href="https://github.com/Huxpro/huxpro.github.io">HuxPro</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script src="/js/snackbar.js "></script>
+<script src="/js/sw-registration.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    async('/js/jquery.tagcloud.js',function(){
+        $.fn.tagcloud.defaults = {
+            //size: {start: 1, end: 1, unit: 'em'},
+            color: {start: '#bbbbee', end: '#2f93b4'},
+        };
+        $('#tag_cloud a').tagcloud();
+    })
+</script>
+<script src='/js/archive.js '></script>
+
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-131740306-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+<!-- Side Catalog -->
+
+
+
+<!-- Multi-Lingual -->
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

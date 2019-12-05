@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="孤独是人生的常态吗？">
+    <meta name="keywords"  content="leonling, 凌丽阳, LEON's Blog ">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Introduction to Recommendation system - LEON的博客 | LEON's Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="[TOC]
+">
+    
+    <meta property="article:published_time" content="2019-04-06T00:00:00Z">
+    
+    
+    <meta property="article:author" content="Lyon Ling">
+    
+    
+    <meta property="article:tag" content="JobHunting">
+    
+    <meta property="article:tag" content="MachineLearning">
+    
+    <meta property="article:tag" content="Introduction">
+    
+    <meta property="article:tag" content="转载">
+    
+    
+    <meta property="og:image" content="http://localhost:4000/img/avatar_2.png">
+    <meta property="og:url" content="http://localhost:4000/2019/04/06/Recommendation-System/">
+    <meta property="og:site_name" content="LEON的博客 | LEON's Blog">
+    
+    <title>Introduction to Recommendation system - LEON的博客 | LEON's Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/2019/04/06/Recommendation-System/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Leon Ling's Blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            <a href="/archive/">Archive</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <script>
+        // Drop Bootstarp low-performance Navbar
+        // Use customize navbar with high-quality material design animation
+        // in high-perf jank-free CSS3 implementation
+        var $body = document.body;
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                $navbar.className = " ";
+                // wait until animation end.
+                setTimeout(function () {
+                    // prevent frequently toggle
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px"
+                    }
+                }, 400)
+            },
+            open: function () {
+                $collapse.style.height = "auto"
+                $navbar.className += " in";
+            }
+        }
+
+        // Bind Event
+        $toggle.addEventListener('click', function (e) {
+            if ($navbar.className.indexOf('in') > 0) {
+                __HuxNav__.close()
+            } else {
+                __HuxNav__.open()
+            }
+        })
+
+        /**
+         * Since Fastclick is used to delegate 'touchstart' globally
+         * to hack 300ms delay in iOS by performing a fake 'click',
+         * Using 'e.stopPropagation' to stop 'touchstart' event from 
+         * $toggle/$collapse will break global delegation.
+         * 
+         * Instead, we use a 'e.target' filter to prevent handler
+         * added to document close HuxNav.  
+         *
+         * Also, we use 'click' instead of 'touchstart' as compromise
+         */
+        document.addEventListener('click', function (e) {
+            if (e.target == $toggle) return;
+            if (e.target.className == 'icon-bar') return;
+            __HuxNav__.close();
+        })
+    </script>
+
+<script src="/js/simple-jekyll-search.min.js"></script>
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-recommend.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/post-bg-recommend.jpg');
+        background: ;
+    }
+
+    
+</style>
+
+<header class="intro-header" >
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=JobHunting" title="JobHunting">JobHunting</a>
+                        
+                        <a class="tag" href="/archive/?tag=MachineLearning" title="MachineLearning">MachineLearning</a>
+                        
+                        <a class="tag" href="/archive/?tag=Introduction" title="Introduction">Introduction</a>
+                        
+                        <a class="tag" href="/archive/?tag=%E8%BD%AC%E8%BD%BD" title="转载">转载</a>
+                        
+                    </div>
+                    <h1>Introduction to Recommendation system</h1>
+                    
+                    <h2 class="subheading">浅谈推荐系统[转载]</h2>
+                    <span class="meta">Posted by Lyon Ling on April 6, 2019</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+                <p>[TOC]</p>
+
+<h2 id="1-what---什么是推荐系统">1. What - 什么是推荐系统？</h2>
+
+<p>为了解决<strong>信息过载</strong>(Information overload)的问题，人们提出了<strong>推荐系统</strong>（与搜索引擎对应，人们习惯叫推荐系统为推荐引擎）。当我们提到推荐引擎的时候，经常联想到的技术也便是<strong>搜索引擎</strong>。</p>
+
+<p><strong>搜索引擎</strong>更倾向于人们有明确的目的。</p>
+
+<p>人们把对于信息的寻求转换为精确的关键字，然后交给搜索引擎最后返回给用户一系列列表，用户可以对这些返回结果进行反馈，并且是对于用户有主动意识的。</p>
+
+<p>但它会有<strong>马太效应</strong>的问题，即会造成越流行的东西随着搜索过程的迭代会越流行，使得那些越不流行的东西石沉大海。</p>
+
+<p><strong>推荐引擎</strong>更倾向于人们没有明确的目的。</p>
+
+<p>推荐系统通过用户的历史行为或者用户的兴趣偏好或者用户的人口统计学特征来送给推荐算法，然后推荐系统运用推荐算法来产生用户可能感兴趣的项目列表，同时用户对于搜索引擎是被动的。</p>
+
+<p><a href="https://zh.wikipedia.org/wiki/%E9%95%BF%E5%B0%BE"><strong>长尾理论</strong></a>（人们只关注曝光率高的项目，而忽略曝光率低的项目）可以很好的解释推荐系统的存在，试验表明位于长尾位置的曝光率低的项目产生的利润不低于只销售曝光率高的项目的利润。推荐系统正好可以给所有项目提供曝光的机会，以此来挖掘长尾项目的潜在利润。</p>
+
+<p>如果说搜索引擎体现着马太效应的话，那么长尾理论则阐述了推荐系统所发挥的价值。</p>
+
+<h2 id="2-推荐系统分类">2. 推荐系统分类</h2>
+
+<p>根据推荐算法所用数据的不同分为<strong>基于内容的推荐</strong>、<strong>协同过滤的推荐</strong>以及<strong>混合的推荐</strong>。</p>
+
+<p>根据推荐系统的应用场景又可以分为<strong>评分预测</strong>（rating prediction）与<strong>Top-N推荐</strong>（item recommendation，item ranking）。</p>
+
+<h3 id="21-基于内容的推荐content-based-recommendation">2.1 基于内容的推荐(Content-based Recommendation)</h3>
+
+<p>利用项目的内在品质或者固有属性来进行推荐，比如音乐的流派、类型，电影的风格、类别等，不需要构建UI矩阵。它是建立在<strong>项目的内容信息</strong>上作出推荐的，而不需要依据用户对项目的评价意见，更多地需要用机器学习的方法从关于内容的特征描述的实例中得到用户的兴趣资料。</p>
+
+<p>通过机器学习的思想来通过训练来拟合用户的特征属性，首先需要一个<strong>效用函数</strong>来评价特定用户$c$对于特定项目$s$的评分：</p>
+
+<p><script type="math/tex">u(c,s)=score(UserProfile(c), ItemProfile(s))</script>
+至于如何根据项目的内容属性来学习到跟项目一样维度的用户属性，这就涉及到另一公式：</p>
+
+<p><script type="math/tex">min_{\theta^{(j)}}\frac{1}{2}\sum_{i:r(i,j)=1}\big((\theta^{(j)})^Tx^{(i)}-y^{(i,j)}\big)^2+\frac{\lambda}{2}\sum_{k=1}^{(j)}(\theta_k^{(j)})^2</script>
+他是通过梯度下降法来最小化误差的平方损失，其中$θ^{(j)}$为所要学习的用户维度特征，$X^{(i)}$为项目的内容维度特征，我们所要训练的是用户$j$对于已有行为的项目$j$的训练，来使得观测数据与预测数据的误差最小。</p>
+
+<p>基于内容推荐方法的优点是：</p>
+
+<ol>
+  <li>不需要其它用户的数据，没有冷开始问题和稀疏问题。</li>
+  <li>能为具有特殊兴趣爱好的用户进行推荐。</li>
+  <li>能推荐新的或不是很流行的项目，没有新项目问题。</li>
+  <li>通过列出推荐项目的内容特征，可以解释为什么推荐那些项目。</li>
+  <li>已有比较好的技术，如关于分类学习方面的技术已相当成熟。</li>
+</ol>
+
+<p>缺点是要求内容能容易抽取成有意义的特征，要求特征内容有良好的结构性，并且用户的口味必须能够用内容特征形式来表达，不能显式地得到其它用户的判断情况。</p>
+
+<h3 id="22-基于协同过滤的推荐collaborative-filtering">2.2 基于协同过滤的推荐(Collaborative Filtering)</h3>
+
+<p>通过集体智慧的力量来进行工作，过滤掉那些用户不感兴趣的项目。</p>
+
+<p>协同过滤是基于这样的假设：为特定用户找到他真正感兴趣的内容的好方法是首先<u>找到与此用户有相似兴趣的其他用户</u>，然后将他们感兴趣的内容推荐给此用户。</p>
+
+<p>它一般采用<strong>最近邻技术</strong>，利用用户的历史喜好信息计算用户之间的距离，然后利用目标用户的最近邻居用户对商品评价的加权评价值来预测目标用户对特定商品的喜好程度，系统从而根据这一喜好程度来对目标用户进行推荐，通常需要用到<strong>UI矩阵</strong>(User-Item)的信息。协同过滤推荐又可以根据是否运用机器学习的思想进一步划分为<strong>基于内存的协同过滤推荐</strong>和<strong>基于模型的协同过滤推荐</strong>。</p>
+
+<p>和基于内容的过滤方法相比，协同过滤具有如下的优点：</p>
+
+<ol>
+  <li>能够过滤难以进行机器自动内容分析的信息，如艺术品，音乐等。</li>
+  <li>共享其他人的经验，避免了内容分析的不完全和不精确，并且能够基于一些复杂的，难以表述的概念（如信息质量、个人品味）进行过滤。</li>
+  <li>有推荐新信息的能力。可以发现内容上完全不相似的信息，用户对推荐信息的内容事先是预料不到的。这也是协同过滤和基于内容的过滤一个较大的差别，基于内容的过滤推荐很多都是用户本来就熟悉的内容，而协同过滤可以发现用户潜在的但自己尚未发现的兴趣偏好。</li>
+  <li>能够有效的使用其他相似用户的反馈信息，较少用户的反馈量，加快个性化学习的速度。</li>
+</ol>
+
+<p>协同过滤也存在着以下的缺点：</p>
+
+<ol>
+  <li>用户对商品的评价非常稀疏，这样基于用户的评价所得到的用户间的相似性可能不准确（即稀疏性问题）；</li>
+  <li>随着用户和商品的增多，系统的性能会越来越低（即可扩展性问题）；</li>
+  <li>如果从来没有用户对某一商品加以评价，则这个商品就不可能被推荐（即最初评价问题）。</li>
+</ol>
+
+<h4 id="221-基于内存的协同过滤推荐memory-based-cf">2.2.1 基于内存的协同过滤推荐(Memory-based CF)</h4>
+
+<p>基于内存的推荐系统（Memory-based CF）主要是通过启发式的方法来进行推荐。</p>
+
+<p>主要步骤一个是相似性函数的选择，如何选择合适的相似性函数来更好的度量两个项目或者用户的相似性是关键；另一个是是如何进行推荐，最简单的推荐方法是基于大多数的推荐策略，即推荐那些大多数人产生过行为而目标用户未产生过行为的项目。</p>
+
+<p>根据用户维度和项目维度的不同而分为<strong>Item-based CF</strong>和<strong>User-based CF</strong>。</p>
+
+<h5 id="2211-user-based-cf">2.2.1.1 User-based CF:</h5>
+
+<p>基于用户的(User based)协同过滤算法是根据邻居用户的偏好信息产生对目标用户的推荐。</p>
+
+<p>它基于这样一个假设：如果一些用户对某一类项目的打分比较接近，则他们对其它类项目的打分也比较接近。协同过滤推荐系统采用统计计算方式搜索目标用户的相似用户，并根据相似用户对项目的打分来预测目标用户对指定项目的评分，最后选择相似度较高的前若干个相似用户的评分作为推荐结果，并反馈给用户。这种算法不仅计算简单且精确度较高，被现有的协同过滤推荐系统广泛采用。</p>
+
+<p>User-based协同过滤推荐算法的核心就是通过相似性度量方法计算出最近邻居集合，并将最近邻的评分结果作为推荐预测结果返回给用户。</p>
+
+<p>具体有以下几步：</p>
+
+<ol>
+  <li>首先需要构建UI矩阵；</li>
+  <li>根据UI矩阵来计算行（用户维度）的相似度；</li>
+  <li>选择特定用户最相似的k个用户；</li>
+  <li>推荐给特定用户列表中还没有发生过行为而在相似用户列表中产生过行为的高频项目。</li>
+</ol>
+
+<h5 id="2212-item-based-cf">2.2.1.2 Item-based CF：</h5>
+
+<p>基于项目的(Item一based)协同过滤是根据用户对相似项目的评分数据预测目标项目的评分。</p>
+
+<p>它基于这样一个假设：如果大部分用户对某些项目的打分比较相近，则当前用户对这些项的打分也会比较接近。ltem一based协同过滤算法主要对目标用户所评价的一组项目进行研究，并计算这些项目与目标项目之间的相似性，然后从选择前K个最相似度最大的项目输出，这是区别于User-based协同过滤的地方。</p>
+
+<p>具体有以下几步：</p>
+
+<ol>
+  <li>首先需要构建UI矩阵；</li>
+  <li>根据UI矩阵来计算列（项目维度）的相似度；</li>
+  <li>选择特定项目最相似的k个项目构成推荐列表；</li>
+  <li>推荐给特定用户列表中还没有发生过行为的项目。</li>
+</ol>
+
+<h4 id="222-基于模型的协同过滤推荐model-based-cf">2.2.2 基于模型的协同过滤推荐(Model-based CF)</h4>
+
+<p>基于模型的推荐系统（Model-based CF）主要是运用机器学习的思想来进行推荐。</p>
+
+<p>目前主要是以下几种方式：</p>
+
+<ul>
+  <li>
+    <p><strong>损失函数+正则项(Loss Function)</strong></p>
+
+    <p>通过对不同的任务来建立不同的损失函数加正则项来解决问题。比如著名的Lasso Regression、Ridge Regression以及Hinge Regression等。</p>
+  </li>
+  <li>
+    <p><strong>神经网络(Neural Network)</strong></p>
+
+    <p>通过对不同的任务来设计不同的网络结构来解决问题。比如RNN、CNN以及GAN等。</p>
+  </li>
+  <li>
+    <p><strong>图模型(Graph Model)</strong></p>
+
+    <p>通过运用图的知识来解决不同的实际问题。比如马尔科夫模型等。</p>
+  </li>
+</ul>
+
+<p>回到机器学习方法在推荐系统的应用上来，主要的方法为分类算法，回归算法、聚类算法、矩阵分解算法、神经网络算法、图模型算法以及隐语义模型等，在这主要介绍基于<strong>矩阵分解</strong>的推荐系统算法。</p>
+
+<h5 id="2221-基于矩阵分解的推荐">2.2.2.1 基于矩阵分解的推荐</h5>
+
+<p>首先我们需要明确所要解决的问题，即对于一个M行（M个item），N列（N个user）的矩阵，当然这个矩阵是很稀疏的，即用户对于项目的评分是不充分的，大部分是没有记录的，我们的任务是要通过分析已有的数据（观测数据）来对未知数据进行预测，即这是一个矩阵补全（填充）任务。矩阵填充任务可以通过矩阵分解技术来实现。</p>
+
+<p><strong>1. Singular-value Decomposition(SVD):</strong></p>
+
+<p>首先提到的矩阵分解技术是SVD（奇异值）分解，这里称作traditional SVD，直接上公式：</p>
+
+<script type="math/tex; mode=display">M_{m\times n}=U_{m\times k}\Sigma_{k\times k}V_{k\times n}^T</script>
+
+<p>当然SVD分解的形式为3个矩阵相乘，中间的$\Sigma$矩阵为奇异值矩阵。如果想运用SVD分解的话，有一个前提是要求矩阵是稠密的，即矩阵里的元素要非空，否则就不能运用SVD分解。很显然我们的任务还不能用SVD，所以一般的做法是先用均值或者其他统计学方法来填充矩阵，然后再运用SVD分解降维。</p>
+
+<p><strong>2. FunkSVD</strong></p>
+
+<p>刚才提到的Traditional SVD首先需要<strong>填充矩阵</strong>，然后再进行<strong>分解降维</strong>，同时存在计算复杂度高的问题，所以后来提出了FunkSVD的方法，它不再将矩阵分解为3个矩阵，而是分解为2个<strong>低秩</strong>的用户项目矩阵，在这里低秩的解释可以是：在大千世界中，总会存在相似的人或物，即物以类聚，人以群分。</p>
+
+<p>说明一下稀疏矩阵与低秩矩阵的概念：</p>
+
+<ul>
+  <li>
+    <p><strong>稀疏矩阵</strong>（sparse matrix）：指的是矩阵中的非零元素比较少，但不一定是低秩的。比如对角矩阵，稀疏但是却满秩。</p>
+  </li>
+  <li>
+    <p><strong>低秩矩阵</strong>（low-rank matrix）：指的是矩阵的秩比较小，但不一定是稀疏的。比如全为1的矩阵，秩虽然小仅为1，但确实稠密矩阵。</p>
+  </li>
+</ul>
+
+<p>上公式：</p>
+
+<script type="math/tex; mode=display">\sum_{i,j}(m_{ij}-q_k^Tp_i)^2</script>
+
+<p>借鉴线性回归的思想，通过最小化观察数据的平方来寻求最优的用户和项目的隐含向量表示。同时为了避免过度拟合（Overfitting）观测数据，又提出了带有<strong>L2正则项</strong>的FunkSVD，上公式：</p>
+
+<script type="math/tex; mode=display">min_{q\cdot,p\cdot}\sum_{(u,i)\in K}(r_{ui}-q_i^Tp_u)^2+\lambda(||q_i||^2+||p_u||^2)</script>
+
+<p>以上两种最优化函数都可以通过梯度下降或者随机梯度下降法来寻求最优解。</p>
+
+<p><strong>3. BiasSVD:</strong></p>
+
+<p>在FunkSVD提出来之后，出现了很多变形版本，其中一个相对成功的方法是BiasSVD，顾名思义，即带有偏置项的SVD分解，公式：</p>
+
+<script type="math/tex; mode=display">\begin{matrix} \underbrace{arg\ min}\\{p_i,q_j}\end{matrix}\sum_{i,j}(m_{ij}-\mu-b_i-b_j-q_j^Tp_i)^2+\lambda(||p_i||^2+||q_j||^2+||b_i||^2+||b_j||^2)</script>
+
+<p>它是基于这样的假设：某些用户会自带一些特质，比如天生愿意给别人好评，心慈手软，比较好说话，有的人就比较苛刻，总是评分不超过3分（5分满分）；同时也有一些这样的项目，一被生产便决定了它的地位，有的比较受人们欢迎，有的则被人嫌弃，这也正是提出用户和项目偏置项的原因。</p>
+
+<p>一种解释是：对于一个评分系统有些固有属性和用户物品无关，而用户也有些属性和物品无关，物品也有些属性与用户无关。</p>
+
+<p><strong>4. SVD++:</strong></p>
+
+<p>人们后来又提出了改进的BiasSVD，还是顾名思义，两个加号，可能的一种猜测是：一个加了用户项目偏置项，另一个是在它的基础上添加了用户的隐式反馈信息，还是先上公式：</p>
+
+<script type="math/tex; mode=display">\begin{matrix} \underbrace{arg\ min}\\{p_i,q_j}\end{matrix}\sum_{i,j}(m_{ij}-\mu-b_i-b_j-q_j^Tp_i-q_j^T|N(i)|^{-1/2}\sum_{s\in N(i)}y_s)^2\\+\lambda(||p_i||^2+||q_j||^2+||b_i||^2+||b_j||^2+\sum_{s\in N(i)}||y_s||_2^2)</script>
+
+<p>它是基于这样的假设：用户对于项目的历史评分记录或者浏览记录可以从侧面反映用户的偏好，比如用户对某个项目进行了评分，可以从侧面反映他对于这个项目感兴趣，同时这样的行为事实也蕴含一定的信息。其中$N(i)$为用户i所产生行为的物品集合；$y_s$为隐藏的对于项目$j$的个人喜好偏置，是一个我们所要学习的参数；至于$\begin{vmatrix}N(i)\end{vmatrix}$的负二分之一次方是一个经验公式。</p>
+
+<p><strong>5. BiasSVDwithU：</strong></p>
+
+<p>还一种带有用户平滑项的SVD分解方法，还是先上公式吧：</p>
+
+<script type="math/tex; mode=display">arg\ min_{p_i, p_j}\sum_{(i,j)\in k}(m_{ij}-\mu-b_i-b_j-q_j^Tp_i)+\lambda(||p_i||^2+||q_j||^2+||b_i||^2+||b_j||^2)+\beta\sum^n_{k=1}S_{ik}(p_i-p_k)</script>
+
+<p>它是基于这样的假设：相似的用户所学到的用户隐含特征向量应该更相似，即在现实空间中两个相似的用户投影到测度空间上仍然保持相近的距离。</p>
+
+<h3 id="23-基于混合的推荐hybrid-recommendation">2.3 基于混合的推荐(Hybrid Recommendation)</h3>
+
+<p>基于混合的推荐，是对以上算法的融合。像淘宝既有基于内容的推荐也有协同过滤的推荐。具体怎么融合还是要结合具体的应用场景，包括是对特征的融合还是对算法层面的融合。其中说到算法的融合，想到了机器学习模型常用的三种模型融合方法：<strong>Bagging、Boosting和Stacking</strong>。</p>
+
+<ul>
+  <li>
+    <p><strong>Bagging</strong>方法：该方法通过重采样技术生成若干个不同的子训练集，然后在每个训练集上训练一个分类器，然后采用投票的方式取大多数的结果为模型的最终结果。模型更像是发挥民主作用的人民代表大会制度，还是大部分人说了算的。</p>
+  </li>
+  <li>
+    <p><strong>Boosting</strong>方法：每个训练样例都有权重，每次训练新分类器的时候都着重训练那些再上一次分类过程中分错的样例，权重会随着迭代次数的变化而变化。模型更像是有了记忆能力，加大力度惩罚那些在上一轮不乖的样例而使得他们越来越听话。</p>
+  </li>
+  <li>
+    <p><strong>Stacking</strong>方法：每个分类器首先做一遍决策，然后将分类器们的决策送到更高一层的模型中，把他们当做特征再进行一次训练。每个单独分类器的输出会作为更高层分类器的输入，更高层分类器可以判断如何更好的合并这些来自低层的输出。模型更像是神经网络中的轴突，低层的输出作为高层的输入。</p>
+  </li>
+</ul>
+
+<p>【具体思路】 给定一个train数据集和一个test数据集，我们的任务是分类。</p>
+
+<ol>
+  <li>首先需要确定基模型，在这选择KNN，DecisionTree和SVM三个；</li>
+  <li>其次是要把train数据集分成5折的交叉验证，4份用来训练，1份用来交叉验证；</li>
+  <li>选择一个基模型KNN，然后在train数据集上做交叉验证，每次用4N/5来训练，N/5来测试，共测试5次，这样就会得到整个train数据集上的预测；</li>
+  <li>同样用每次训练好的模型来预测test，那么可以得到5个对于test的预测，然后取平均作为结果；</li>
+  <li>重复步骤3、4，这样会得到对于train的3列新的特征表达（每一列是一个基模型的预测结果），同理也会得到测试集的3列新的特征表达；</li>
+  <li>将新的3列train特征作为第二层模型（在这我们用LR）的输入，再次进行训练；</li>
+  <li>用test上3列新的特征作为输入，送入训练好的模型来预测结果。</li>
+</ol>
+
+<p>有几个基模型，就会对整个train数据集生成几列新的特征表达。同样，也会对test有几列新的特征表达。</p>
+
+<h3 id="24-基于人口统计学的推荐">2.4 基于人口统计学的推荐</h3>
+
+<p>主要是根据用户的注册信息来进行简单推荐。</p>
+
+<h3 id="25-基于规则的推荐association-rule-based-recommendation">2.5 基于规则的推荐(Association Rule-based Recommendation)</h3>
+
+<p>主要根据简单的规则或者领域知识来进行推荐，比如热门推荐等。</p>
+
+<p>以关联规则为基础，把已购商品作为规则头，规则体为推荐对象。关联规则挖掘可以发现不同商品在销售过程中的相关性，在零售业中已经得到了成功的应用。管理规则就是在一个交易数据库中统计购买了商品集X的交易中有多大比例的交易同时购买了商品集Y，其直观的意义就是用户在购买某些商品的时候有多大倾向去购买另外一些商品。比如购买牛奶的同时很多人会同时购买面包，还有啤酒尿布这个典型案例。</p>
+
+<p>算法的第一步关联规则的发现最为关键且最耗时，是算法的瓶颈，但可以离线进行。其次，商品名称的同义性问题也是关联规则的一个难点。</p>
+
+<h2 id="3-评测指标">3. 评测指标</h2>
+
+<p>推荐系统根据推荐任务的不同通常分为两类：<strong>评分预测</strong>与<strong>Top-N列表推荐</strong>。在这里主要根据这两者来分别讨论评测指标。</p>
+
+<ul>
+  <li>
+    <p><strong>评分预测任务：</strong></p>
+
+    <p>预测特定用户对于没有产生过行为的物品能够打多少分。评分预测一般通过<strong>均方根误差（RMSE）</strong>和<strong>平均绝对误差（MAE）</strong>来计算。对于测试集中的用户$u$和项目$i$，$r^{(ui)}$是用户$u$对项目$i$的真实评分，$r^{(ui)}$是推荐算法预测出的评分，</p>
+
+    <p>其中Netflix认为RMSE加大了对预测不准的用户物品评分的惩罚(平方项的惩罚)，因而对系统的评测更加苛刻，同时如果评分系统是基于整数建立的(即用户给的评分都是整数)，那么对预测结果取整会降低MAE的误差。</p>
+  </li>
+  <li>
+    <p><strong>Top-N列表推荐：</strong></p>
+
+    <p>评分预测只能适用于小部分的场景，比如对于电影，书籍的评分，其实Top-N推荐更加符合现在的需求，给用户提供一个推荐的列表让其进行选择。Top-N推荐一般通过<strong>准确率</strong>与<strong>召回率</strong>来进行衡量。其中令R(u)是根据用户在训练集上的行为给用户作出的推荐列表（指的是预测的推荐列表）,而T(u)是用户在测试集上的行为列表（指的是真实的列表GroundTruth）。</p>
+  </li>
+</ul>
+
+<p>本文内容主要来自<a href="https://zhuanlan.zhihu.com/p/27502172">【知乎·张小磊–推荐系统从入门到接着入门】</a>和<a href="https://zhuanlan.zhihu.com/p/35262187">【知乎·张小磊–推荐系统之矩阵分解家族】</a></p>
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/03/23/%E7%99%BE%E9%9D%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B02/"
+                            data-toggle="tooltip" data-placement="top" title="剑指机器学习--降维">
+                            Previous<br>
+                            <span>剑指机器学习--降维</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/04/06/Linux-Shell%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-toggle="tooltip"
+                            data-placement="top" title="Linux Shell 常用命令">
+                            Next<br>
+                            <span>Linux Shell 常用命令</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+                
+            </div>
+
+            <!-- Side Catalog Container -->
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0043" 
+                    href="/archive/?tag=Tricks"
+                    title="Tricks"
+                    rel="8">Tricks</a>
+        
+                <a data-sort="0040" 
+                    href="/archive/?tag=JobHunting"
+                    title="JobHunting"
+                    rel="11">JobHunting</a>
+        
+                <a data-sort="0042" 
+                    href="/archive/?tag=%E8%BD%AC%E8%BD%BD"
+                    title="转载"
+                    rel="9">转载</a>
+        
+                <a data-sort="0042" 
+                    href="/archive/?tag=Foundations"
+                    title="Foundations"
+                    rel="9">Foundations</a>
+        
+                <a data-sort="0044" 
+                    href="/archive/?tag=Notes"
+                    title="Notes"
+                    rel="7">Notes</a>
+        
+                <a data-sort="0044" 
+                    href="/archive/?tag=Programing"
+                    title="Programing"
+                    rel="7">Programing</a>
+        
+                <a data-sort="0044" 
+                    href="/archive/?tag=Python"
+                    title="Python"
+                    rel="7">Python</a>
+        
+                <a data-sort="0045" 
+                    href="/archive/?tag=DataScience"
+                    title="DataScience"
+                    rel="6">DataScience</a>
+        
+                <a data-sort="0045" 
+                    href="/archive/?tag=MachineLearning"
+                    title="MachineLearning"
+                    rel="6">MachineLearning</a>
+        
+                <a data-sort="0046" 
+                    href="/archive/?tag=BigData"
+                    title="BigData"
+                    rel="5">BigData</a>
+        
+                <a data-sort="0046" 
+                    href="/archive/?tag=Spark"
+                    title="Spark"
+                    rel="5">Spark
+    </div>
+</section>
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://cherishher.github.io/">Max Qi</a></li>
+  <br>
+  
+  <li><a href="https://www.guchenghao.com/">Gu Chenghao</a></li>
+  <br>
+  
+  <li><a href="https://syenpark.github.io/">Syen Park</a></li>
+  <br>
+  
+  <li><a href="https://dojozheng.com/">DOJO Zheng</a></li>
+  <br>
+  
+</ul>
+
+            </div>
+        </div>
+    </div>
+
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    SVG: {
+      scale: 90
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG">
+</script>
+
+<script>
+  window.Lazyload.js('https://cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.min.js', function () {
+    mermaid.initialize({
+      startOnLoad: true
+    });
+    mermaid.init(undefined, '.language-mermaid');
+  });
+</script>
+
+<script>
+  window.Lazyload.js(['https://cdn.bootcss.com/Chart.js/2.7.2/Chart.bundle.min.js', 'https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js'], function () {
+    var $canvas = null,
+      $this = null,
+      _ctx = null,
+      _text = '';
+    $('.language-chart').each(function () {
+      $this = $(this);
+      $canvas = $('<canvas></canvas>');
+      _text = $this.text();
+      $this.text('').append($canvas);
+      _ctx = $canvas.get(0).getContext('2d');
+      (_ctx && _text) && (new Chart(_ctx, JSON.parse(_text)) && $this.attr('data-processed', true));
+    });
+  });
+</script>
+
+
+
+
+<!--Gitalk评论start  -->
+
+<!-- Gitalk end -->
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "leon_disqus";
+    var disqus_identifier = "/2019/04/06/Recommendation System";
+    var disqus_url = "http://localhost:4000/2019/04/06/Recommendation-System/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async (u, c) {
+        var d = document,
+            t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async ("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js", function () {
+        anchors.options = {
+            visible: 'hover',
+            placement: 'right',
+            // icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link {
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top: -0.1em;
+        }
+    }
+</style>
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ddc8a0647bb126e"></script>
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/lyonling">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/5395966937">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/lyonling">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/liyang-ling-678220117">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+                <p class="copyright text-muted">
+                    Copyright &copy; Leon Ling's Blog 2018-2019
+                    <br>
+                    Powered by <a href="https://jekyllrb.com/">Jekyll</a> Theme <a href="https://github.com/Huxpro/huxpro.github.io">HuxPro</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script src="/js/snackbar.js "></script>
+<script src="/js/sw-registration.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-131740306-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+
+        // interop with multilangual 
+        if ('' == 'true') {
+            _containerSelector = 'div.post-container.active'
+        } else {
+            _containerSelector = 'div.post-container'
+        }
+
+        // init
+        var P = $(_containerSelector),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+<!-- Multi-Lingual -->
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

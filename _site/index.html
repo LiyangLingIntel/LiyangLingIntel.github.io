@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="孤独是人生的常态吗？">
+    <meta name="keywords"  content="leonling, 凌丽阳, LEON's Blog ">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="LEON的博客 | LEON's Blog">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="孤独是人生的常态吗?">
+    
+    <meta property="og:image" content="http://localhost:4000/img/avatar_2.png">
+    <meta property="og:url" content="http://localhost:4000/">
+    <meta property="og:site_name" content="LEON的博客 | LEON's Blog">
+    
+    <title>LEON的博客 | LEON's Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Leon Ling's Blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            <a href="/archive/">Archive</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <script>
+        // Drop Bootstarp low-performance Navbar
+        // Use customize navbar with high-quality material design animation
+        // in high-perf jank-free CSS3 implementation
+        var $body = document.body;
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                $navbar.className = " ";
+                // wait until animation end.
+                setTimeout(function () {
+                    // prevent frequently toggle
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px"
+                    }
+                }, 400)
+            },
+            open: function () {
+                $collapse.style.height = "auto"
+                $navbar.className += " in";
+            }
+        }
+
+        // Bind Event
+        $toggle.addEventListener('click', function (e) {
+            if ($navbar.className.indexOf('in') > 0) {
+                __HuxNav__.close()
+            } else {
+                __HuxNav__.open()
+            }
+        })
+
+        /**
+         * Since Fastclick is used to delegate 'touchstart' globally
+         * to hack 300ms delay in iOS by performing a fake 'click',
+         * Using 'e.stopPropagation' to stop 'touchstart' event from 
+         * $toggle/$collapse will break global delegation.
+         * 
+         * Instead, we use a 'e.target' filter to prevent handler
+         * added to document close HuxNav.  
+         *
+         * Also, we use 'click' instead of 'touchstart' as compromise
+         */
+        document.addEventListener('click', function (e) {
+            if (e.target == $toggle) return;
+            if (e.target.className == 'icon-bar') return;
+            __HuxNav__.close();
+        })
+    </script>
+
+<script src="/js/simple-jekyll-search.min.js"></script>
+
+    <!-- Page Header -->
+
+
+
+
+
+
+
+<header class="intro-header" style="background-image: url('/img/post-bg-2015.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="site-heading">
+        
+          <h1>Leon Ling's Blog</h1>
+          <span class="subheading">孤独是人生的常态吗?</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    
+
+    <!-- USE SIDEBAR -->
+    <!-- PostList Container -->
+    <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                postlist-container
+            ">
+      
+<div class="post-preview">
+    <a href="/2019/11/26/Blog-%E9%87%8D%E5%90%AF%E5%A3%B0%E6%98%8E/">
+        <h2 class="post-title">
+            Leon Ling's Blog 重启说明
+        </h2>
+        
+        <h3 class="post-subtitle">
+            我又回来了
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                沉寂了秋招的两个多月, 终于再次重新启动了个人博客的项目😅, 又可以开始学习了呢🙃.
+
+这次重启, 相比旧的版本, 首先纠正了以前posts因为tag格式不够规范引起的YML文件头丢失的BUG, 然后参考其他优秀的博客框架, 对原来的博客框架做出了一些调整和优化, 也引入了一些新的功能, 大概如下.
+
+1. 新功能引入
+
+在茫茫多的 Jekyll 主题中我挑中了 kitian616 的 [T...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Leon Ling on November 26, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2019/09/10/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%AF%B4%E6%98%8E/">
+        <h2 class="post-title">
+            博客迁移说明
+        </h2>
+        
+        <h3 class="post-subtitle">
+            Blog Migration anounce
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  “ 🙉🙉🙉 ”
+
+
+万万没想到, 本来准备好好经营的博客也有迁移的一天.
+
+本来维护这样一个博客, 一方面是记录自己的学习历程, 另一方面也是利用博客系统的tag功能给自己的笔记做个分类.
+
+现在看来这种笔记分类方法还是效果不够好, 而且博客框架本身似乎也存在一些Bug, 最近忙着秋招也没有时间去调试.
+
+因此, 我把所有的笔记和学习记录重新整理, 更加系统地迁移到了Notion平台上...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lyon Ling on September 10, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2019/08/31/C++%E4%B8%AD%E7%9A%84vector%E5%92%8Clist/">
+        <h2 class="post-title">
+            C++ std中vector和list的区别
+        </h2>
+        
+        <h3 class="post-subtitle">
+            从零开始C++
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                [TOC]
+
+1. 数据结构设计
+
+
+  
+    vector数据结构
+
+    vector和数组类似，拥有一段连续的内存空间，并且起始地址不变。
+因此能高效的进行随机存取，时间复杂度为o(1);
+但因为内存空间是连续的，所以在进行插入和删除操作时，会造成内存块的拷贝，时间复杂度为o(n)。
+另外，当数组中内存空间不够时，会重新申请一块内存空间并进行内存拷贝。
+  
+  
+    lis...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lyon Ling on August 31, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2019/08/23/Spark%E7%BC%96%E7%A8%8B%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97/">
+        <h2 class="post-title">
+            Spark编程优化经验
+        </h2>
+        
+        <h3 class="post-subtitle">
+            从零开始Spark
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  在PA用spark去完成业务的过程中有各种各样的问题, 也有查阅各种资料, 这边结合已有的资源积累写一个spark程序的经验记录.
+
+
+[TOC]
+
+1. 一个SparkContext里进行的action不应该有太多
+
+一个 SparkContext 对应一个 spark 应用程序, 在程序里会有很多的 rdd transformation 操作和 action 操作, 一个 acti...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lyon Ling on August 23, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2019/08/16/%E5%89%91%E6%8C%87Offer_%E6%95%B0%E6%8D%AE%E5%BA%93/">
+        <h2 class="post-title">
+            剑指Offer-数据库&SQL
+        </h2>
+        
+        <h3 class="post-subtitle">
+            数据库基础知识总结
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                [TOC]
+
+数据库基础
+
+1. 事务
+
+事务指的是满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚。
+
+
+
+1.1 ACID
+
+
+  
+    原子性（Atomicity）
+
+    事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。
+
+    回滚可以用回滚日志来实现，回滚日志记录着事务所执行的修改...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lyon Ling on August 16, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2019/08/15/%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9Pyspark-DataFrame%E7%9A%84%E5%88%97%E5%90%8D/">
+        <h2 class="post-title">
+            如何修改 PySpark Dataframe 的列名
+        </h2>
+        
+        <h3 class="post-subtitle">
+            从零开始Spark
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                在做Spark Dataframe操作的时候会遇到很多需求. 最近我遇到了一个问题, 就是通过agg方法传入多种聚合函数对多列进行操作, 然后后就生成了多列的聚合结果. 但是列名就是以 原列名+聚合函数的方法, 然后就产生需求 —- 如何修改这些列名呢?
+
+然后找到了以下方法:
+
+
+  
+    使用selectExpr
+
+    1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lyon Ling on August 15, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2019/08/10/Spark-OOM%E9%97%AE%E9%A2%98%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BC%98%E5%8C%96/">
+        <h2 class="post-title">
+            Spark OOM 问题的理解与优化
+        </h2>
+        
+        <h3 class="post-subtitle">
+            从零开始学Spark
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                [toc]
+
+
+  map执行中内存溢出
+map执行中内存溢出代表了所有map类型的操作，包括：flatMap，filter，mapPatitions等。
+  shuffle后内存溢出
+shuffle后内存溢出的shuffle操作包括join，reduceByKey，repartition等操作。
+
+
+1. Spark 内存模型：
+
+Spark在一个Executor中的内存分为三块，一块是e...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lyon Ling on August 10, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2019/08/08/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Spark-Shuffle/">
+        <h2 class="post-title">
+            深入理解Spark Shuffle
+        </h2>
+        
+        <h3 class="post-subtitle">
+            从零开始学Spark
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                [TOC]
+
+Shuffle带来的问题
+
+在Spark大规模数据处理中，因为shuffle后出现OOM问题非常常见, 深入理解shuffle前先从实际问题出发.
+
+报错提示
+
+SparkSQL shuffle操作带来的报错
+
+1
+2
+org.apache.spark.shuffle.MetadataFetchFailedException: 
+Missing an output locati...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lyon Ling on August 8, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2019/07/26/Hive%E4%BF%9D%E7%95%99%E5%85%B3%E9%94%AE%E5%AD%97%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3/">
+        <h2 class="post-title">
+            Hive保留关键字冲突的解决
+        </h2>
+        
+        <h3 class="post-subtitle">
+            从零开始学Hive
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                最近做Hive表创建的时遇到一个问题.
+
+报错如下:
+
+1
+FailedPredicateException(identifier,{useSQL11ReservedKeywordsForIdentifier()}?)
+
+
+最后在HCC上找到了对应的解决办法.
+
+1
+2
+3
+-- 解决办法很简单, 就是直接修改一下Hive的配置
+SET hive.support.sql11.reserved...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lyon Ling on July 26, 2019
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2019/07/23/%E5%89%91%E6%8C%87Offer_%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+        <h2 class="post-title">
+            剑指Offer-计算机网络
+        </h2>
+        
+        <h3 class="post-subtitle">
+            计算机网络基础知识总结
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                [TOC]
+
+1. 计算机网络体系结构
+
+
+
+1.1 五层协议
+
+
+  应用层 ：为特定应用程序提供数据传输服务，例如 HTTP、DNS 等协议。数据单位为报文。
+  传输层 ：为进程提供通用数据传输服务。由于应用层协议很多，定义通用的传输层协议就可以支持不断增多的应用层协议。运输层包括两种协议：传输控制协议 TCP，提供面向连接、可靠的数据传输服务，数据单位为报文段；用户数据报协议 UDP...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Lyon Ling on July 23, 2019
+    </p>
+</div>
+<hr>
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+    
+    <li class="next">
+        <a href="/page2">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+
+
+    </div>
+    <!-- Sidebar Container -->
+    <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+      <!-- Featured Tags -->
+      
+
+
+<section>
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0043" 
+                    href="/archive/?tag=Tricks"
+                    title="Tricks"
+                    rel="8">Tricks</a>
+        
+                <a data-sort="0040" 
+                    href="/archive/?tag=JobHunting"
+                    title="JobHunting"
+                    rel="11">JobHunting</a>
+        
+                <a data-sort="0042" 
+                    href="/archive/?tag=%E8%BD%AC%E8%BD%BD"
+                    title="转载"
+                    rel="9">转载</a>
+        
+                <a data-sort="0042" 
+                    href="/archive/?tag=Foundations"
+                    title="Foundations"
+                    rel="9">Foundations</a>
+        
+                <a data-sort="0044" 
+                    href="/archive/?tag=Notes"
+                    title="Notes"
+                    rel="7">Notes</a>
+        
+                <a data-sort="0044" 
+                    href="/archive/?tag=Programing"
+                    title="Programing"
+                    rel="7">Programing</a>
+        
+                <a data-sort="0044" 
+                    href="/archive/?tag=Python"
+                    title="Python"
+                    rel="7">Python</a>
+        
+                <a data-sort="0045" 
+                    href="/archive/?tag=DataScience"
+                    title="DataScience"
+                    rel="6">DataScience</a>
+        
+                <a data-sort="0045" 
+                    href="/archive/?tag=MachineLearning"
+                    title="MachineLearning"
+                    rel="6">MachineLearning</a>
+        
+                <a data-sort="0046" 
+                    href="/archive/?tag=BigData"
+                    title="BigData"
+                    rel="5">BigData</a>
+        
+                <a data-sort="0046" 
+                    href="/archive/?tag=Spark"
+                    title="Spark"
+                    rel="5">Spark
+    </div>
+</section>
+
+
+      <!-- Short About -->
+      <section class="visible-md visible-lg">
+  <hr>
+  <h5><a href="/about/">ABOUT ME</a></h5>
+  <div class="short-about">
+    
+    <img src="/img/avatar_2.png" />
+    
+    
+    <p>知易行难</p>
+    
+    <!-- SNS Link -->
+    
+
+
+<ul class="list-inline">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/lyonling">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/5395966937">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/lyonling">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/liyang-ling-678220117">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+  </div>
+</section>
+
+      <!-- On-Site Search  -->
+      
+      <!-- script pointing to jekyll-search.js-->
+<!-- <script src="/js/simple-jekyll-search.min.js"></script> -->
+<script src="https://unpkg.com/simple-jekyll-search/dest/simple-jekyll-search.min.js"></script>
+
+
+<hr>
+<h5>ON-SITE SEARCH</h5>
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="search..."
+        style="border:1.5px solid;border-radius:10px;padding-left:10px;width:200px !important;">
+    <ul id="results-container" style="max-width:225px;padding-left:17px;"></ul>
+</div>
+
+
+<script>
+    window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+        noResultsText: 'No results found',
+        limit: 5,
+        fuzzy: false,
+        exclude: ['Welcome']
+    })
+</script>
+      
+
+      <!-- Friends Blog -->
+      
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://cherishher.github.io/">Max Qi</a></li>
+  <br>
+  
+  <li><a href="https://www.guchenghao.com/">Gu Chenghao</a></li>
+  <br>
+  
+  <li><a href="https://syenpark.github.io/">Syen Park</a></li>
+  <br>
+  
+  <li><a href="https://dojozheng.com/">DOJO Zheng</a></li>
+  <br>
+  
+</ul>
+
+    </div>
+    
+  </div>
+</div>
+
+
+<!-- Add support for Mathjax by Voleking-->
+<!-- If you want to see formulars well in post preview, Maybe you should add this.-->
+<!-- However, most of the time formulars may not appear in the post preview, you can delete it.-->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/lyonling">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/5395966937">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/lyonling">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/liyang-ling-678220117">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+                <p class="copyright text-muted">
+                    Copyright &copy; Leon Ling's Blog 2018-2019
+                    <br>
+                    Powered by <a href="https://jekyllrb.com/">Jekyll</a> Theme <a href="https://github.com/Huxpro/huxpro.github.io">HuxPro</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script src="/js/snackbar.js "></script>
+<script src="/js/sw-registration.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-131740306-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+<!-- Side Catalog -->
+
+
+
+<!-- Multi-Lingual -->
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

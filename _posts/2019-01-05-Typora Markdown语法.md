@@ -39,25 +39,29 @@ tags:
 $$
 \mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} \mathbf{i} & \mathbf{j} &   \mathbf{k} \\\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0   \\\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\\end{vmatrix}
 $$
+
+
 关于更详细的LaTeX公式，可以参考[这篇博客](http://blog.163.com/goldman2000@126/blog/static/167296895201221242646561/) 
 
 
 
 ### 下标
 
-下标使用`~`包裹，例如：`H~2~O`将产生水的分子式。 eg.<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs5bcgmnj3028018q2u.jpg" width="45"/>
+下标使用`~`包裹，例如：`H~2~O`将产生水的分子式。 eg. $H_2O$ 
 
 
 
 ### 上标
 
-上标使用`^`包裹，例如：`y^2^=4`将产生表达式 。 eg.<img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs7js8q3j302q01ca9z.jpg"  width="50" />
+上标使用`^`包裹，例如：`y^2^=4`将产生表达式 。 eg. $y^2=4$
 
 
 
 ### 插入表情
 
-使用`:happy:`输入高兴的表情，使用`:sad:`输入悲伤的表情，使用`:cry:`输入哭的表情等。以此类推！ <img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs8yie20j306g022dg5.jpg" width="150" align="left" />   
+使用`:happy:`输入高兴的表情，使用`:sad:`输入悲伤的表情，使用`:cry:`输入哭的表情等。以此类推！
+
+ <img src="https://ws2.sinaimg.cn/large/006tNc79gy1fyvs8yie20j306g022dg5.jpg" width="150" align="left" />
 
 <br/>
 

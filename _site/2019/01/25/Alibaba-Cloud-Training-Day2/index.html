@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="孤独是人生的常态吗？">
+    <meta name="keywords"  content="leonling, 凌丽阳, LEON's Blog ">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Alibaba Cloud Training (Day2) - LEON的博客 | LEON's Blog">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:description" content="Course Content
+">
+    
+    <meta property="article:published_time" content="2019-01-25T00:00:00Z">
+    
+    
+    <meta property="article:author" content="Lyon Ling">
+    
+    
+    <meta property="article:tag" content="Alibaba">
+    
+    <meta property="article:tag" content="Notes">
+    
+    <meta property="article:tag" content="CloudComputing">
+    
+    <meta property="article:tag" content="DataScience">
+    
+    
+    <meta property="og:image" content="http://localhost:4000/img/avatar_2.png">
+    <meta property="og:url" content="http://localhost:4000/2019/01/25/Alibaba-Cloud-Training-Day2/">
+    <meta property="og:site_name" content="LEON的博客 | LEON's Blog">
+    
+    <title>Alibaba Cloud Training (Day2) - LEON的博客 | LEON's Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/2019/01/25/Alibaba-Cloud-Training-Day2/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Leon Ling's Blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="huxblog_navbar">
+                <div class="navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            <a href="/archive/">Archive</a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <script>
+        // Drop Bootstarp low-performance Navbar
+        // Use customize navbar with high-quality material design animation
+        // in high-perf jank-free CSS3 implementation
+        var $body = document.body;
+        var $toggle = document.querySelector('.navbar-toggle');
+        var $navbar = document.querySelector('#huxblog_navbar');
+        var $collapse = document.querySelector('.navbar-collapse');
+
+        var __HuxNav__ = {
+            close: function () {
+                $navbar.className = " ";
+                // wait until animation end.
+                setTimeout(function () {
+                    // prevent frequently toggle
+                    if ($navbar.className.indexOf('in') < 0) {
+                        $collapse.style.height = "0px"
+                    }
+                }, 400)
+            },
+            open: function () {
+                $collapse.style.height = "auto"
+                $navbar.className += " in";
+            }
+        }
+
+        // Bind Event
+        $toggle.addEventListener('click', function (e) {
+            if ($navbar.className.indexOf('in') > 0) {
+                __HuxNav__.close()
+            } else {
+                __HuxNav__.open()
+            }
+        })
+
+        /**
+         * Since Fastclick is used to delegate 'touchstart' globally
+         * to hack 300ms delay in iOS by performing a fake 'click',
+         * Using 'e.stopPropagation' to stop 'touchstart' event from 
+         * $toggle/$collapse will break global delegation.
+         * 
+         * Instead, we use a 'e.target' filter to prevent handler
+         * added to document close HuxNav.  
+         *
+         * Also, we use 'click' instead of 'touchstart' as compromise
+         */
+        document.addEventListener('click', function (e) {
+            if (e.target == $toggle) return;
+            if (e.target.className == 'icon-bar') return;
+            __HuxNav__.close();
+        })
+    </script>
+
+<script src="/js/simple-jekyll-search.min.js"></script>
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-cloudcomputing.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+
+
+
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/post-bg-cloudcomputing.jpg');
+        background: ;
+    }
+
+    
+</style>
+
+<header class="intro-header" >
+
+    <div class="header-mask"></div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/archive/?tag=Alibaba" title="Alibaba">Alibaba</a>
+                        
+                        <a class="tag" href="/archive/?tag=Notes" title="Notes">Notes</a>
+                        
+                        <a class="tag" href="/archive/?tag=CloudComputing" title="CloudComputing">CloudComputing</a>
+                        
+                        <a class="tag" href="/archive/?tag=DataScience" title="DataScience">DataScience</a>
+                        
+                    </div>
+                    <h1>Alibaba Cloud Training (Day2)</h1>
+                    
+                    <h2 class="subheading">Notes on Alibaba Cloud Training</h2>
+                    <span class="meta">Posted by Lyon Ling on January 25, 2019</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <!-- Multi-Lingual -->
+                
+
+                <h2 id="course-content">Course Content</h2>
+
+<h5 id="alibaba-cloud-big-data-architechture">Alibaba Cloud Big Data Architechture</h5>
+
+<p>Here I drew the structure of whole AliCloud Big Data Platform.</p>
+
+<p><img src="../img/illustration/20190124-alicloudtrain21.jpeg" width="800" /></p>
+
+<h5 id="maxcompute-provides-two-data-import-and-export-methods">MaxCompute provides two data import and export methods:</h5>
+
+<ol>
+  <li>Tunnel Operation on the console</li>
+  <li>Tunnel written with Java</li>
+</ol>
+
+<h5 id="maxcompute-pricing">MaxCompute pricing</h5>
+
+<ul>
+  <li>
+    <p>MaxCompute takes Project as a charge unit.</p>
+  </li>
+  <li>
+    <p>Three factors affect the price</p>
+    <ul>
+      <li>Usage of storage</li>
+      <li>Computing resource</li>
+      <li>Data download</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="certification-test-contents">Certification Test Contents</h2>
+
+<h3 id="maxcompute">MaxCompute:</h3>
+
+<ul>
+  <li>
+    <p><strong>ODPS</strong></p>
+
+    <p>Open Data Processing Service，old name of MaxCompute. A solution for quick and full trusteeship GB/TB/PB level data warehouse developed by Alibaba.</p>
+  </li>
+  <li>
+    <p><strong>Use case of MaxCompute</strong></p>
+
+    <p>Data Warehouse, Social networking analysis, User Profile</p>
+
+    <p>This is <strong>NOT</strong>: Order management, transacrtion prcessing, Fast real-time response, ad-hoc queries by end user, high concurrnet user requests</p>
+  </li>
+  <li>
+    <p><strong>MaxCompute Command &amp; SQL:</strong></p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>&gt; show tables	// if you want to view all tables in a project, you can execute;
+&gt; desc table_a 	// show table schema and the size of space taken by the table;
+&gt; datediff  	// calculate the difference between 2 time stamps
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+
+    <p><strong>SQL</strong> is based on <strong>CBO</strong>(Cost Based Optimizer)</p>
+  </li>
+  <li>
+    <p><strong>MaxCompute Pricing:</strong></p>
+
+    <p>MaxCompute: Data Download / Computing / Storage. (no data upload)</p>
+  </li>
+  <li>
+    <p><strong>MaxCompute Client:</strong></p>
+
+    <p>Tunnel: administration</p>
+
+    <p>IntelliJ Idea: Development (Lower thresholds)</p>
+
+    <p>Dataworks: configure workflow and scheduling (lower thresholds)</p>
+
+    <p><em>Lower thresholds means: the upper operating file size is limited</em></p>
+  </li>
+  <li>
+    <p><strong>MaxCompute Security steps: (<code class="highlighter-rouge">set ProjectProtestion=true;</code> has the first priority)</strong></p>
+
+    <p><strong>accessKey pair: Access Key ID / Access Key Secret</strong></p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>  use prj1<span class="p">;</span>
+add user <span class="o">[</span>aliyun<span class="nv">$alice</span>@aliyun.com]<span class="o">(</span>mailto:aliyun<span class="nv">$alice</span>@aliyun.com<span class="o">)</span><span class="p">;</span>
+  grant List, CreateTable, CreateInstance on project prj1 to user aliyun<span class="nv">$alice</span>@aliyun<span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></div>    </div>
+
+    <p>ACL Objects: Project, Resource, Procedure</p>
+  </li>
+  <li>
+    <p><strong>MaxCompute Resource:</strong></p>
+
+    <p>Files, Tables, Jar package, Archive</p>
+  </li>
+</ul>
+
+<h3 id="dataworks">DataWorks:</h3>
+
+<ul>
+  <li>
+    <p>DataWorks can be used to create all types of tasks and configure scheduling cycles as needed. The supported granularity levels of scheduling cycles include days, weeks, months, hours, 5 minutes</p>
+  </li>
+  <li>
+    <p>In DataWorks workflow, Inner nodes of a flow task can <strong>NOT</strong> be depended on by other flow or node tasks.</p>
+  </li>
+  <li>
+    <p>Phase of the scheduling process: Not running, Running, Run successfully</p>
+  </li>
+  <li>
+    <p>Work node Type: Data Synchronization, SHELL, MaxCompute SQL,  MaxCompute MR</p>
+  </li>
+</ul>
+
+<p><strong>Operation &amp; Maintainance:</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>Alert policies: Email, Text message
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>As an administrator of a project in MaxCompute. The project involves a large volume of sensitive data such as user IDs and shopping records, to be specific, project users can only access the data within the project, all data flows only within the project.</p>
+
+<p>What operation should you do? 
+Enable the data protection mechanism in the project.</p>
+
+<h3 id="datav">DataV:</h3>
+
+<ul>
+  <li>
+    <p><strong>Data Portal:</strong></p>
+
+    <p>When a DataV screen is ready, it can embed works to the existing portal of the enterprise through URL after the release.</p>
+  </li>
+  <li>
+    <p><strong>DataV data source:</strong></p>
+
+    <p>Alibaba Cloud’ s AnalyticDB, ApsaraDB Static data in CSV and JSON formats Oracle Database / DataV can NOT make full use of MaxCompute for data process.</p>
+  </li>
+  <li>
+    <p><strong>DataV Visual screens types:</strong></p>
+
+    <p>Presentation type / Analysis type / Monitoring type</p>
+  </li>
+</ul>
+
+<h3 id="quickbi">QuickBI:</h3>
+
+<ul>
+  <li>
+    <p><strong>Data Source:</strong></p>
+
+    <p>MaxCompute / Local Excel files / MySQL RDS</p>
+  </li>
+  <li>
+    <p><strong>Data Storage:</strong></p>
+
+    <p>Data Will be stored in Exploration space built in Quick BI</p>
+  </li>
+  <li>
+    <p><strong>Security:</strong></p>
+
+    <p>Different users can view different data in a same report in Quick BI by Set a row-level permission Only Quick BI Pro provides the row-level permission function</p>
+  </li>
+</ul>
+
+<h3 id="e-mapreduce">E-MapReduce:</h3>
+
+<ul>
+  <li>
+    <p><strong>DTS:</strong></p>
+
+    <p>Migrate their data with virtually no downtime</p>
+  </li>
+  <li>
+    <p><strong>Streaming:</strong></p>
+
+    <p>Flume + Kafka + Spark Streaming(storm, f(B)link ) + HDFS(Redis, HBase…)</p>
+  </li>
+</ul>
+
+<p>It supports the Pay-As-You-Go payment method, which means that the cost of each task is measured according to ECS.</p>
+
+<h3 id="pay-attention-the-traps"><strong>Pay attention the traps:</strong></h3>
+
+<p><em>Wrong desctiptions</em></p>
+
+<ul>
+  <li>
+    <p>DataWorks provides a convenient way to analyze and process big data for the user. The user is able to analyze big data without concerning details of distributed computing.</p>
+  </li>
+  <li>
+    <p>Deployment personnel or Operation &amp; Management (O&amp;M) personnel can generate release packages based on the latest development results</p>
+  </li>
+  <li>
+    <p>MaxCompute SQL is 100% equivalent to Hive SQL</p>
+  </li>
+  <li>
+    <p>MaxCompute SQL can complete the query in minutes even seconds, and it can be able to return the result in millisecond</p>
+  </li>
+  <li>
+    <p>Tunnel command Parameters <strong>Purge</strong>: Clears the table directory. By default, use this command to clear information of the last three days.</p>
+  </li>
+  <li>
+    <p>MaxCompute can identify the RAM account system, it can also identify the RAM permission system.</p>
+  </li>
+  <li>
+    <p>MaxCompute partition only supports string type and the conversion of any other types is not allowed</p>
+  </li>
+  <li>
+    <p>The table name and column name are both case sensitive.</p>
+  </li>
+  <li>
+    <p>DataWorks provides a convenient way to analyze and process big data for the user. The user is able to analyze big data without concerning details of distributed computing.</p>
+  </li>
+  <li>
+    <p>Deployment personnel or Operation &amp; Management (O&amp;M) personnel can generate release packages based on the latest development results</p>
+  </li>
+  <li>
+    <p>In DataWorks: Inner nodes of a flow task can be depended on by other flow or node tasks.</p>
+  </li>
+  <li>
+    <p>If are Using DataWorks to Build an enterprise-level data warehouse, and process the history data of the enterprise.</p>
+  </li>
+</ul>
+
+
+
+                <hr style="visibility: hidden;">
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/01/24/RESTful-API/"
+                            data-toggle="tooltip" data-placement="top" title="What is RESTful API">
+                            Previous<br>
+                            <span>What is RESTful API</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/01/30/Advanced-Regular-Expression/" data-toggle="tooltip"
+                            data-placement="top" title="Advanced Regex">
+                            Next<br>
+                            <span>Advanced Regex</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <hr style="visibility: hidden;">
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+                
+            </div>
+
+            <!-- Side Catalog Container -->
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+        <hr class="hidden-sm hidden-xs">
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0043" 
+                    href="/archive/?tag=Tricks"
+                    title="Tricks"
+                    rel="8">Tricks</a>
+        
+                <a data-sort="0040" 
+                    href="/archive/?tag=JobHunting"
+                    title="JobHunting"
+                    rel="11">JobHunting</a>
+        
+                <a data-sort="0042" 
+                    href="/archive/?tag=%E8%BD%AC%E8%BD%BD"
+                    title="转载"
+                    rel="9">转载</a>
+        
+                <a data-sort="0042" 
+                    href="/archive/?tag=Foundations"
+                    title="Foundations"
+                    rel="9">Foundations</a>
+        
+                <a data-sort="0044" 
+                    href="/archive/?tag=Notes"
+                    title="Notes"
+                    rel="7">Notes</a>
+        
+                <a data-sort="0044" 
+                    href="/archive/?tag=Programing"
+                    title="Programing"
+                    rel="7">Programing</a>
+        
+                <a data-sort="0044" 
+                    href="/archive/?tag=Python"
+                    title="Python"
+                    rel="7">Python</a>
+        
+                <a data-sort="0045" 
+                    href="/archive/?tag=DataScience"
+                    title="DataScience"
+                    rel="6">DataScience</a>
+        
+                <a data-sort="0045" 
+                    href="/archive/?tag=MachineLearning"
+                    title="MachineLearning"
+                    rel="6">MachineLearning</a>
+        
+                <a data-sort="0046" 
+                    href="/archive/?tag=BigData"
+                    title="BigData"
+                    rel="5">BigData</a>
+        
+                <a data-sort="0046" 
+                    href="/archive/?tag=Spark"
+                    title="Spark"
+                    rel="5">Spark
+    </div>
+</section>
+
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="https://cherishher.github.io/">Max Qi</a></li>
+  <br>
+  
+  <li><a href="https://www.guchenghao.com/">Gu Chenghao</a></li>
+  <br>
+  
+  <li><a href="https://syenpark.github.io/">Syen Park</a></li>
+  <br>
+  
+  <li><a href="https://dojozheng.com/">DOJO Zheng</a></li>
+  <br>
+  
+</ul>
+
+            </div>
+        </div>
+    </div>
+
+</article>
+
+<!-- add support for mathjax by voleking-->
+
+
+
+
+<!--Gitalk评论start  -->
+
+<!-- Gitalk end -->
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "leon_disqus";
+    var disqus_identifier = "/2019/01/25/Alibaba Cloud Training Day2";
+    var disqus_url = "http://localhost:4000/2019/01/25/Alibaba-Cloud-Training-Day2/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async (u, c) {
+        var d = document,
+            t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async ("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js", function () {
+        anchors.options = {
+            visible: 'hover',
+            placement: 'right',
+            // icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link {
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top: -0.1em;
+        }
+    }
+</style>
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ddc8a0647bb126e"></script>
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/lyonling">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/5395966937">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/lyonling">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.linkedin.com/in/liyang-ling-678220117">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+</ul>
+
+                <p class="copyright text-muted">
+                    Copyright &copy; Leon Ling's Blog 2018-2019
+                    <br>
+                    Powered by <a href="https://jekyllrb.com/">Jekyll</a> Theme <a href="https://github.com/Huxpro/huxpro.github.io">HuxPro</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script src="/js/snackbar.js "></script>
+<script src="/js/sw-registration.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-131740306-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+
+        // interop with multilangual 
+        if ('' == 'true') {
+            _containerSelector = 'div.post-container.active'
+        } else {
+            _containerSelector = 'div.post-container'
+        }
+
+        // init
+        var P = $(_containerSelector),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        // clean
+        $(selector).html('')
+
+        // appending
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+<!-- Multi-Lingual -->
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

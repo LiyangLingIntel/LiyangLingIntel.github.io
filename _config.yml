@@ -1,32 +1,30 @@
 # Site settings
-title: Lyon Ling's Blog
-SEOTitle: LYON的博客 | LYON's Blog
+title: Leon Ling's Blog
+SEOTitle: LEON的博客 | LEON's Blog
 header-img: img/post-bg-2015.jpg
 email: leonling@ust.hk
 description: "孤独是人生的常态吗？"
-keyword: "lyonling, 凌丽阳, LYON's Blog "
+keyword: "leonling, 凌丽阳, LEON's Blog "
 url: "http://lyonling.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/lyonling/lyonling.github.io" # you code repository
+                           # for example, '/blog' if your blog hosted on 'host/blog'
 
-# Sidebar settings
-sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "A small step before quantum leap.<br>知易 行难"
-sidebar-avatar: /img/avatar_4.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
-
-
+# Publish posts or collection documents with a future date.
+future: true
 
 # SNS settings
 RSS: false
 weibo_username:     5395966937
 zhihu_username:     lyonling
 github_username:    lyonling
-facebook_username:  lyon.ling.737
-jianshu_username:   751e67c131d6
+# facebook_username:  lyon.ling.737
+# jianshu_username:   751e67c131d6
 linkedin_username:  liyang-ling-678220117
-#twitter_username:   
 
 
+# Footer start year
+start_year: 2018
 
 
 # Build settings
@@ -39,9 +37,15 @@ anchorjs: true                          # if you want to customize anchor. check
 # If you have timezone issue (e.g. #68) in China, uncomment to use this:
 #timezone: CN  
 
+
+
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
-gems: [jekyll-paginate]
+# make sure you have this gem installed
+# `$ gem install jekyll-paginate`
+plugins: [jekyll-paginate]
+
+
 
 # Markdown settings
 # replace redcarpet to kramdown,
@@ -50,36 +54,28 @@ gems: [jekyll-paginate]
 markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
-  syntax_highlighter: rouge
   syntax_highlighter_opts:
     span:
       line_numbers: false
     block:
-      line_numbers: false
+      line_numbers: true
       start_line: 1
-  math_engine: MathJax
 
 
-# MathJax rendering for layout:page (e.g. post preview)
-page-mathjax: true
 
+# Disqus settings
 # 评论系统
 # Disqus（https://disqus.com/）
-# disqus:
-#   enable: true
-#   username: leon_disqus
-# disqus_username: leon_disqus
-
-# Duoshuo settings 多说挂了，用不了
-# duoshuo_username: username
-# duoshuo_share: true   
+disqus:
+  enable: true
+  username: leon_disqus
 
 # Netease settings
 netease_comment: false
 
 # Gitalk
 gitalk:
-  enable: true    #是否开启Gitalk评论
+  enable: false    #是否开启Gitalk评论
   clientID: 2c2d5b074f967ff240c0                            #生成的clientID
   clientSecret: 96f1e9daf40336e5d1597723a42c8c130d4b3887    #生成的clientSecret
   repo: lyonling.github.io    #仓库名称
@@ -88,29 +84,50 @@ gitalk:
   distractionFreeMode: false #是否启用类似FB的阴影遮罩
 
 
-# 统计
-
 # Analytics settings
-# Baidu Analytics
-# ba_track_id: b50bf2b12b5338a1845e33832976fd68
+# Baidu Analytics 
+# ba_track_id: [your track id]
 
 # Google Analytics
 ga_track_id: 'UA-131740306-1'            # Format: UA-xxxxxx-xx
-ga_domain: auto               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+ga_domain: auto               # 默认的是 auto, 这里自定义了的域名，需要改成域名
 
 
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "知易行难"
+sidebar-avatar: /img/avatar_2.png      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # Featured Tags
-featured-tags: true                     # 是否使用首页标签
-featured-condition-size: 3              # 相同标签数量大于这个数，才会出现在首页
+featured-tags: true                     # whether or not using Feature-Tags
+featured-condition-size: 4              # A tag will be featured if the size of it is more than this condition value
 
 
 
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
+
+
+
+# MathJax rendering for layout:page (e.g. post preview)
+page-mathjax: true
+
+
+
+## => Search
+##############################
+search:
+  enable: true
+
+
+
+## => Sources
+##############################
+sources: bootcdn # bootcdn (default), unpkg
 
 
 
