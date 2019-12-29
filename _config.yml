@@ -1,9 +1,9 @@
 # Site settings
 title: Leon Ling's Blog
 SEOTitle: LEON的博客 | LEON's Blog
-header-img: img/post-bg-2015.jpg
+header-img: img/bg-page-river.jpeg
 email: leonling@ust.hk
-description: "孤独是人生的常态吗？"
+description: "人的一生总是为了追寻生命中的光，而走在漫长的路上"
 keyword: "leonling, 凌丽阳, LEON's Blog "
 url: "http://lyonling.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
@@ -97,7 +97,7 @@ ga_domain: auto               # 默认的是 auto, 这里自定义了的域名�
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "知易行难"
-sidebar-avatar: /img/avatar_2.png      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar_7.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -145,5 +145,8 @@ friends: [
     },{
         title: "DOJO Zheng",
         href: "https://dojozheng.com/"
+    },{
+        title: "Richard YU",
+        href: "https://richardyu114.github.io/"
     }
 ]

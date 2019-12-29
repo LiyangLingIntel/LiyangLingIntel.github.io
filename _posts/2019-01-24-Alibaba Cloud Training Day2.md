@@ -20,7 +20,7 @@ tags:
 
 Here I drew the structure of whole AliCloud Big Data Platform.
 
-<img src="../img/in-post/2019-01-24-AlibabaCloudTrainingDay2/20190124-alicloudtrain21.png" width="800"/>
+<img src="https://lyonling.github.io/img/in-post/2019-01-24-AlibabaCloudTrainingDay2/20190124-alicloudtrain21.png" width="800"/>
 
 ##### MaxCompute provides two data import and export methods:
 
