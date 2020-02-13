@@ -5,9 +5,9 @@ header-img: img/bg-page-river.jpeg
 email: leonling@ust.hk
 description: "人的一生总是为了追寻生命中的光，而走在漫长的路上"
 keyword: "leonling, 凌丽阳, LEON's Blog "
-url: "http://lyonling.github.io"          # your host, for absolute URL
+url: "http://liyanglingintel.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/lyonling/lyonling.github.io" # you code repository
+github_repo: "https://github.com/liyanglingintel/liyanglingintel.github.io" # you code repository
                            # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
@@ -17,7 +17,7 @@ future: true
 RSS: false
 weibo_username:     5395966937
 zhihu_username:     lyonling
-github_username:    lyonling
+github_username:    liyanglingintel
 # facebook_username:  lyon.ling.737
 # jianshu_username:   751e67c131d6
 linkedin_username:  liyang-ling-678220117
@@ -67,7 +67,7 @@ kramdown:
 # 评论系统
 # Disqus（https://disqus.com/）
 disqus:
-  enable: true
+  enable: false
   username: leon_disqus
 
 # Netease settings
@@ -75,12 +75,12 @@ netease_comment: false
 
 # Gitalk
 gitalk:
-  enable: false    #是否开启Gitalk评论
+  enable: true    #是否开启Gitalk评论
   clientID: 2c2d5b074f967ff240c0                            #生成的clientID
   clientSecret: 96f1e9daf40336e5d1597723a42c8c130d4b3887    #生成的clientSecret
-  repo: lyonling.github.io    #仓库名称
-  owner: lyonling    #github用户名
-  admin: lyonling
+  repo: liyanglingintel.github.io    #仓库名称
+  owner: liyanglingintel    #github用户名
+  admin: liyanglingintel
   distractionFreeMode: false #是否启用类似FB的阴影遮罩
 
 
