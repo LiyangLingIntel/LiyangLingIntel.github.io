@@ -29,15 +29,15 @@ Bloom Filter是一种空间效率很高的随机数据结构。
 
 初始状态时，Bloom Filter是一个包含m位的位数组，每一位都置为0。
 
-<img src="../img/in-post/2019-海量数据处理/4.png" />
+<img src="https://LiyangLingIntel.github.io/img/in-post/2019-海量数据处理/4.png" />
 
 为了表达 $S={x1, x2,…,xn}$ 这样一个 n 个元素的集合，Bloom Filter 使用 k 个相互独立的哈希函数，它们分别将集合中的每个元素映射到 $\{1,…,m\}$ 的范围中。对任意一个元素 x，第 i 个哈希函数映射的位置 $hi(x)$ 就会被置为1（1≤i≤k）。注意，如果一个位置多次被置为1，那么只有第一次会起作用，后面几次将没有任何效果。在下图中，k=3，且有两个哈希函数选中同一个位置（从左边数第五位，即第二个“1“处）。
 
-<img src="../img/in-post/2019-海量数据处理/5.png" />
+<img src="https://LiyangLingIntel.github.io/img/in-post/2019-海量数据处理/5.png" />
 
 在判断y是否属于这个集合时，我们对y应用k次哈希函数，如果所有hi(y)的位置都是1（1≤i≤k），那么我们就认为y是集合中的元素，否则就认为y不是集合中的元素。下图中y1就不是集合中的元素（因为y1有一处指向了“0”位）。y2或者属于这个集合，或者刚好是一个false positive
 
-<img src="../img/in-post/2019-海量数据处理/6.png" />
+<img src="https://LiyangLingIntel.github.io/img/in-post/2019-海量数据处理/6.png" />
 
 ### 1.2. 错误率估计
 
