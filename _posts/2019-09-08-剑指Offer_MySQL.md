@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      【剑指Offer】MySQL
+title:      "剑指Offer-MySQL"
 subtitle:   MySQL的一些基础概念
 date:       2019-09-08
 author:     Leon Ling
