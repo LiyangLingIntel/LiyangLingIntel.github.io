@@ -76,11 +76,11 @@ netease_comment: false
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID: 2c2d5b074f967ff240c0                            #生成的clientID
-  clientSecret: 96f1e9daf40336e5d1597723a42c8c130d4b3887    #生成的clientSecret
-  repo: liyanglingintel.github.io    #仓库名称
-  owner: liyanglingintel    #github用户名
-  admin: liyanglingintel
+  clientID: d7fba9493986b68b449e                            #生成的clientID
+  clientSecret: 7fda770b11cf099b440e62b0b1116cb47cb8c4e4    #生成的clientSecret
+  repo: LiyangLingIntel.github.io    #仓库名称
+  owner: LiyangLingIntel    #github用户名
+  admin: LiyangLingIntel
   distractionFreeMode: false #是否启用类似FB的阴影遮罩
 
 
