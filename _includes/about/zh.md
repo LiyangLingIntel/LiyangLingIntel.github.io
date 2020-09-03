@@ -56,7 +56,7 @@ Hey，我是**Leon Ling**, 出炉不久的香港科技大学大数据科技硕�
     - Tutorial
     - Tricks 			# 小技巧
     - Debug				# 写程序时遇到的坑&Debug的经验
-    - Experience	# 一些形如面经这类的经验内容
+    - Experience	    # 一些形如面经这类的经验内容
     - Notes				# 读书笔记
     - Anouncement       # Blog的一些公告
     - 医疗常识
@@ -65,8 +65,9 @@ Hey，我是**Leon Ling**, 出炉不久的香港科技大学大数据科技硕�
     - Alibaba
 - 专栏					# 读书笔记, 系统性主题复习等等
     - 百面机器学习
-    - 谷歌方法论		# 吴军老师的 谷歌方法论 & 硅谷来信 系列内容阅读笔记
+    - 谷歌方法论		 # 吴军老师的 谷歌方法论 & 硅谷来信 系列内容阅读笔记
     - JobHunting
+    - EffetivePython
 ```
 ***
 #### 博客相关说明:
