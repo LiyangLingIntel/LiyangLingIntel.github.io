@@ -71,8 +71,8 @@ Hey，我是**Leon Ling**, 出炉不久的香港科技大学大数据科技硕�
 ```
 ***
 #### 博客相关说明:
-* [2019/11/26 - Blog-重启说明](https://lyonling.github.io/2019/11/26/Blog-重启声明/)
-* [2019/09/10 - 博客迁移说明](https://lyonling.github.io/2019/09/10/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%AF%B4%E6%98%8E/)
-* [2019/01/05 - 新的开始](https://lyonling.github.io/2019/01/05/A-New-Start/)
+* [2019/11/26 - Blog-重启说明](https://liyanglingintel.github.io/2019/11/26/Blog-%E9%87%8D%E5%90%AF%E5%A3%B0%E6%98%8E/)
+* [2019/09/10 - 博客迁移说明](https://liyanglingintel.github.io/2019/09/10/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E8%AF%B4%E6%98%8E/)
+* [2019/01/05 - 新的开始](https://liyanglingintel.github.io/2019/01/05/A-New-Start/)
 
 
