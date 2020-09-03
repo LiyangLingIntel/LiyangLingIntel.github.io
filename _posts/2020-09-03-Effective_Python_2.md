@@ -9,7 +9,7 @@ catalog：true
 tags:
     - Python
     - Tutorial
-	- EffetivePython
+    - EffetivePython
 ---
 
 Python改进建议#8 (Python Enhancement Proposal #8)，也是通常大家熟知的PEP8，是指导规范化python代码的风格指南。原则上只要符合语法，你可以写任意形式的python代码。但是使用具有一致性的风格可以让你的python代码更加易读，也可以促进你在社区或者企业中和其他python开发人员协作的效率。即使你是唯一要读你写的代码的人，使用这套代码风格也可以帮助你在日后做出修改时更加方便，也可以表面许多常见的错误。
