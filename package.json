@@ -1,14 +1,14 @@
 {
-    "name": "hux-blog",
-    "title": "Hux Blog",
-    "author": "Hux <huxpro@gmail.com>",
-    "version": "1.8.2",
-    "homepage": "http://huxpro.github.io",
+    "name": "leonling-blog",
+    "title": "leonling Blog",
+    "author": "liyangling <liyang.ling@intel.com>",
+    "version": "2.0.0",
+    "homepage": "https://liyanglingintel.github.io/",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Huxpro/huxpro.github.io"
+        "url": "https://github.com/LiyangLingIntel/LiyangLingIntel.github.io"
     },
-    "bugs": "https://github.com/Huxpro/huxpro.github.io/issues",
+    "bugs": "https://github.com/LiyangLingIntel/LiyangLingIntel.github.io/issues",
     "devDependencies": {
         "grunt": "~0.4.5",
         "grunt-contrib-less": "~0.11.4",
@@ -23,6 +23,9 @@
         "push": "git push origin master --tag"
     },
     "dependencies": {
-        "simple-jekyll-search": "^1.7.3"
+        "simple-jekyll-search": "^1.7.3",
+        "qs": ">=6.0.4",
+        "lodash": ">=4.17.19",
+        "minimist": ">=0.2.1"
     }
 }
