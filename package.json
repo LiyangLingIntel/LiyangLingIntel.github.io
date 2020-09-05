@@ -17,13 +17,13 @@
         "grunt-contrib-uglify": "~0.5.1"
     },
     "scripts": {
-        "start": "jekyll serve -w -l --host 0.0.0.0 --port 4000",
+        "start": "bundle exec jekyll serve -w -l --host 0.0.0.0 --port 4000",
         "dev": "grunt watch & npm run start",
         "boil": "git push boilerplate boilerplate:master",
         "push": "git push origin master --tag"
     },
     "dependencies": {
-        "gitalk": "^1.6.2",
+        "gitalk": ">=1.6.2",
         "lodash": ">=4.17.19",
         "minimist": ">=0.2.1",
         "qs": ">=6.0.4",

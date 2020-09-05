@@ -1,23 +1,40 @@
 
-## 博客迁移说明
+# Leon Ling's Nth Blog
 
-万万没想到, 本来准备好好经营的博客也有迁移的一天, 哈哈哈.
+搭建博客的意义在于提供一个自由表达自己的平台, 一方面是想说啥就能说啥, 读书笔记, 记录学习, 分享生活; 另一方面也是想利用博客框架中的标签和站内搜索功能快速管理自己的内容.
 
-本来维护这样一个博客的目的, 一方面是记录自己的学习历程, 另一方面也是利用博客系统的tag功能给自己的笔记做个分类. 
+关注到我朋友们欢迎联系我, 可以加一波 `friend link` 相互引用哦~
 
-现在看来这种笔记分类方法还是效果不够好, 而且博客框架本身似乎也存在一些Bug, 最近忙着秋招也没有时间去调试.
+本来一开始搭建这个博客就是想着直接fork [BY Blog](https://github.com/qiubaiying/qiubaiying.github.io), 然后只修改内容就完事儿了. 后来发现总有一些细节不是特别满意, 所以又找到主题的原作者 Hux 提供的纯净版 [huxblog-boilerplate](https://github.com/huxpro/huxblog-boilerplate) 并参考 [BY Blog](https://github.com/qiubaiying/qiubaiying.github.io) 重新加了一些新特性, [详见这里](https://liyanglingintel.github.io/2019/11/26/Blog-%E9%87%8D%E5%90%AF%E5%A3%B0%E6%98%8E/). 喜欢这类主题的同学们也欢迎`star`/`fork` 我的repo或者直接参考 [Reference](##Reference) 里原作者的Repo.
 
-因此, 我把所有的笔记和学习记录重新整理, 更加系统地迁移到了**Notion**平台上. 欢迎大家访问 [**👉我的Notion Workspace👈**](https://www.notion.so/leonling/)和发表看法, 如果存在权限问题请直接给我邮件(<leon.ling@connect.ust.hk>)或者在本帖下留言留下邮箱, 我这边手动开放权限. 后续我也会逐步开放整个notion workspace的访问权限(当前可能只有部分已经整理完成的Page).
+## How to start
 
-或许等工作和生活环境确定下来了, 我会抽时间再重新启动博客项目, 明天再见.
+### Method 1
+
+不想费心定制的同学, 可以直接fork这个或者[Reference](##Reference) 里原作者的Repo, 然后把 `_config.yml` 中的配置信息改成自己的, 后面就可以直接在 `_post` 目录下添加自己的帖子啦.
+
+### Method 2
+
+1. 直接参考 [jekyll官方教程](https://jekyllrb.com/docs/), 完成所有配置.
+
+2. 简单无脑的自定义方式
+
+    * 还是先参考 [Ruby安装教程](https://jekyllrb.com/docs/installation/)
+    * 国内的用户可以参考 [Ruby中国](https://gems.ruby-china.com/) 进行换源, 不然还是太卡了
+    * 安装 `jekyll` 时如果总发现一些依赖关系处理不好,可以尝试 `gem install github-pages`, 一键安装 `gitpage` 所需所有库, 就是会有些臃肿.
+    * 然后切换到当前博客目录, 运行
+
+        * `npm start` 或者 `bundle exec jekyll serve` 启动博客服务
+        * `npm dev` 或者 `bundle exec jekyll serve --incremental` 进入增量debug模式, 然后自己对博客框架进行自定义修改.
 
 ---
 
-## My Nth Blog
-
+## Reference
 博客的搭建教程 [Hux](https://github.com/Huxpro/huxpro.github.io) 
  
-更为详细的教程戳这 [《利用 GitHub Pages 快速搭建个人博客》](http://www.jianshu.com/p/e68fba58f75c) 或 [wiki](https://github.com/qiubaiying/qiubaiying.github.io/wiki/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B)
+更为详细的教程戳这 [《利用 GitHub Pages 快速搭建个人博客》](http://www.jianshu.com/p/e68fba58f75c) 或 [Wiki](https://github.com/qiubaiying/qiubaiying.github.io/wiki/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B)
+
+---
 
 ## License
 
