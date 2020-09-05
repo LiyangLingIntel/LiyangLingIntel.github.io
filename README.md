@@ -20,21 +20,17 @@
 2. 简单无脑的自定义方式
 
     * 还是先参考 [Ruby安装教程](https://jekyllrb.com/docs/installation/)
-    * 国内的用户可以参考 [Ruby中国](https://gems.ruby-china.com/) 进行换源, 不然还是太卡了
+    * 国内的用户可以参考 [Ruby中国](https://gems.ruby-china.com/) 进行换源, 不然还是太卡了
     * 安装 `jekyll` 时如果总发现一些依赖关系处理不好,可以尝试 `gem install github-pages`, 一键安装 `gitpage` 所需所有库, 就是会有些臃肿.
     * 然后切换到当前博客目录, 运行
 
         * `npm run start` 或者 `bundle exec jekyll serve` 启动博客服务
         * `npm run dev` 或者 `bundle exec jekyll serve --incremental` 进入增量debug模式, 然后自己对博客框架进行自定义修改.
 
----
-
 ## Reference
 博客的搭建教程 [Hux](https://github.com/Huxpro/huxpro.github.io) 
  
 更为详细的教程戳这 [《利用 GitHub Pages 快速搭建个人博客》](http://www.jianshu.com/p/e68fba58f75c) 或 [Wiki](https://github.com/qiubaiying/qiubaiying.github.io/wiki/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B)
-
----
 
 ## License
 

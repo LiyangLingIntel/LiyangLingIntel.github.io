@@ -1,7 +1,7 @@
 # Site settings
 title: Leon Ling's Blog
 SEOTitle: LEON的博客 | LEON's Blog
-header-img: img/bg-page-river.jpeg
+header-img: img/home-bg-1.jpg
 email: leonling@ust.hk
 description: "人的一生总是为了追寻生命中的光，而走在漫长的路上"
 keyword: "leonling, 凌丽阳, LEON's Blog "
@@ -80,7 +80,7 @@ gitalk:
   clientSecret: 7fda770b11cf099b440e62b0b1116cb47cb8c4e4    #生成的clientSecret
   repo: LiyangLingIntel.github.io    #仓库名称
   owner: LiyangLingIntel    #github用户名
-  admin: LiyangLingIntel
+  admin: [LiyangLingIntel,]
   distractionFreeMode: false #是否启用类似FB的阴影遮罩
 
 
@@ -97,13 +97,13 @@ ga_domain: auto               # 默认的是 auto, 这里自定义了的域名�
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "秋风吹渭水, 叶落满长安"
-sidebar-avatar: /img/avatar_7.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar_8.jpeg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 5              # A tag will be featured if the size of it is more than this condition value
+featured-condition-size: 4              # A tag will be featured if the size of it is more than this condition value
 
 
 
