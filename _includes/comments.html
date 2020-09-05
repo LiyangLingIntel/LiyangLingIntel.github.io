@@ -1,0 +1,39 @@
+{% if site.gitalk.enable %}
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="{{ site.baseurl }}/js/md5.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        id: '{{ page.date }}',
+        clientID: '{{ site.gitalk.clientID }}',
+        clientSecret: '{{ site.gitalk.clientSecret }}',
+        repo: '{{ site.gitalk.repo }}',
+        owner: '{{ site.gitalk.owner }}',
+        admin: ['{{site.gitalk.admin}}'],
+        distractionFreeMode: '{{site.gitalk.distractionFreeMode}}',
+        id: md5(location.pathname),
+        labels: ['Gitalk'],
+    })
+    gitalk.render('gitalk-container')
+</script>
+{% endif %}
+
+{% if site.disqus.enable %}
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus.username}}";
+    var disqus_identifier = "{{page.id}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}

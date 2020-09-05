@@ -70,9 +70,6 @@ disqus:
   enable: false
   username: leon_disqus
 
-# Netease settings
-netease_comment: false
-
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
@@ -118,7 +115,7 @@ page-mathjax: true
 
 
 
-## => Search
+## => On Site Search
 ##############################
 search:
   enable: true
