@@ -24,8 +24,8 @@
     * 安装 `jekyll` 时如果总发现一些依赖关系处理不好,可以尝试 `gem install github-pages`, 一键安装 `gitpage` 所需所有库, 就是会有些臃肿.
     * 然后切换到当前博客目录, 运行
 
-        * `npm start` 或者 `bundle exec jekyll serve` 启动博客服务
-        * `npm dev` 或者 `bundle exec jekyll serve --incremental` 进入增量debug模式, 然后自己对博客框架进行自定义修改.
+        * `npm run start` 或者 `bundle exec jekyll serve` 启动博客服务
+        * `npm run dev` 或者 `bundle exec jekyll serve --incremental` 进入增量debug模式, 然后自己对博客框架进行自定义修改.
 
 ---
 
