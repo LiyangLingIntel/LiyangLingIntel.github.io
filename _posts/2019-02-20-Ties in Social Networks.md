@@ -7,7 +7,7 @@ author:     Lyon Ling
 header-img: img/post-bg-os-metro.jpg
 catalog: true
 tags:
-    - Foundations
+    - Foundation
     - SocialNetworks
     - DataScience
 ---

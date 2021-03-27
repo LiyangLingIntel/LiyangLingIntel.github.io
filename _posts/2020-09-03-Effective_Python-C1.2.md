@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Chapter1.2 遵循PEP8风格规范
-subtitle:  【译】Effective Python 第二版
+title:     【E-Python】遵循PEP8风格规范
+subtitle:  【译】Effective Python 第二版 Chapter1.2
 date:       2020-09-03
 author:     Leon Ling
 header-style: text

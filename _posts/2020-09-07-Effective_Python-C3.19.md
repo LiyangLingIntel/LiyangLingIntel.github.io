@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Chapter3.19 当函数返回多个值时永远不要解包超过3个变量
-subtitle:  【译】Effective Python 第二版
+title:     【E-Python】当函数返回多个值时永远不要解包超过3个变量
+subtitle:  【译】Effective Python 第二版 Chapter3.19
 date:       2020-09-07
 author:     Leon Ling
 header-style: text
