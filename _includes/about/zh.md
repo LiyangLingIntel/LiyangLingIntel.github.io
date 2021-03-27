@@ -47,10 +47,11 @@ Hey，我是**Leon Ling**, 出炉不久的香港科技大学大数据科技硕�
     - BigData
         - Spark
 - 工具 & 框架
-    - Github
-    - Hive
     - BlockChain
-    - WebDeveloping
+    - Github
+    - Hive    
+    - Vim
+    - WebDeveloping   
 - 抽象类别 
     - Foundation
     - Tutorial
