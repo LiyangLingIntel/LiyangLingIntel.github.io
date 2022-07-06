@@ -12,6 +12,8 @@
   * Python
     * 内存管理机制
     * 垃圾回收机制
+* 算法
+  * 拓扑排序
 * Compiler Techniques
   * 论文阅读记录
   * LLVM 学习记录
